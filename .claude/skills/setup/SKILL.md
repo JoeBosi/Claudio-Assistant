@@ -104,7 +104,7 @@ download into `knowledge/` the most useful free sources, citing source and date 
 `knowledge/README.md`.
 Report to the user in 5 lines and ask: "which of these do you actually do? are there
 others?". Correct the list based on their answers. Also look for **ready-made skills** for
-their profession (`npx -y skills@latest find <profession in English>`) and propose the best
+their profession (`npx -y skills@1.7.0 find <profession in English>`) and propose the best
 ones (checked with `get-tools`).
 
 ## 12. Two conveniences (ask first)

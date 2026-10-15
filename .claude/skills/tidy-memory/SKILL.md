@@ -29,7 +29,7 @@ work better. This tidy-up is the moment to improve it.
    - **tools** (on your own, without bothering the user):
      - program updates (Windows `winget upgrade --all`, Mac `brew upgrade`, Linux: propose
        system updates to the user, since they ask for the password) and skill updates
-       (`npx -y skills@latest update -p -y`);
+       (`npx -y skills@1.7.0 update -p -y`);
      - outdated lines in `tools.md`;
      - technical errors repeated in `lessons.md`, to be solved once and for all;
    - **outdated sources**: price lists for the new year, updated forms, changed laws.

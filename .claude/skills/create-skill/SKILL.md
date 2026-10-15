@@ -15,7 +15,7 @@ the best one they have done, not like a generic AI would do it.
    - related preferences and lessons in `memory/`;
    - `memory/profession.md` (laws and sources for the job) and the sources in `knowledge/`;
    - **check whether a skill already exists** for that job, or for a part of it (e.g.
-     reading a format, making a chart, filling in PDF forms): `npx -y skills@latest find
+     reading a format, making a chart, filling in PDF forms): `npx -y skills@1.7.0 find
      <English keywords>` and a web search. If you find a good one, check it and install it
      with `get-tools`, and build on top of it instead of starting from scratch;
    - if the job requires laws or techniques you don't know well, **study them** from
