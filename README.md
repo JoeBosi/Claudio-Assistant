@@ -229,7 +229,7 @@ generalised for any profession.
 
 MIT — see [LICENSE](LICENSE).
 
-The plugin icon (`.claude-plugin/icon.png`) includes the "flexed biceps" emoji from
+The plugin icon includes the "flexed biceps" emoji from
 [Google Noto Emoji](https://github.com/googlefonts/noto-emoji), Apache License 2.0.
 
 ## Author
