@@ -144,6 +144,29 @@ Then continue from step 3 below.
 
 Step-by-step guides for the person installing it: `GETTING-STARTED.<language>.txt`.
 
+## What the plugin does on your computer (transparency)
+
+- **The plugin itself** contains one skill, `new-office`. It only copies the template files
+  from the plugin folder into a new folder you choose (it never overwrites an existing one).
+  It sends nothing anywhere, downloads nothing and changes no Claude settings.
+- **The folder it creates** is a normal Claude Code project folder. It contains:
+  - `.claude/settings.json`: **project-level** permission rules that apply only inside that
+    folder. They pre-allow common office and installation commands (for example `winget`,
+    `brew`, `pandoc`, `python`, copying and listing files, web search) and **deny**
+    destructive ones (`rm`, `del`, `Remove-Item`, `shred`, `git clean`, `rsync --delete`…);
+  - startup scripts (`.claude/hooks/startup.ps1` and `startup.sh`). They run locally at the
+    start of each chat, read the memory files in the folder, count files in
+    `Learn-From-Here/` and print short reminders for Claude. They make no network
+    connection. They are enabled only at the first start, when the `setup` skill writes
+    `.claude/settings.local.json` for your system;
+  - Markdown instructions, skills and memory templates. Memory is written only to files
+    inside the folder.
+- **What Claudio does later, inside that folder** (all visible in the chat): it installs free
+  programs it needs with the system's package manager (`winget`, Homebrew, `apt`…), searches
+  the web and reads public websites (laws, official portals, product sheets), and never types
+  client data into websites. Nothing is sent to any service other than Claude itself and the
+  websites it reads.
+
 ## Privacy notes
 
 Claudio is designed to keep client data local and never disclose it, but the conversation
