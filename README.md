@@ -110,6 +110,24 @@ explains them to you and writes memory in your language.
 
 ## Installation
 
+### Option A — as a Claude Code plugin (quickest)
+
+In Claude Code type:
+
+```
+/plugin marketplace add JoeBosi/Claudio-Assistant
+/plugin install claudio-assistant@claudio-assistant
+```
+
+(On Claude Code 2.1.275 or later one line is enough:
+`/plugin install claudio-assistant --marketplace JoeBosi/Claudio-Assistant`.)
+Then just ask **"create my office assistant"** (or `/claudio-assistant:new-office`): Claudio
+copies the ready-made folder where you choose and tells you how to open it.
+Then continue from step 3 below.
+
+### Option B — download the folder
+
+
 1. **Download** the folder: on GitHub click *Code → Download ZIP* and unzip it, or
    `git clone https://github.com/JoeBosi/Claudio-Assistant.git`.
 2. **Put it in a stable place**, e.g. `Documents/Claudio-Assistant`, and **do not move it

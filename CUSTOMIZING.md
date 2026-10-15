@@ -54,3 +54,14 @@ office in October 2026, from which all personal data and trade-specific parts we
   against it in `CLAUDE.md`, but keep an eye on it in the first sessions.
 - Folder and skill names stay in English so the package works everywhere. Claudio talks to
   the user in their language and explains the folder names the first time.
+
+## The plugin wrapper
+The repository is also a Claude Code plugin and a one-plugin marketplace:
+- `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json`: the manifests
+  (check them with `claude plugin validate .`).
+- `skills/new-office/SKILL.md`: the plugin's only skill. It copies the repository (the
+  template) to the folder the user chooses, leaving out `.git`, `.github`, `.claude-plugin`
+  and `skills/`.
+These files are not part of the assistant folder: Claude Code ignores a root-level `skills/`
+directory in a project, and `new-office` never copies them. If you customize the template,
+bump `version` in `plugin.json` so installed copies get the update.

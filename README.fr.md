@@ -122,6 +122,24 @@ en le demandant avec des mots.
 
 ## Installation
 
+### Option A — comme plugin Claude Code (la plus rapide)
+
+Dans Claude Code, tapez :
+
+```
+/plugin marketplace add JoeBosi/Claudio-Assistant
+/plugin install claudio-assistant@claudio-assistant
+```
+
+(Depuis Claude Code 2.1.275, une ligne suffit :
+`/plugin install claudio-assistant --marketplace JoeBosi/Claudio-Assistant`.)
+Demandez ensuite simplement **« crée mon assistant de bureau »** (ou `/claudio-assistant:new-office`) :
+Claudio copie le dossier prêt à l'emploi où vous voulez et vous explique comment l'ouvrir.
+Continuez ensuite à partir de l'étape 3 ci-dessous.
+
+### Option B — télécharger le dossier
+
+
 1. **Téléchargez** le dossier : sur GitHub, cliquez sur *Code → Download ZIP* et
    décompressez-le, ou `git clone https://github.com/JoeBosi/Claudio-Assistant.git`.
 2. **Placez-le à un endroit stable**, par ex. `Documents/Claudio-Assistant`, et **ne le

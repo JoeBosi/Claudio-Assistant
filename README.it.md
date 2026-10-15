@@ -112,6 +112,23 @@ semplicemente a parole.
 
 ## Installazione
 
+### Opzione A — come plugin di Claude Code (la più veloce)
+
+In Claude Code scrivi:
+
+```
+/plugin marketplace add JoeBosi/Claudio-Assistant
+/plugin install claudio-assistant@claudio-assistant
+```
+
+(Da Claude Code 2.1.275 basta una riga:
+`/plugin install claudio-assistant --marketplace JoeBosi/Claudio-Assistant`.)
+Poi chiedi semplicemente **"crea il mio assistente di studio"** (oppure `/claudio-assistant:new-office`):
+Claudio copia la cartella pronta dove scegli tu e ti dice come aprirla. Poi prosegui dal punto 3 qui sotto.
+
+### Opzione B — scaricare la cartella
+
+
 1. **Scarica** la cartella: su GitHub clicca *Code → Download ZIP* ed estraila, oppure
    `git clone https://github.com/JoeBosi/Claudio-Assistant.git`.
 2. **Mettila in un posto stabile**, per esempio `Documenti/Claudio-Assistant`, e **non

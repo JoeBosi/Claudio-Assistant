@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claudio-assistant",
+  "owner": {
+    "name": "Giuseppe Bosi",
+    "url": "https://github.com/JoeBosi"
+  },
+  "metadata": {
+    "description": "Claudio-Assistant: an autonomous office assistant for professionals who don't code."
+  },
+  "plugins": [
+    {
+      "name": "claudio-assistant",
+      "source": "./",
+      "description": "Creates Claudio, an autonomous office assistant folder for non-technical professionals of any profession (Windows, macOS, Linux; EN/IT/FR/DE).",
+      "category": "productivity"
+    }
+  ]
+}
