@@ -169,6 +169,8 @@ Step-by-step guides for the person installing it: `GETTING-STARTED.<language>.tx
 
 ## Privacy notes
 
+Privacy policy: [PRIVACY.md](PRIVACY.md).
+
 Claudio is designed to keep client data local and never disclose it, but the conversation
 itself goes through Anthropic's service. Before working with real client data:
 
