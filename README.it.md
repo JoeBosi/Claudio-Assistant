@@ -53,6 +53,14 @@ competenze tecniche: con Claudio si parla con parole semplici, nella propria lin
    sei d'accordo.
 5. **Ogni 30 giorni** propone il riordino di memoria e skill e una copia di riserva.
 
+## Come si presenta
+
+Risposte reali di Claude Code con questa cartella (utente inventata, conversazione in inglese).
+
+![Primo avvio: l'intervista di configurazione](docs/screenshots/first-start.png)
+
+![Impara da una relazione messa in Learn-From-Here](docs/screenshots/learn-from-here.png)
+
 ## Struttura della cartella
 
 I nomi delle cartelle sono in inglese, così il pacchetto funziona ovunque; Claudio te li

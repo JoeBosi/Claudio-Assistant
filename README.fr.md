@@ -62,6 +62,14 @@ propre langue.
 5. **Tous les 30 jours**, il propose de ranger la mémoire et les skills, ainsi qu'une copie de
    sauvegarde.
 
+## En action
+
+Réponses réelles de Claude Code avec ce dossier (utilisatrice fictive, conversation en anglais).
+
+![Premier démarrage : l'entretien de configuration](docs/screenshots/first-start.png)
+
+![Apprentissage à partir d'un rapport déposé dans Learn-From-Here](docs/screenshots/learn-from-here.png)
+
 ## Structure du dossier
 
 Les noms des dossiers sont en anglais pour que le paquet fonctionne partout ; Claudio vous

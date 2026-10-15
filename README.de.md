@@ -61,6 +61,14 @@ Sprache.
 5. **Alle 30 Tage** schlägt er vor, Gedächtnis und Skills aufzuräumen und eine
    Sicherungskopie zu machen.
 
+## So sieht es aus
+
+Echte Antworten von Claude Code mit diesem Ordner (fiktive Nutzerin, Gespräch auf Englisch).
+
+![Erster Start: das Einrichtungsgespräch](docs/screenshots/first-start.png)
+
+![Lernen aus einem Bericht in Learn-From-Here](docs/screenshots/learn-from-here.png)
+
 ## Ordnerstruktur
 
 Die Ordnernamen sind englisch, damit das Paket überall funktioniert; Claudio erklärt sie

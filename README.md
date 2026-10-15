@@ -53,6 +53,14 @@ are needed: you talk to Claudio in plain words, in your own language.
    only if you agree.
 5. **Every 30 days** it proposes tidying up memory and skills, and a backup copy.
 
+## See it in action
+
+Real output of Claude Code running this folder (fictional user).
+
+![First start: the setup interview](docs/screenshots/first-start.png)
+
+![Learning from a report dropped into Learn-From-Here](docs/screenshots/learn-from-here.png)
+
 ## Folder structure
 
 ```
