@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manuale di Claudio-Assistant</title>
+<style>
+  :root {
+    --bg: #f7f5f0; --surface: #ffffff; --text: #22201c; --muted: #6b665d;
+    --line: #e3ded3; --accent: #b4532a; --accent-soft: #f6e6dc;
+    --ok: #2f7d4f; --ok-soft: #e1f1e7; --warn: #9a6a00; --warn-soft: #fbf0d4;
+    --code: #f0ece4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1a1917; --surface: #23221f; --text: #ece8e0; --muted: #a39d92;
+      --line: #3a3833; --accent: #e58a5c; --accent-soft: #3a2a21;
+      --ok: #6cc28f; --ok-soft: #1f3328; --warn: #e2b54a; --warn-soft: #3a3020;
+      --code: #2d2b27;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1a1917; --surface: #23221f; --text: #ece8e0; --muted: #a39d92;
+    --line: #3a3833; --accent: #e58a5c; --accent-soft: #3a2a21;
+    --ok: #6cc28f; --ok-soft: #1f3328; --warn: #e2b54a; --warn-soft: #3a3020;
+    --code: #2d2b27;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 17px/1.6 "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 24px 16px 80px; }
+  header h1 { font-size: 2rem; margin: 8px 0 4px; }
+  header p { color: var(--muted); margin: 0 0 20px; }
+  nav.livelli { display: flex; gap: 8px; flex-wrap: wrap; position: sticky; top: 0;
+    background: var(--bg); padding: 10px 0; z-index: 2; border-bottom: 1px solid var(--line); }
+  nav.livelli a { text-decoration: none; padding: 8px 14px; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--text); background: var(--surface); font-weight: 600; }
+  nav.livelli a.l1 { border-color: var(--accent); }
+  h2 { font-size: 1.6rem; margin: 48px 0 6px; padding-top: 8px; }
+  h2 small { display: block; font-size: .95rem; color: var(--muted); font-weight: 400; }
+  h3 { font-size: 1.2rem; margin: 32px 0 8px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 16px 18px; margin: 14px 0; }
+  .indice { columns: 2; column-gap: 24px; padding-left: 18px; margin: 8px 0; }
+  @media (max-width: 600px) { .indice { columns: 1; } }
+  .indice li { margin: 2px 0; }
+  a { color: var(--accent); }
+  .say { background: var(--accent-soft); border-left: 4px solid var(--accent);
+    padding: 8px 12px; border-radius: 6px; margin: 6px 0; font-style: italic; }
+  .ok { background: var(--ok-soft); border-left: 4px solid var(--ok); padding: 10px 14px; border-radius: 6px; margin: 12px 0; }
+  .warn { background: var(--warn-soft); border-left: 4px solid var(--warn); padding: 10px 14px; border-radius: 6px; margin: 12px 0; }
+  code { background: var(--code); padding: 1px 6px; border-radius: 4px; font-family: Consolas, ui-monospace, monospace; font-size: .92em; }
+  pre { background: var(--code); padding: 12px 14px; border-radius: 8px; overflow-x: auto; font-size: .88rem; line-height: 1.45; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: .95rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; }
+  .tbl { overflow-x: auto; }
+  ol.passi > li { margin: 8px 0; }
+  kbd { border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 6px;
+    background: var(--surface); font-family: inherit; font-size: .9em; }
+  details { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; margin: 10px 0; }
+  details summary { cursor: pointer; padding: 12px 16px; font-weight: 600; }
+  details > div { padding: 0 16px 14px; }
+  .badge { display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); vertical-align: middle; }
+  nav.lang { display: flex; justify-content: flex-end; gap: 6px; flex-wrap: wrap; font-size: .9rem; margin-bottom: 4px; }
+  nav.lang a { text-decoration: none; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+  nav.lang a[aria-current] { color: var(--accent); border-color: var(--accent); font-weight: 600; }
+  footer { margin-top: 60px; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); padding-top: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="lang" aria-label="Lingua">
+  <a href="MANUAL.en.html" hreflang="en" lang="en">English</a>
+  <a href="MANUAL.it.html" hreflang="it" lang="it" aria-current="page">Italiano</a>
+  <a href="MANUAL.fr.html" hreflang="fr" lang="fr">Français</a>
+  <a href="MANUAL.de.html" hreflang="de" lang="de">Deutsch</a>
+</nav>
+
+<header>
+  <span class="badge">Il tuo studio</span>
+  <h1>Claudio-Assistant</h1>
+  <p>Il tuo assistente di studio, che impara il tuo lavoro giorno per giorno. Come si usa, e come funziona dentro.</p>
+</header>
+
+<nav class="livelli" aria-label="Livelli del manuale">
+  <a class="l1" href="#manual">1 · Manuale d'uso</a>
+  <a href="#in-depth">2 · Approfondimenti</a>
+  <a href="#problems">Se qualcosa non va</a>
+</nav>
+
+<!-- ============================ LIVELLO 1 ============================ -->
+<h2 id="manual">1 · Manuale d'uso <small>Le cose che userai tutti i giorni. Bastano queste.</small></h2>
+
+<ol class="indice">
+  <li><a href="#open">Come si apre</a></li>
+  <li><a href="#talk">Come gli parli</a></li>
+  <li><a href="#new">Iniziare un lavoro nuovo</a></li>
+  <li><a href="#files">Dargli file, foto, documenti</a></li>
+  <li><a href="#drafts">Le bozze: tu controlli e firmi</a></li>
+  <li><a href="#inbox">La cassetta Learn-From-Here</a></li>
+  <li><a href="#remember">Fargli ricordare le cose</a></li>
+  <li><a href="#archive">Archiviare</a></li>
+  <li><a href="#permission">Le finestre dei permessi</a></li>
+  <li><a href="#commands">Le scorciatoie con la barra /</a></li>
+  <li><a href="#dont">Le 4 cose da non fare</a></li>
+</ol>
+
+<h3 id="open">Come si apre</h3>
+<p><b>Su Windows e Mac</b>:</p>
+<ol class="passi">
+  <li>Apri l'app <b>Claude</b>.</li>
+  <li>In alto scegli la scheda <b>Code</b>. Le chat normali (scheda <b>Chat</b>) <b>non</b> vedono la memoria né i tuoi lavori.</li>
+  <li>Controlla che la cartella selezionata sia <b>Claudio-Assistant</b>.</li>
+  <li>Scrivi. Per un lavoro nuovo apri una <b>nuova chat</b>: la memoria resta comunque.</li>
+</ol>
+<p><b>Su Linux</b> l'app Claude non c'è. Si usa <b>Claude Code</b> in uno di questi due modi:</p>
+<ul>
+  <li>in <b>VS Code</b> (un programma gratuito): apri la cartella <b>Claudio-Assistant</b>, poi clicca sull'icona di Claude;</li>
+  <li>nel <b>Terminale</b>: apri la cartella <b>Claudio-Assistant</b> nel Terminale e scrivi <code>claude</code>.</li>
+</ul>
+<p>Chi ti ha preparato il computer può farti un collegamento che fa tutto con un clic.</p>
+<div class="ok">La prima volta Claudio si presenta e ti fa qualche domanda per conoscerti (15-20 minuti). Poi installa da solo i programmi che gli servono.</div>
+
+<h3 id="talk">Come gli parli</h3>
+<p>Come parleresti a un bravo collaboratore di studio. Non servono comandi né parole tecniche.</p>
+<div class="say">"Nuovo lavoro per il cliente Rossi srl: …"</div>
+<div class="say">"Fammi la bozza della relazione. Usa come modello quella dell'anno scorso."</div>
+<div class="say">"Prepara il verbale della riunione di stamattina: c'erano Rossi e Bianchi, abbiamo deciso…"</div>
+<div class="say">"Il cliente mi ha mandato questi documenti, controlla che ci sia tutto."</div>
+<p><b>Claudio parla la tua lingua.</b> Al primo avvio ti chiede in che lingua preferisci; fino ad allora risponde nella lingua in cui scrivi. I nomi delle cartelle restano in inglese (sono i nomi veri sul disco), ma lui te li spiega sempre.</p>
+<p><b>Puoi anche dettare a voce</b> invece di scrivere:</p>
+<ul>
+  <li><b>Windows</b>: premi <kbd>Win</kbd> + <kbd>H</kbd> e parla;</li>
+  <li><b>Mac</b>: premi due volte <kbd>Fn</kbd> (o il tasto del microfono) e parla. Se non succede niente, attivala in Impostazioni di Sistema → Tastiera → Dettatura;</li>
+  <li><b>Linux</b>: dipende dal tuo desktop. Chiedi a Claudio: "attivami la dettatura".</li>
+</ul>
+<p>Claudio capisce anche frasi in disordine. Più contesto gli dai (dove, cosa, chi, quando), meglio lavora. Se manca qualcosa, te lo chiede lui.</p>
+<p><b>Non ti dà sempre ragione</b>: se una richiesta è sbagliata (una norma, un calcolo, una procedura) te lo dice, spiega perché e ti propone le alternative. Poi decidi tu.</p>
+<p><b>Va su internet da solo</b> (con il navigatore Chromium) per norme, portali pubblici e informazioni tecniche. Non scrive mai sui siti i dati dei tuoi clienti.</p>
+
+<h3 id="new">Iniziare un lavoro nuovo</h3>
+<p>Basta dirgli "nuovo lavoro" con il cliente e cosa si fa. Lui:</p>
+<ul>
+  <li>crea una sottocartella per quel lavoro dentro <code>jobs</code> (la cartella dei lavori), con una <b>scheda</b> che riassume tutto (chi, cosa, a che punto siamo);</li>
+  <li>controlla se cliente, fornitori e uffici li conosce già;</li>
+  <li>ti propone da dove partire.</li>
+</ul>
+<p><b>Ti chiede dove lavorare</b>: nella sua cartella standard oppure in una cartella tua (per esempio quella dove hai già messo i documenti del cliente). Se scegli la tua, <b>prima ne fa una copia di riserva</b> e non tocca i documenti che ci sono già.</p>
+<p>Le volte dopo, basta dire "riprendiamo il lavoro per Rossi": legge la scheda e sa dove eravate rimasti.</p>
+
+<h3 id="files">Dargli file, foto, documenti</h3>
+<ul>
+  <li><b>Trascina</b> i file (PDF, Word, Excel, foto, scansioni) dentro la chat, oppure</li>
+  <li>mettili nella cartella del lavoro, in <code>received</code> (materiale ricevuto), e diglielo.</li>
+</ul>
+<p>Le <b>foto e le scansioni</b> le guarda davvero: legge anche documenti fotografati col telefono.</p>
+<p>Se un formato non lo sa ancora leggere, si procura da solo il programma che serve. <b>Non devi convertire niente.</b></p>
+
+<h3 id="drafts">Le bozze: tu controlli e firmi</h3>
+<p>Claudio prepara, <b>tu controlli e firmi</b>. Resti tu il responsabile, e lo chiedono diverse leggi (per esempio l'AI Act europeo e, in Italia, la L. 132/2025 per le professioni intellettuali).</p>
+<ul>
+  <li>Ogni dato porta la sua fonte: la norma con l'articolo, il documento o il sito ufficiale da cui è preso.</li>
+  <li>In fondo a ogni bozza trovi l'elenco <b>"Da verificare"</b>: ipotesi fatte, dati mancanti, dubbi. Parti da lì.</li>
+  <li>Se vedi <code>[DA VERIFICARE: …]</code> (o <code>[TO CHECK: …]</code>) nel testo, è un punto dove lui non aveva una fonte sicura.</li>
+</ul>
+<div class="warn">Se trovi un errore, diglielo: "qui hai sbagliato, la scadenza è a 60 giorni, non a 30". Lo corregge e ti chiede se ricordarlo per la prossima volta.</div>
+
+<h3 id="inbox">La cassetta Learn-From-Here</h3>
+<p>Sul desktop hai il collegamento <b>Learn-From-Here (Claude)</b>, cioè "impara da qui". Mettici i lavori che ti sono venuti bene e che vuoi che impari a rifare:</p>
+<ul>
+  <li>solo il documento finito (PDF, Word, Excel…), oppure</li>
+  <li>il documento e un tuo appunto, anche di due righe ("guarda come ho fatto le conclusioni"), oppure</li>
+  <li>una cartella intera con tutti i file di un lavoro.</li>
+</ul>
+<p>Poi digli <span class="say" style="display:inline;padding:2px 8px">"ti ho messo dei lavori nella cassetta"</span>. Se te ne dimentichi, se ne accorge da solo alla chat successiva.</p>
+<p>Lui li studia, ti dice cosa ha capito, li sposta fra gli <b>esempi buoni</b> (la cartella <code>good-examples</code>) e la cassetta torna vuota. Non cancella niente. Quando vede lo stesso tipo di lavoro 2-3 volte, ti propone di impararlo come <b>mestiere fisso</b> (una "skill").</p>
+
+<h3 id="remember">Fargli ricordare le cose</h3>
+<div class="say">"Ricordati che il cliente Rossi vuole sempre il preventivo prima di iniziare."</div>
+<div class="say">"D'ora in poi le date le voglio scritte per esteso."</div>
+<p>A fine lavoro è lui a proporti cosa ricordare, in un elenco numerato. Rispondi "sì, tutte" oppure "togli la 2". <b>Non salva niente senza il tuo ok.</b></p>
+<p>Una volta al mese ti propone di <b>riordinare la memoria</b>: unisce doppioni, toglie cose vecchie, ti ricorda scadenze (formazione obbligatoria, assicurazione, rinnovi).</p>
+
+<h3 id="archive">Archiviare</h3>
+<div class="say">"Archivia il lavoro per Rossi."</div>
+<p>Copia i documenti nel tuo archivio (server dello studio, cartella o cloud), nelle cartelle e con i nomi che usate di solito, e annota dove li ha messi. <b>Copia soltanto</b>: nell'archivio non cancella e non sovrascrive niente.</p>
+<p>Se preferisci spostare i file a mano, va benissimo: diglielo ("li ho messi in…") così la prossima volta li ritrova.</p>
+
+<h3 id="permission">Le finestre dei permessi</h3>
+<p>Ogni tanto Claudio installa un programma gratuito che gli serve. Il computer può allora chiederti il permesso:</p>
+<ul>
+  <li><b>Windows</b>: una finestra chiede <i>"Vuoi consentire a questa app di apportare modifiche al dispositivo?"</i> → clicca <b>Sì</b>;</li>
+  <li><b>Mac</b>: una finestra chiede la password del computer o l'impronta (<b>Touch ID</b>);</li>
+  <li><b>Linux</b>: una finestra chiede la password del computer.</li>
+</ul>
+<p><b>Caso raro, solo Mac e Linux</b>: a volte la password serve dentro il <b>Terminale</b>, dove Claudio non può scriverla al posto tuo. Allora prepara <b>un solo comando</b> e ti guida passo passo: apri il Terminale, incolli il comando, premi <kbd>Invio</kbd>, scrivi la tua password e premi di nuovo <kbd>Invio</kbd>. <b>Mentre scrivi la password sullo schermo non compare niente</b>, nemmeno i puntini: è normale.</p>
+<div class="ok"><b>Se Claudio ti ha appena avvisato</b> ("tra poco compare una finestra, clicca Sì / scrivi la password"), vai pure.</div>
+<div class="warn"><b>Se nessuno ti ha avvisato</b>, rispondi <b>No</b> (o chiudi la finestra) e chiedi a Claudio cosa stava facendo.</div>
+<p>Per cose a pagamento, registrazioni a tuo nome o licenze da accettare ti chiede sempre prima.</p>
+
+<h3 id="commands">Le scorciatoie con la barra /</h3>
+<p>Facoltative: chiedere a parole funziona uguale. Scrivi <code>/</code> e il nome. I nomi sono in inglese, ma Claudio ti risponde in italiano.</p>
+<div class="tbl"><table>
+  <tr><th>Scrivi</th><th>Cosa fa</th></tr>
+  <tr><td><code>/help</code></td><td>ti ricorda cosa puoi chiedergli</td></tr>
+  <tr><td><code>/new-job</code></td><td>apre un lavoro nuovo con la sua scheda</td></tr>
+  <tr><td><code>/learn-from-here</code></td><td>studia i lavori che hai messo nella cassetta</td></tr>
+  <tr><td><code>/remember</code></td><td>propone cosa tenere in memoria</td></tr>
+  <tr><td><code>/archive</code></td><td>copia i documenti finiti nell'archivio</td></tr>
+  <tr><td><code>/tidy-memory</code></td><td>riordino mensile della memoria</td></tr>
+  <tr><td><code>/create-skill</code></td><td>trasforma un lavoro che ripeti in un "mestiere" fisso</td></tr>
+  <tr><td><code>/forget</code></td><td>trova e, se vuoi, toglie i dati di una persona o azienda</td></tr>
+  <tr><td><code>/get-tools</code></td><td>si procura un programma che gli manca</td></tr>
+  <tr><td><code>/setup</code></td><td>rifà le domande iniziali (se cambia qualcosa nello studio)</td></tr>
+</table></div>
+<p>Col tempo ne compariranno di nuove: sono i mestieri che impara da te.</p>
+
+<h3 id="dont">Le 4 cose da non fare</h3>
+<ol>
+  <li><b>Non spostare né rinominare la cartella Claudio-Assistant.</b> La memoria non si perde, ma lo storico delle chat sì.</li>
+  <li><b>Non cancellare a mano i file in <code>memory</code></b> (la memoria). Se qualcosa è sbagliato, diglielo e lo corregge lui.</li>
+  <li><b>Non firmare una bozza senza averla letta</b>, partendo dall'elenco "Da verificare".</li>
+  <li><b>Non scrivere password o PIN in chat</b> (firma digitale, PEC, banca).</li>
+</ol>
+
+<!-- ============================ LIVELLO 2 ============================ -->
+<h2 id="in-depth">2 · Approfondimenti <small>Come funziona dentro, e qualche tecnica per usarlo meglio. Non serve per lavorare.</small></h2>
+
+<ol class="indice">
+  <li><a href="#folder">Com'è fatta la cartella</a></li>
+  <li><a href="#memory">Come funziona la memoria</a></li>
+  <li><a href="#skills">Mestieri (skill): cosa sono e come nascono</a></li>
+  <li><a href="#autonomy">Autonomia: programmi e skill che si procura da solo</a></li>
+  <li><a href="#sources">Le fonti e la lotta alle invenzioni</a></li>
+  <li><a href="#techniques">Tecniche per lavorare meglio</a></li>
+  <li><a href="#security">Permessi e sicurezza</a></li>
+  <li><a href="#privacy">Privacy e dati dei clienti</a></li>
+  <li><a href="#backup">Copie di riserva</a></li>
+  <li><a href="#updates">Aggiornare l'assistente senza perdere niente</a></li>
+</ol>
+
+<h3 id="folder">Com'è fatta la cartella</h3>
+<pre>Claudio-Assistant/
+├── CLAUDE.md          le istruzioni di base: chi sei, le regole, come lavorare
+├── docs/              questo manuale, in più lingue
+├── memory/            la memoria: quello che sa di te, dello studio, della professione, di clienti, fornitori, enti
+├── jobs/              i lavori: uno per sottocartella, ognuno con il suo JOB.md (la scheda)
+├── good-examples/     gli esempi buoni: i tuoi lavori migliori, divisi per tipo
+├── Learn-From-Here/   la cassetta "impara da qui" (collegamento sul desktop)
+├── knowledge/         la conoscenza: le fonti ufficiali della tua professione (norme, modulistica, banche dati)
+├── _trash/            il cestino: quello che Claudio toglie finisce qui, lo svuoti tu
+└── .claude/           (cartella nascosta) mestieri, permessi, controlli di avvio</pre>
+<p>Sono tutti file di testo normali: puoi aprirli per curiosità con il Blocco note (Windows), TextEdit (Mac) o qualsiasi editor di testo. Le modifiche però è meglio chiederle a Claudio.</p>
+
+<h3 id="memory">Come funziona la memoria</h3>
+<ul>
+  <li><b>All'apertura di ogni chat</b> Claudio legge <code>CLAUDE.md</code> e da lì le parti principali della memoria: chi sei, le tue preferenze, le lezioni, gli strumenti. Il resto (anagrafiche di clienti, fornitori, uffici; la professione) lo apre quando serve.</li>
+  <li>La memoria è divisa in: <b>studio</b> (tu, lo studio, archivio, programmi) · <b>professione</b> (lavori tipici, norme, fonti) · <b>anagrafiche</b> (clienti, fornitori, enti) · <b>decisioni</b> (come vuoi le cose) · <b>lezioni</b> (errori da non ripetere) · <b>tipi di lavoro</b> (quelli visti e quante volte).</li>
+  <li>La memoria è scritta <b>nella tua lingua</b>: è il tuo quaderno.</li>
+  <li><b>Si scrive solo col tuo ok.</b> Fanno eccezione le schede dei lavori e l'inventario tecnico dei programmi, che sono "stato dei lavori" e non memoria.</li>
+  <li><b>Si riorganizza da sola</b>: ogni 30 giorni Claudio propone di migliorarla (dividere file lunghi, creare categorie nuove, spostare dentro i mestieri le regole che si ripetono). Prima di ogni riordino ne fa una copia in <code>memory/_history</code>.</li>
+  <li>All'avvio un piccolo controllo automatico gli segnala se ci sono file nella cassetta, se il riordino è scaduto o se manca un programma.</li>
+</ul>
+
+<h3 id="skills">Mestieri (skill): cosa sono e come nascono</h3>
+<p>Un mestiere è <b>il tuo metodo scritto</b> per un tipo di lavoro: cosa chiedere, quali fonti usare, in che ordine procedere, com'è fatto il documento, cosa controllare alla fine. Serve perché il lavoro venga ogni volta come il migliore che hai fatto, e non come lo farebbe un'AI qualsiasi.</p>
+<ul>
+  <li><b>Come nasce</b>: quando un tipo di lavoro arriva 2-3 volte (dalla cassetta o dai lavori), Claudio ti propone di crearlo. Guarda i tuoi esempi, cerca se online esiste già qualcosa di buono su cui costruire, ti fa 3-5 domande sul tuo metodo e lo scrive.</li>
+  <li><b>Come migliora</b>: ogni correzione importante che fai può diventare una regola del mestiere. Diglielo: <span class="say" style="display:inline;padding:2px 8px">"aggiorna il mestiere dei preventivi: l'IVA la voglio sempre separata"</span>.</li>
+  <li>Al primo avvio Claudio studia la tua professione e ti propone l'elenco dei lavori tipici: è il punto di partenza per i primi mestieri.</li>
+</ul>
+
+<h3 id="autonomy">Autonomia: programmi e skill che si procura da solo</h3>
+<p>Quando gli manca qualcosa (un formato che non sa leggere come P7M o PDF scansionati, un modo per creare un file Word, una conoscenza tecnica), Claudio:</p>
+<ol>
+  <li>controlla se lo strumento ce l'ha già;</li>
+  <li>studia e cerca: skill già pronte, programmi gratuiti ufficiali, guide e norme dalle fonti ufficiali;</li>
+  <li><b>verifica</b> prima di installare: fonte affidabile, nessun invio nascosto di dati, nessun comando pericoloso;</li>
+  <li>installa, prova e annota in <code>memory/office/tools.md</code> (l'elenco degli strumenti) come si usa;</li>
+  <li>ti dice in una riga cosa ha fatto e torna al lavoro.</li>
+</ol>
+<p>Al primo avvio installa la <b>dotazione di base</b>: Python, Node.js, Pandoc, LibreOffice, gli strumenti per PDF e scansioni, il navigatore Chromium e i mestieri ufficiali di Anthropic per Word, Excel e PDF. Se la tua professione usa formati particolari, si procura anche quelli.</p>
+
+<h3 id="sources">Le fonti e la lotta alle invenzioni</h3>
+<p>Il rischio delle AI è che inventino dati con sicurezza. Qui la regola è: <b>i dati non si scrivono a memoria, si prendono da una fonte e si citano</b>.</p>
+<div class="tbl"><table>
+  <tr><th>Cosa</th><th>Da dove viene</th></tr>
+  <tr><td>Norme e procedure</td><td>Siti ufficiali (portali nazionali delle leggi, ministeri, enti regionali, il tuo Ordine o Collegio), salvati in <code>knowledge</code> con la data</td></tr>
+  <tr><td>Prezzi, tariffe, moduli</td><td>Prezzari, tariffari e modulistica ufficiali della tua professione, in <code>knowledge</code></td></tr>
+  <tr><td>Struttura e tono dei documenti</td><td>I tuoi <b>esempi buoni</b></td></tr>
+</table></div>
+<p>Le parti che Claudio scrive "di testa sua" sono solo quelle che nessun archivio può contenere: il contesto del singolo lavoro, le valutazioni, i collegamenti fra le cose. Sono anche quelle da rileggere con più attenzione.</p>
+<p><b>Informativa al cliente</b>: alcune leggi chiedono ai professionisti di comunicare al cliente che usano strumenti di AI (in Italia, per esempio, la L. 132/2025). Verifica cosa vale per te e chiedi a Claudio di prepararti un paragrafo standard da mettere negli incarichi.</p>
+
+<h3 id="techniques">Tecniche per lavorare meglio</h3>
+<details><summary>Una chat per lavoro</summary><div>Per ogni lavoro nuovo apri una chat nuova: la chat resta ordinata e Claudio più preciso. La memoria e le schede dei lavori passano comunque da una chat all'altra. Le chat vecchie restano nell'elenco a sinistra e si possono riaprire.</div></details>
+<details><summary>Prima il piano, poi il documento</summary><div>Per i lavori lunghi digli: <i>"prima dimmi come pensi di farlo, poi procedi"</i>. Correggere un piano di 10 righe è molto più veloce che correggere un documento di 40 pagine.</div></details>
+<details><summary>Dettare a voce</summary><div>Windows <kbd>Win</kbd> + <kbd>H</kbd>; Mac due volte <kbd>Fn</kbd> (o il tasto del microfono); Linux dipende dal desktop (Claudio può attivarla). Ottima per raccontare un incontro appena finito: parla liberamente, Claudio rimette in ordine.</div></details>
+<details><summary>Foto e schermate</summary><div>Puoi incollare in chat una schermata: una pagina di un portale, una tabella, un errore che non capisci.
+<ul>
+  <li><b>Windows</b>: <kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>, scegli la zona, poi <kbd>Ctrl</kbd> + <kbd>V</kbd> nella chat;</li>
+  <li><b>Mac</b>: <kbd>Cmd</kbd> + <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>4</kbd>, scegli la zona, poi <kbd>Cmd</kbd> + <kbd>V</kbd> nella chat (con <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>4</kbd> invece l'immagine finisce sul desktop: trascinala nella chat);</li>
+  <li><b>Linux</b>: <kbd>Stamp</kbd> (o <kbd>PrtSc</kbd>), poi incolla o trascina l'immagine nella chat.</li>
+</ul></div></details>
+<details><summary>Fargli suggerire quello che non hai visto</summary><div>Chiedi esplicitamente: <i>"cosa manca? cosa non ho considerato?"</i>. È una delle cose in cui un assistente rende di più.</div></details>
+<details><summary>Insegnargli un lavoro nuovo apposta</summary><div>Non devi aspettare che lo veda 3 volte: <i>"impara a fare i preventivi: ti ho messo tre esempi nella cassetta"</i>.</div></details>
+<details><summary>Limiti di utilizzo del tuo piano Claude</summary><div>I piani Claude (per esempio Pro) hanno un tetto di utilizzo che si ricarica dopo alcune ore. Se compare il messaggio di limite raggiunto, il lavoro non si perde: riprendi più tardi dalla stessa chat. I lavori molto lunghi conviene farli a pezzi: prima la struttura, poi un capitolo alla volta.</div></details>
+
+<h3 id="security">Permessi e sicurezza</h3>
+<ul>
+  <li>Claude è impostato in modalità <b>Auto</b> (o "Accetta modifiche"): Claudio lavora da solo e si ferma a chiedere solo per azioni rischiose.</li>
+  <li><b>Cancellare è bloccato</b>: quello che va tolto finisce in <code>_trash</code> (il cestino), e lo svuoti tu.</li>
+  <li>Nell'archivio (server, cloud) Claudio <b>copia soltanto</b>: non cancella e non sovrascrive.</li>
+  <li>Le skill trovate online le installa solo in questa cartella, dopo averle lette tutte e controllate.</li>
+  <li>Quando il computer chiede un permesso (finestra "Sì", password, Touch ID), ti avvisa sempre prima. Vedi <a href="#permission">Le finestre dei permessi</a>.</li>
+</ul>
+
+<h3 id="privacy">Privacy e dati dei clienti</h3>
+<p>I dati di clienti e fornitori sono il <b>patrimonio dello studio</b>: si tengono e si usano. Il dovere è <b>non divulgarli</b>.</p>
+<ul>
+  <li>La memoria e i lavori stanno <b>su questo computer</b> (e nel tuo archivio quando archivi), non su internet.</li>
+  <li>Quello che Claudio legge però viene elaborato dai server di Anthropic per rispondere. Per questo in <b>Impostazioni → Privacy</b> va <b>spento</b> l'uso delle chat per migliorare i modelli.</li>
+  <li>Quando cerca su internet, Claudio usa argomenti, luoghi e norme, <b>mai</b> nomi, codici fiscali o dati dei clienti.</li>
+  <li>Dati delicati (salute, documenti d'identità, IBAN) li usa solo dove servono e non li mette in memoria.</li>
+  <li>Se un cliente chiede quali dati avete di lui, o di cancellarli: <span class="say" style="display:inline;padding:2px 8px">"dimentica il signor Rossi"</span>. Claudio trova tutto e toglie solo quello che approvi (i documenti da conservare per legge restano).</li>
+  <li>Niente password, PIN o codici della firma digitale in chat.</li>
+</ul>
+<div class="warn"><b>Da decidere per lo studio</b> (Claudio può prepararti i testi): un piano Claude con condizioni commerciali e accordo sul trattamento dati; l'informativa privacy ai clienti con l'uso dell'AI e, dove la legge sulla protezione dei dati lo chiede (per esempio il GDPR nell'Unione Europea), il registro dei trattamenti; la cifratura del disco (<b>BitLocker</b> su Windows, <b>FileVault</b> su Mac, <b>LUKS</b> su Linux). L'elenco aggiornato è in <code>memory/decisions/privacy.md</code>. Meglio sentire anche il consulente privacy dello studio.</div>
+
+<h3 id="backup">Copie di riserva</h3>
+<p>Siccome la memoria sta solo su questo computer, se il disco si rompe si perde. Una volta al mese, durante il riordino, Claudio ti propone una <b>copia di riserva</b> di memoria, esempi, lavori e mestieri dove vuoi tu (una tua cartella sul server, il cloud o una chiavetta). Puoi chiederla anche quando vuoi: <span class="say" style="display:inline;padding:2px 8px">"fai una copia di riserva della memoria"</span>.</p>
+
+<h3 id="updates">Aggiornare l'assistente senza perdere niente</h3>
+<p>Se ti arriva una versione nuova della cartella, <b>non sostituire tutto</b>. Le cartelle <code>memory</code> (memoria), <code>jobs</code> (lavori), <code>good-examples</code> (esempi buoni), <code>knowledge</code> (fonti) e i mestieri nati da te sono tuoi e non vanno sovrascritti. Il modo più semplice: metti la versione nuova in una cartella a parte (per esempio in Download) e di' a Claudio <span class="say" style="display:inline;padding:2px 8px">"c'è un aggiornamento nella cartella Download, integralo senza perdere la mia memoria"</span>.</p>
+
+<!-- ============================ PROBLEMI ============================ -->
+<h2 id="problems">Se qualcosa non va</h2>
+<details><summary>Non si ricorda di me / non sa niente dei miei lavori</summary><div>Quasi sempre sei nella scheda <b>Chat</b> invece che <b>Code</b>, oppure la cartella selezionata non è Claudio-Assistant. Controlla in alto. Su Linux, controlla di aver avviato Claude Code dentro la cartella Claudio-Assistant.</div></details>
+<details><summary>Mi chiede di aprire il Terminale o PowerShell, di convertire un file o di installare qualcosa</summary><div>Non dovrebbe farlo. Rispondigli: <i>"fallo tu, io non sono pratico"</i>. Se ricapita, digli di annotarlo fra le lezioni. (L'unica eccezione è il raro caso della password nel Terminale su Mac o Linux, e solo dopo che ti ha avvisato e spiegato passo passo.)</div></details>
+<details><summary>Ha scritto una cosa sbagliata o inventata</summary><div>Chiedigli <i>"da quale fonte l'hai preso?"</i>. Se la fonte non c'è, correggilo e digli di ricordarlo. Ogni correzione lo rende più preciso.</div></details>
+<details><summary>Compare un messaggio di errore che non capisco</summary><div>Fai una schermata (Windows <kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>; Mac <kbd>Cmd</kbd> + <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>4</kbd>; Linux <kbd>Stamp</kbd>), incollala in chat e scrivi <i>"cos'è questo? sistemalo tu"</i>.</div></details>
+<details><summary>Mi ha dato un link o un percorso che non si apre</summary><div>Un percorso giusto è fatto così:
+<ul>
+  <li><b>Windows</b>: comincia con la lettera del disco, per esempio <code>C:\Users\...</code>, oppure con <code>\\</code> per il server dello studio;</li>
+  <li><b>Mac</b>: comincia con <code>/Users/...</code>, oppure <code>/Volumes/...</code> per il server;</li>
+  <li><b>Linux</b>: comincia con <code>/home/...</code>, oppure dove è collegato il server.</li>
+</ul>
+Se vedi un formato misto (su Windows cose come <code>/c/Users/...</code>; su Mac o Linux cose come <code>C:\...</code>) o un percorso corto come <code>./jobs/...</code>, scrivigli: <i>"il link non funziona, dammelo nel formato del mio computer e controlla che esista"</i>.</div></details>
+<details><summary>Non trova i file che ho archiviato</summary><div>Digli dove li hai messi: aggiorna la scheda del lavoro e la prossima volta li ritrova.</div></details>
+<details><summary>Ha raggiunto il limite di utilizzo</summary><div>Aspetta qualche ora e riprendi dalla stessa chat: non si perde niente.</div></details>
+
+<footer>Claudio-Assistant · manuale v1 · ottobre 2026. Per chiarimenti chiedi a Claudio: <i>"spiegami meglio la parte su…"</i></footer>
+</div>
+</body>
+</html>

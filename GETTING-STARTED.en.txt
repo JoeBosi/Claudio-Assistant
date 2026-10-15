@@ -1,0 +1,48 @@
+CLAUDIO-ASSISTANT - installing it on the user's computer (Windows, macOS, Linux)
+
+1. Put the Claudio-Assistant folder in a stable place on the computer, for example
+     Windows:  C:\Users\<user>\Documents\Claudio-Assistant
+     macOS:    /Users/<user>/Documents/Claudio-Assistant
+     Linux:    /home/<user>/Documents/Claudio-Assistant
+   (download it from GitHub with "Code -> Download ZIP" and unzip it, or use git clone).
+   Do NOT move it afterwards: the chat history is tied to that path
+   (memory lives inside the folder and is not lost).
+   If you like, rename it BEFORE the first start (e.g. "Lawyer-Claudio").
+
+2. Install Claude and sign in with the user's account
+   (at least the Pro plan is needed).
+     Windows and macOS: the Claude app from claude.ai/download.
+     Linux: there is no desktop app; install Claude Code for the terminal
+            (or the Claude Code extension for VS Code).
+
+3. Open the folder in Claude Code.
+     Windows and macOS: in the app open the "Code" tab and choose
+            Claudio-Assistant as the working folder.
+     Linux: open a terminal in the folder and type  claude
+   If you are asked whether you trust the folder / its configuration files:
+   answer yes (it is needed for permissions and the automatic checks).
+   IMPORTANT - permission mode: in the mode selector (next to the box where you
+   type) choose "Auto". Claude then works on its own and asks for confirmation
+   only for really risky actions. The app remembers the choice for this folder.
+   (If "Auto" is not there, choose "Accept edits".)
+   Linux, Claude Code in the terminal: switch mode with Shift+Tab.
+
+4. Type "hi". Claude introduces itself and asks the setup questions
+   (15-20 minutes): who you are, your profession, where you keep your files,
+   how you work. Then it installs ON ITS OWN the free programs it needs
+   (Word, Excel, PDF, scans, internet): the user only has to approve when the
+   system asks for permission (Windows: click "Yes"; Mac/Linux: password).
+   Internet is needed. Finally it studies the user's profession on official
+   sources and proposes the list of typical jobs.
+   Tip: do this first session together with the user.
+
+5. Claude settings -> Privacy: turn off the use of chats to improve the models
+   (client data will go through it).
+
+6. Put 2-3 good past works into the Learn-From-Here folder (there is a shortcut
+   on the desktop) and tell Claude "I put some work in the folder":
+   it is the fastest way to teach it.
+
+From then on, always open Claude the same way (Code tab, Claudio-Assistant folder)
+and just talk normally, in your own language. To remember what you can ask: /help
+The full manual is in the docs folder (MANUAL.en.html).

@@ -1,0 +1,53 @@
+CLAUDIO-ASSISTANT - installation sur l'ordinateur de l'utilisateur (Windows, macOS, Linux)
+
+1. Placez le dossier Claudio-Assistant à un endroit stable de l'ordinateur, par exemple
+     Windows :  C:\Users\<utilisateur>\Documents\Claudio-Assistant
+     macOS :    /Users/<utilisateur>/Documents/Claudio-Assistant
+     Linux :    /home/<utilisateur>/Documents/Claudio-Assistant
+   (téléchargez-le depuis GitHub avec « Code -> Download ZIP » et décompressez-le,
+   ou utilisez git clone).
+   NE le déplacez plus ensuite : l'historique des conversations est lié à ce chemin
+   (la mémoire, elle, est dans le dossier et ne se perd pas).
+   Si vous le souhaitez, renommez-le AVANT le premier démarrage (ex. « Avocat-Claudio »).
+
+2. Installez Claude et connectez-vous avec le compte de l'utilisateur
+   (il faut au moins l'abonnement Pro).
+     Windows et macOS : l'application Claude depuis claude.ai/download.
+     Linux : il n'y a pas d'application de bureau ; installez Claude Code pour le
+             terminal (ou l'extension Claude Code pour VS Code).
+
+3. Ouvrez le dossier dans Claude Code.
+     Windows et macOS : dans l'application, ouvrez l'onglet « Code » et choisissez
+             Claudio-Assistant comme dossier de travail.
+     Linux : ouvrez un terminal dans le dossier et tapez  claude
+   Si l'on vous demande si vous faites confiance au dossier / à ses fichiers de
+   configuration : répondez oui (nécessaire pour les autorisations et les
+   contrôles automatiques).
+   IMPORTANT - mode d'autorisation : dans le sélecteur de mode (à côté de la zone
+   où l'on écrit), choisissez « Auto ». Claude travaille alors seul et ne demande
+   confirmation que pour les actions vraiment risquées. L'application retient ce
+   choix pour ce dossier. (Si « Auto » n'apparaît pas, choisissez « Accepter les
+   modifications ».)
+   Linux, Claude Code dans le terminal : changez de mode avec Maj+Tab.
+
+4. Écrivez « bonjour ». Claude se présente et pose les questions de configuration
+   (15-20 minutes) : qui vous êtes, votre profession, où sont vos fichiers,
+   comment vous travaillez. Ensuite il installe TOUT SEUL les logiciels gratuits
+   dont il a besoin (Word, Excel, PDF, numérisations, Internet) : l'utilisateur
+   doit seulement donner son accord quand le système le demande (Windows : cliquer
+   sur « Oui » ; Mac/Linux : mot de passe). Internet est nécessaire. Enfin il
+   étudie la profession de l'utilisateur sur des sources officielles et propose
+   la liste des travaux types.
+   Conseil : faites cette première session avec l'utilisateur.
+
+5. Paramètres de Claude -> Confidentialité : désactivez l'utilisation des
+   conversations pour améliorer les modèles (des données de clients y passeront).
+
+6. Mettez 2-3 bons travaux passés dans le dossier Learn-From-Here (un raccourci
+   est sur le bureau) et dites à Claude « je t'ai mis des travaux dans le dossier » :
+   c'est le moyen le plus rapide de lui apprendre.
+
+À partir de là, on ouvre toujours Claude de la même façon (onglet Code, dossier
+Claudio-Assistant) et on parle normalement, en français. Pour se rappeler ce que
+l'on peut demander : /help
+Le manuel complet est dans le dossier docs (MANUAL.fr.html).

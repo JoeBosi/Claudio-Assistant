@@ -1,0 +1,48 @@
+CLAUDIO-ASSISTANT - installazione sul computer dell'utente (Windows, macOS, Linux)
+
+1. Metti la cartella Claudio-Assistant in un posto stabile del computer, per esempio
+     Windows:  C:\Users\<utente>\Documents\Claudio-Assistant
+     macOS:    /Users/<utente>/Documents/Claudio-Assistant
+     Linux:    /home/<utente>/Documents/Claudio-Assistant
+   (scaricala da GitHub con "Code -> Download ZIP" ed estraila, oppure con git clone).
+   NON spostarla più dopo: lo storico delle chat è legato a quel percorso
+   (la memoria invece sta dentro la cartella e non si perde).
+   Se vuoi, rinominala PRIMA del primo avvio (es. "Avvocato-Claudio").
+
+2. Installa Claude ed entra con l'account dell'utente
+   (serve almeno il piano Pro).
+     Windows e macOS: l'app Claude da claude.ai/download.
+     Linux: non c'è l'app desktop; installa Claude Code per il terminale
+            (o l'estensione Claude Code per VS Code).
+
+3. Apri la cartella in Claude Code.
+     Windows e macOS: nell'app apri la scheda "Code" e scegli
+            Claudio-Assistant come cartella di lavoro.
+     Linux: apri un terminale nella cartella e scrivi  claude
+   Se ti chiede se ti fidi della cartella / dei suoi file di configurazione:
+   rispondi sì (serve per i permessi e i controlli automatici).
+   IMPORTANTE - modalità dei permessi: nel selettore della modalità (vicino alla
+   casella dove si scrive) scegli "Auto". Così Claude lavora da solo e chiede
+   conferma solo per le azioni davvero rischiose. L'app ricorda la scelta per
+   questa cartella. (Se "Auto" non compare, scegli "Accetta modifiche".)
+   Linux, Claude Code nel terminale: la modalita' si cambia con Maiusc+Tab.
+
+4. Scrivi "ciao". Claude si presenta e fa le domande di configurazione
+   (15-20 minuti): chi sei, che professione fai, dove tieni i file, come lavori.
+   Poi installa DA SOLO i programmi gratuiti che gli servono (Word, Excel, PDF,
+   scansioni, internet): l'utente deve solo dare il permesso quando il sistema
+   lo chiede (Windows: clic su "Sì"; Mac/Linux: password). Serve internet.
+   Infine studia la professione dell'utente sulle fonti ufficiali e propone
+   l'elenco dei lavori tipici.
+   Consiglio: fai questa prima sessione insieme all'utente.
+
+5. Impostazioni di Claude -> Privacy: disattiva l'uso delle chat per migliorare
+   i modelli (passeranno dati dei clienti).
+
+6. Metti 2-3 lavori ben riusciti nella cartella Learn-From-Here (c'è un
+   collegamento sul desktop) e di' a Claude "ti ho messo dei lavori nella cartella":
+   è il modo più veloce per insegnargli.
+
+Da quel momento si apre sempre Claude così (scheda Code, cartella Claudio-Assistant)
+e si parla normalmente, in italiano. Per ricordarsi cosa si può chiedere: /help
+Il manuale completo è nella cartella docs (MANUAL.it.html).

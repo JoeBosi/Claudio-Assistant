@@ -1,0 +1,32 @@
+# Created on each computer at the first start (skill "setup"): never ship it
+.claude/settings.local.json
+
+# Operating system junk
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Office lock / temporary files
+~$*
+*.tmp
+
+# ---------------------------------------------------------------------------
+# The memory/ templates, jobs/_template/ and the README files of the inbox and
+# knowledge folders are part of the package: they are NOT ignored here.
+#
+# If you keep YOUR OWN working copy of Claudio under git (with real clients
+# and real work), uncomment the lines below so that your memory, jobs and
+# examples never end up in a repository by mistake:
+#
+# memory/
+# jobs/
+# good-examples/
+# Learn-From-Here/*
+# !Learn-From-Here/README.txt
+# knowledge/*
+# !knowledge/README.md
+# _trash/
+# ---------------------------------------------------------------------------
