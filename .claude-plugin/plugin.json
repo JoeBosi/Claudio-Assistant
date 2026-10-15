@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
   "name": "claudio-assistant",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Creates Claudio, an autonomous office assistant for non-technical professionals of any profession: a ready-made Claude Code folder with first-start interview, learning from your past work, local memory written only with your OK, and drafts you check and sign. Windows, macOS, Linux; docs in EN/IT/FR/DE.",
   "author": {
     "name": "Giuseppe Bosi",
