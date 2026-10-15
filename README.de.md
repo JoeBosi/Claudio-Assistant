@@ -44,6 +44,8 @@ Sprache.
 
 ## So funktioniert es
 
+![So funktioniert Claudio](docs/how-it-works.svg)
+
 1. **Erster Start.** Sie öffnen den Ordner in Claude Code und sagen „Hallo“. Ein Startskript
    teilt Claude mit, dass die Einrichtung ansteht: Claudio befragt Sie, installiert die
    Grundausstattung und studiert Ihren Beruf (Internet nötig).
@@ -168,12 +170,11 @@ vorbereiten möchten (Quellen in `knowledge/`, Berufsprofil, fertige Skills), si
 
 ## Grenzen und ehrliche Hinweise
 
-- **Getestet:** Das Startskript für macOS/Linux (`startup.sh`) wurde unter Linux getestet.
-- **Teilweise getestet:** das Windows-Startskript (`startup.ps1`) lief nur mit PowerShell 7
-  unter Linux, noch nicht mit Windows PowerShell 5.1 unter Windows; `startup.sh` wurde unter
-  macOS nicht getestet.
-- **Von den Autoren noch nicht getestet:** das Verhalten der Claude-Desktop-App unter Windows und macOS (Vertrauensabfrage für den Ordner,
-  Ordner, aus dem das Startskript läuft). Rückmeldungen und Issues sind willkommen.
+- **Im echten Einsatz getestet:** Der Autor hat Claudio auf einem echten Bürocomputer mit der
+  Claude-Desktop-App installiert (Oktober 2026), und alles hat funktioniert: Einrichtung,
+  Installation der Werkzeuge, Lernen aus Beispielen, Gedächtnis.
+- **Ebenfalls getestet:** `startup.sh` unter Linux; `startup.ps1` mit PowerShell 7. Rückmeldungen
+  und Issues zu anderen Systemen und Versionen sind willkommen.
 - Claude schreibt manchmal Pfade im falschen Format für das System (z. B. „Linux-Pfade“
   unter Windows). Eine Regel in `CLAUDE.md` verbietet das; achten Sie in den ersten Sitzungen
   darauf.

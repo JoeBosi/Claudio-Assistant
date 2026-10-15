@@ -47,9 +47,9 @@ office in October 2026, from which all personal data and trade-specific parts we
   a change in one goes into the other.
 - `.claude/settings.local.json` is created on the user's computer at the first start (skill
   `setup`, step 0) for their operating system. Do not ship it.
-- **Not verified yet:** the startup script for macOS/Linux was tested on Linux. On Windows
-  and macOS the folder trust prompt of the desktop app and the folder the startup script runs
-  from have not been tested by the authors yet. Check them during the first session.
+- **Tested:** a real installation with the Claude Desktop app (October 2026) worked end to
+  end; `startup.sh` was also tested on Linux and `startup.ps1` with PowerShell 7. Still, watch
+  the first session on a new system or app version.
 - Problem already seen: Claude tends to write "Linux-style" paths on Windows. There is a rule
   against it in `CLAUDE.md`, but keep an eye on it in the first sessions.
 - Folder and skill names stay in English so the package works everywhere. Claudio talks to

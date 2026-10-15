@@ -44,6 +44,8 @@ propre langue.
 
 ## Comment ça marche
 
+![Comment fonctionne Claudio](docs/how-it-works.svg)
+
 1. **Premier démarrage.** Vous ouvrez le dossier dans Claude Code et dites « bonjour ». Un
    script de démarrage signale à Claude que la configuration est à faire : Claudio vous
    interroge, installe les outils de base et étudie votre profession (Internet nécessaire).
@@ -168,13 +170,11 @@ voir [CUSTOMIZING.md](CUSTOMIZING.md) (en anglais).
 
 ## Limites et remarques honnêtes
 
-- **Testé :** le script de démarrage pour macOS/Linux (`startup.sh`) a été testé sous Linux.
-- **Testé en partie :** le script de démarrage Windows (`startup.ps1`) n'a été exécuté qu'avec
-  PowerShell 7 sous Linux, pas encore avec Windows PowerShell 5.1 sous Windows ; `startup.sh`
-  n'a pas été testé sous macOS.
-- **Pas encore testé par les auteurs :** le comportement de l'application Claude Desktop sous Windows et macOS (demande de confiance du
-  dossier, dossier depuis lequel le script de démarrage s'exécute). Retours et issues
-  bienvenus.
+- **Testé en conditions réelles :** l'auteur a installé Claudio sur un vrai ordinateur de
+  bureau avec l'application Claude Desktop (octobre 2026) et tout a fonctionné : configuration,
+  installation des outils, apprentissage à partir des exemples, mémoire.
+- **Testés aussi :** `startup.sh` sous Linux ; `startup.ps1` avec PowerShell 7. Retours et
+  issues sur d'autres systèmes et versions bienvenus.
 - Claude écrit parfois des chemins au mauvais format pour le système (par ex. des chemins
   « style Linux » sous Windows). Une règle de `CLAUDE.md` l'interdit ; surveillez-le lors des
   premières sessions.

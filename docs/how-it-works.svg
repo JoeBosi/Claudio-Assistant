@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-labelledby="t d">
+  <title id="t">How Claudio-Assistant works</title>
+  <desc id="d">First start, learning from your work, daily jobs as drafts, memory with your OK, new skills for repeated jobs; everything stays on your computer.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b4532a"/>
+    </marker>
+    <style>
+      .bg { fill: #f7f5f0; }
+      .card { fill: #ffffff; stroke: #e3ded3; stroke-width: 1.5; }
+      .num { fill: #b4532a; }
+      .numtxt { fill: #ffffff; font: 700 16px "Segoe UI", system-ui, -apple-system, sans-serif; }
+      .h { fill: #22201c; font: 700 17px "Segoe UI", system-ui, -apple-system, sans-serif; }
+      .p { fill: #6b665d; font: 400 13.5px "Segoe UI", system-ui, -apple-system, sans-serif; }
+      .title { fill: #22201c; font: 700 24px "Segoe UI", system-ui, -apple-system, sans-serif; }
+      .sub { fill: #6b665d; font: 400 15px "Segoe UI", system-ui, -apple-system, sans-serif; }
+      .line { stroke: #b4532a; stroke-width: 2; fill: none; }
+      .band { fill: #e1f1e7; stroke: #2f7d4f; stroke-width: 1.5; }
+      .bandtxt { fill: #1f5c39; font: 600 13.5px "Segoe UI", system-ui, -apple-system, sans-serif; }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="960" height="520" rx="16"/>
+  <text class="title" x="40" y="52">How Claudio works</text>
+  <text class="sub" x="40" y="78">You talk in plain words, in your language. Claudio prepares, you check and sign.</text>
+
+  <!-- Row 1 -->
+  <rect class="card" x="40" y="105" width="270" height="150" rx="12"/>
+  <circle class="num" cx="70" cy="135" r="15"/><text class="numtxt" x="70" y="141" text-anchor="middle">1</text>
+  <text class="h" x="95" y="141">First start</text>
+  <text class="p" x="60" y="172">Interviews you (15-20 min)</text>
+  <text class="p" x="60" y="194">Detects Windows / macOS / Linux</text>
+  <text class="p" x="60" y="216">Installs its own tools</text>
+  <text class="p" x="60" y="238">Studies your profession</text>
+
+  <rect class="card" x="345" y="105" width="270" height="150" rx="12"/>
+  <circle class="num" cx="375" cy="135" r="15"/><text class="numtxt" x="375" y="141" text-anchor="middle">2</text>
+  <text class="h" x="400" y="141">Learn-From-Here</text>
+  <text class="p" x="365" y="172">You drop your best past work</text>
+  <text class="p" x="365" y="194">(with a note, if you like)</text>
+  <text class="p" x="365" y="216">It learns structure, tone, detail</text>
+  <text class="p" x="365" y="238">and files it as a good example</text>
+
+  <rect class="card" x="650" y="105" width="270" height="150" rx="12"/>
+  <circle class="num" cx="680" cy="135" r="15"/><text class="numtxt" x="680" y="141" text-anchor="middle">3</text>
+  <text class="h" x="705" y="141">Daily work</text>
+  <text class="p" x="670" y="172">"New job for client X…"</text>
+  <text class="p" x="670" y="194">Drafts like your best work</text>
+  <text class="p" x="670" y="216">Sources cited, "To check" list</text>
+  <text class="p" x="670" y="238">You check and sign</text>
+
+  <!-- Row 2 -->
+  <rect class="card" x="650" y="290" width="270" height="130" rx="12"/>
+  <circle class="num" cx="680" cy="320" r="15"/><text class="numtxt" x="680" y="326" text-anchor="middle">4</text>
+  <text class="h" x="705" y="326">Memory</text>
+  <text class="p" x="670" y="357">Proposes what to remember,</text>
+  <text class="p" x="670" y="379">saves only with your OK</text>
+  <text class="p" x="670" y="401">Tidies itself every 30 days</text>
+
+  <rect class="card" x="345" y="290" width="270" height="130" rx="12"/>
+  <circle class="num" cx="375" cy="320" r="15"/><text class="numtxt" x="375" y="326" text-anchor="middle">5</text>
+  <text class="h" x="400" y="326">New skills</text>
+  <text class="p" x="365" y="357">A job comes back 2-3 times?</text>
+  <text class="p" x="365" y="379">It becomes a skill, built on</text>
+  <text class="p" x="365" y="401">your examples and your method</text>
+
+  <rect class="card" x="40" y="290" width="270" height="130" rx="12"/>
+  <text class="h" x="60" y="326">Never stuck</text>
+  <text class="p" x="60" y="357">Missing a program or format?</text>
+  <text class="p" x="60" y="379">It finds, checks and installs it</text>
+  <text class="p" x="60" y="401">and tells you in one line</text>
+
+  <!-- Arrows -->
+  <path class="line" d="M310,180 L341,180" marker-end="url(#arrow)"/>
+  <path class="line" d="M615,180 L646,180" marker-end="url(#arrow)"/>
+  <path class="line" d="M785,255 L785,286" marker-end="url(#arrow)"/>
+  <path class="line" d="M650,355 L619,355" marker-end="url(#arrow)"/>
+  <path class="line" d="M480,290 C480,272 560,272 700,258" marker-end="url(#arrow)"/>
+
+  <!-- Privacy band -->
+  <rect class="band" x="40" y="445" width="880" height="48" rx="10"/>
+  <text class="bandtxt" x="480" y="475" text-anchor="middle">Everything stays on your computer · client data never goes into web searches · nothing is ever deleted</text>
+</svg>

@@ -38,6 +38,8 @@ are needed: you talk to Claudio in plain words, in your own language.
 
 ## How it works
 
+![How Claudio works](docs/how-it-works.svg)
+
 1. **First start.** You open the folder in Claude Code and say "hi". A startup script tells
    Claude that setup is needed: Claudio interviews you, installs the basic toolkit and studies
    your profession (internet required).
@@ -149,11 +151,11 @@ profession (sources in `knowledge/`, profession profile, ready-made skills), see
 
 ## Limitations and honest notes
 
-- **Tested:** the startup script for macOS/Linux (`startup.sh`) was tested on Linux.
-- **Partly tested:** the Windows startup script (`startup.ps1`) was run only with PowerShell 7
-  on Linux, not yet with Windows PowerShell 5.1 on Windows; `startup.sh` was not tested on macOS.
-- **Not tested yet by the authors:** the behaviour of the Claude Desktop app on Windows and macOS (folder trust prompt, the folder
-  the startup script runs from). Feedback and issues are welcome.
+- **Tested in real use:** the author installed Claudio on a real office computer with the
+  Claude Desktop app (October 2026) and everything worked: setup, tool installation,
+  learning from examples, memory.
+- **Also tested:** `startup.sh` on Linux; `startup.ps1` with PowerShell 7. Feedback and issues
+  on other systems and versions are welcome.
 - Claude sometimes writes paths in the wrong format for the system (e.g. Linux-style paths on
   Windows). There is a rule against it in `CLAUDE.md`; keep an eye on it in the first sessions.
 - The Anthropic **docx / pdf / xlsx / pptx** skills are **not included** because their licence

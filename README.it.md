@@ -38,6 +38,8 @@ competenze tecniche: con Claudio si parla con parole semplici, nella propria lin
 
 ## Come funziona
 
+![Come funziona Claudio](docs/how-it-works.svg)
+
 1. **Primo avvio.** Apri la cartella in Claude Code e scrivi "ciao". Uno script di avvio
    avvisa Claude che serve la configurazione: Claudio ti intervista, installa la dotazione
    di base e studia la tua professione (serve internet).
@@ -154,12 +156,11 @@ professione (fonti in `knowledge/`, profilo della professione, skill già pronte
 
 ## Limiti e note oneste
 
-- **Provato:** lo script di avvio per macOS/Linux (`startup.sh`) è stato provato su Linux.
-- **Provato in parte:** lo script di avvio per Windows (`startup.ps1`) è stato eseguito solo con
-  PowerShell 7 su Linux, non ancora con Windows PowerShell 5.1 su Windows; `startup.sh` non è
-  stato provato su macOS.
-- **Non ancora provato dagli autori:** il comportamento dell'app Claude Desktop su Windows e macOS (richiesta di fiducia della
-  cartella, cartella da cui parte lo script di avvio). Segnalazioni e issue sono benvenute.
+- **Provato sul campo:** l'autore ha installato Claudio su un vero computer di studio con l'app
+  Claude Desktop (ottobre 2026) e ha funzionato tutto: configurazione, installazione degli
+  strumenti, apprendimento dagli esempi, memoria.
+- **Provati anche:** `startup.sh` su Linux; `startup.ps1` con PowerShell 7. Segnalazioni e issue
+  su altri sistemi e versioni sono benvenute.
 - A volte Claude scrive percorsi nel formato sbagliato per il sistema (es. percorsi "alla
   Linux" su Windows). C'è una regola contro questo in `CLAUDE.md`; controllalo nelle prime
   sessioni.
