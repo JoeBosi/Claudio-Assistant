@@ -26,4 +26,4 @@ Sensitive data (health, ID documents, bank details) is never copied into memory.
 The author retains nothing. Files on the user's computer stay until the user deletes them.
 
 ## Contact
-Questions: open an issue at https://github.com/JoeBosi/Claudio-Assistant/issues
+Questions: open an issue at https://github.com/JoeBosi/Claudio-Assistant/issues or see https://www.giuseppebosi.com

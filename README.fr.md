@@ -229,4 +229,4 @@ MIT — voir [LICENSE](LICENSE).
 
 ## Auteur
 
-Giuseppe Bosi — GitHub [@JoeBosi](https://github.com/JoeBosi)
+Giuseppe Bosi — [www.giuseppebosi.com](https://www.giuseppebosi.com) · [LinkedIn](https://www.linkedin.com/in/giuseppebosi) · GitHub [@JoeBosi](https://github.com/JoeBosi)
