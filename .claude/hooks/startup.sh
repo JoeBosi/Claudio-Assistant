@@ -1,4 +1,3 @@
-#!/bin/sh
 # Startup checks for every Claudio-Assistant chat (macOS and Linux).
 # Twin of startup.ps1 (Windows): if you change one, change the other.
 # Whatever this script prints reaches Claude as context for the chat.

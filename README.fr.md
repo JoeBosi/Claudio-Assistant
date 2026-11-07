@@ -52,7 +52,7 @@ propre langue.
 
 ## Comment ça marche
 
-![Comment fonctionne Claudio](docs/how-it-works.svg)
+![Comment fonctionne Claudio](docs/how-it-works.png)
 
 1. **Premier démarrage.** Vous ouvrez le dossier dans Claude Code et dites « bonjour ». Un
    script de démarrage signale à Claude que la configuration est à faire : Claudio vous

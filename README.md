@@ -44,7 +44,7 @@ are needed: you talk to Claudio in plain words, in your own language.
 
 ## How it works
 
-![How Claudio works](docs/how-it-works.svg)
+![How Claudio works](docs/how-it-works.png)
 
 1. **First start.** You open the folder in Claude Code and say "hi". A startup script tells
    Claude that setup is needed: Claudio interviews you, installs the basic toolkit and studies

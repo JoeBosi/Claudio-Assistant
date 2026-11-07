@@ -4,6 +4,14 @@ Every version lists, where applicable, what was **Added**, **Improved**, **Fixed
 **Removed**. The skill
 `check-updates` reads this file to tell the user, in plain words, what a new version brings.
 
+## 1.2.3 — 2026-11-07
+### Fixed
+- The startup script `startup.sh` no longer begins with a shebang line: the hook already runs it
+  with `sh`, and the Claude directory accepts only plain text files from non-verified publishers.
+### Removed
+- The SVG diagram `docs/how-it-works.svg`, replaced by `docs/how-it-works.png` (same content):
+  SVG is not among the image formats the directory accepts.
+
 ## 1.2.2 — 2026-11-07
 ### Improved
 - After a review and live tests with made-up data: `backup` copies folder by folder (structure

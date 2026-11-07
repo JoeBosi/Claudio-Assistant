@@ -52,7 +52,7 @@ Sprache.
 
 ## So funktioniert es
 
-![So funktioniert Claudio](docs/how-it-works.svg)
+![So funktioniert Claudio](docs/how-it-works.png)
 
 1. **Erster Start.** Sie öffnen den Ordner in Claude Code und sagen „Hallo“. Ein Startskript
    teilt Claude mit, dass die Einrichtung ansteht: Claudio befragt Sie, installiert die

@@ -46,7 +46,7 @@ competenze tecniche: con Claudio si parla con parole semplici, nella propria lin
 
 ## Come funziona
 
-![Come funziona Claudio](docs/how-it-works.svg)
+![Come funziona Claudio](docs/how-it-works.png)
 
 1. **Primo avvio.** Apri la cartella in Claude Code e scrivi "ciao". Uno script di avvio
    avvisa Claude che serve la configurazione: Claudio ti intervista, installa la dotazione
