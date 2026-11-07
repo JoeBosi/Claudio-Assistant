@@ -3,6 +3,10 @@
 Every version lists what was **Added**, **Improved**, **Fixed** and **Removed**. The skill
 `check-updates` reads this file to tell the user, in plain words, what a new version brings.
 
+## 1.2.1 — 2026-11-07
+### Removed
+- The `npx` permission rules in `.claude/settings.json`: no skill uses that launcher any more.
+
 ## 1.2.0 — 2026-11-07
 ### Added
 - 11 new skills: `deadlines` (deadlines and agenda, warnings at startup), `mail` (emails
