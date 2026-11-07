@@ -4,6 +4,11 @@ Every version lists, where applicable, what was **Added**, **Improved**, **Fixed
 **Removed**. The skill
 `check-updates` reads this file to tell the user, in plain words, what a new version brings.
 
+## 1.2.4 — 2026-11-07
+### Fixed
+- The eight `.keep` placeholder files are no longer empty: an empty file has no detectable text
+  encoding and the Claude directory refused the plugin for that.
+
 ## 1.2.3 — 2026-11-07
 ### Fixed
 - The startup script `startup.sh` no longer begins with a shebang line: the hook already runs it
