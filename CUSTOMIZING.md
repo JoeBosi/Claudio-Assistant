@@ -5,8 +5,7 @@ not need it.
 
 Claudio-Assistant is a **generic template**: a folder for Claude Code (Claude Desktop app,
 Code tab, on Windows and macOS; Claude Code CLI or VS Code extension on Linux) that learns the
-work of any professional. It derives from a real assistant built for an Italian surveyor's
-office in October 2026, from which all personal data and trade-specific parts were removed.
+work of any professional.
 
 ## What it does on its own, with no customization
 

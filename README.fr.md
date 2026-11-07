@@ -196,8 +196,8 @@ voir [CUSTOMIZING.md](CUSTOMIZING.md) (en anglais).
 
 ## Limites et remarques honnêtes
 
-- **Testé en conditions réelles :** l'auteur a installé Claudio sur un vrai ordinateur de
-  bureau avec l'application Claude Desktop (octobre 2026) et tout a fonctionné : configuration,
+- **Testé :** une installation complète sur un ordinateur Windows avec l'application
+  Claude Desktop (octobre 2026) a fonctionné de bout en bout : configuration,
   installation des outils, apprentissage à partir des exemples, mémoire.
 - **Testés aussi :** `startup.sh` sous Linux ; `startup.ps1` avec PowerShell 7. Retours et
   issues sur d'autres systèmes et versions bienvenus.
@@ -217,11 +217,6 @@ voir [CUSTOMIZING.md](CUSTOMIZING.md) (en anglais).
 README : [English](README.md) · [Italiano](README.it.md) · [Français](README.fr.md) · [Deutsch](README.de.md)
 Manuel : [English](docs/MANUAL.en.html) · [Italiano](docs/MANUAL.it.html) · [Français](docs/MANUAL.fr.html) · [Deutsch](docs/MANUAL.de.html)
 Claudio vous parle dans votre langue, quelle qu'elle soit.
-
-## Origine
-
-Le paquet est issu d'un véritable assistant construit pour un cabinet de géomètres en
-octobre 2026, puis généralisé pour toutes les professions.
 
 ## Licence
 

@@ -30,9 +30,9 @@ already done**, learning day by day how they work.
   environment you run in and write it down. Always use the commands and paths **of that
   system** (see below).
 
-## Operating system: commands, paths and links (serious mistake already made once)
-A path in the wrong format is a broken link for the user. On Windows Claude has already
-written "Linux-style" paths: it must not happen again.
+## Operating system: commands, paths and links (important)
+A path in the wrong format is a broken link for the user. A common mistake is writing
+"Linux-style" paths on Windows: never do it.
 
 | | Windows | macOS | Linux |
 |---|---|---|---|

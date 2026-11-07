@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.7 — 2026-11-07
+- Skills no longer run packages through download-and-run launchers: skills are copied from
+  their GitHub repository after reading them; the browser comes from the package manager and
+  is driven with the Python `playwright` package; Git added to the basic toolkit.
+- Removed references to the project the template came from; generic wording for the
+  path rule and the test notes.
+
+## 1.1.6 — 2026-11-07
+- `get-tools`: plain PATH export instead of `eval` of `brew shellenv`.
+
 ## 1.1.5 — 2026-10-29
 - Author links (website, LinkedIn) in all READMEs, manuals and plugin metadata.
 - Website added as a contact in the privacy policy.

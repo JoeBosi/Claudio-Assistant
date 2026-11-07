@@ -202,8 +202,8 @@ profession (sources in `knowledge/`, profession profile, ready-made skills), see
 
 ## Limitations and honest notes
 
-- **Tested in real use:** the author installed Claudio on a real office computer with the
-  Claude Desktop app (October 2026) and everything worked: setup, tool installation,
+- **Tested:** a full installation on a Windows computer with the Claude Desktop app
+  (October 2026) worked end to end: setup, tool installation,
   learning from examples, memory.
 - **Also tested:** `startup.sh` on Linux; `startup.ps1` with PowerShell 7. Feedback and issues
   on other systems and versions are welcome.
@@ -221,11 +221,6 @@ profession (sources in `knowledge/`, profession profile, ready-made skills), see
 README: [English](README.md) · [Italiano](README.it.md) · [Français](README.fr.md) · [Deutsch](README.de.md)
 User manual: [English](docs/MANUAL.en.html) · [Italiano](docs/MANUAL.it.html) · [Français](docs/MANUAL.fr.html) · [Deutsch](docs/MANUAL.de.html)
 Claudio talks to you in your own language, whatever it is.
-
-## Origin
-
-The package derives from a real assistant built for a surveyor's office in October 2026,
-generalised for any profession.
 
 ## License
 

@@ -181,8 +181,8 @@ professione (fonti in `knowledge/`, profilo della professione, skill già pronte
 
 ## Limiti e note oneste
 
-- **Provato sul campo:** l'autore ha installato Claudio su un vero computer di studio con l'app
-  Claude Desktop (ottobre 2026) e ha funzionato tutto: configurazione, installazione degli
+- **Provato:** un'installazione completa su un computer Windows con l'app Claude Desktop
+  (ottobre 2026) ha funzionato in tutto: configurazione, installazione degli
   strumenti, apprendimento dagli esempi, memoria.
 - **Provati anche:** `startup.sh` su Linux; `startup.ps1` con PowerShell 7. Segnalazioni e issue
   su altri sistemi e versioni sono benvenute.
@@ -201,11 +201,6 @@ professione (fonti in `knowledge/`, profilo della professione, skill già pronte
 README: [English](README.md) · [Italiano](README.it.md) · [Français](README.fr.md) · [Deutsch](README.de.md)
 Manuale: [English](docs/MANUAL.en.html) · [Italiano](docs/MANUAL.it.html) · [Français](docs/MANUAL.fr.html) · [Deutsch](docs/MANUAL.de.html)
 Claudio ti parla nella tua lingua, qualunque sia.
-
-## Origine
-
-Il pacchetto deriva da un assistente reale costruito per uno studio di geometri nell'ottobre
-2026, reso generico per qualsiasi professione.
 
 ## Licenza
 

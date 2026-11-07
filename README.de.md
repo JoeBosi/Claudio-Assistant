@@ -196,8 +196,8 @@ vorbereiten möchten (Quellen in `knowledge/`, Berufsprofil, fertige Skills), si
 
 ## Grenzen und ehrliche Hinweise
 
-- **Im echten Einsatz getestet:** Der Autor hat Claudio auf einem echten Bürocomputer mit der
-  Claude-Desktop-App installiert (Oktober 2026), und alles hat funktioniert: Einrichtung,
+- **Getestet:** Eine vollständige Installation auf einem Windows-Computer mit der
+  Claude-Desktop-App (Oktober 2026) hat durchgehend funktioniert: Einrichtung,
   Installation der Werkzeuge, Lernen aus Beispielen, Gedächtnis.
 - **Ebenfalls getestet:** `startup.sh` unter Linux; `startup.ps1` mit PowerShell 7. Rückmeldungen
   und Issues zu anderen Systemen und Versionen sind willkommen.
@@ -217,11 +217,6 @@ vorbereiten möchten (Quellen in `knowledge/`, Berufsprofil, fertige Skills), si
 README: [English](README.md) · [Italiano](README.it.md) · [Français](README.fr.md) · [Deutsch](README.de.md)
 Handbuch: [English](docs/MANUAL.en.html) · [Italiano](docs/MANUAL.it.html) · [Français](docs/MANUAL.fr.html) · [Deutsch](docs/MANUAL.de.html)
 Claudio spricht mit Ihnen in Ihrer Sprache, welche es auch ist.
-
-## Herkunft
-
-Das Paket stammt von einem echten Assistenten, der im Oktober 2026 für ein Vermessungsbüro
-gebaut und dann für alle Berufe verallgemeinert wurde.
 
 ## Lizenz
 
