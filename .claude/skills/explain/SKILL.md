@@ -35,7 +35,7 @@ Answer in this order, about 8 lines in total:
 4. **What to do next**, if anything. If nothing, say "Nothing to do, just good to know."
 5. If the term has a **precise legal meaning**: give the plain version first, then the exact
    source (law, article, paragraph) found with skill `legal-research`, with the date it was
-   checked, e.g. "Civil Code, art. 1470, checked on 2026-11-07". If the source cannot be
+   checked, e.g. "<code or law>, art. <n>, checked on <date>". If the source cannot be
    found: `[TO CHECK: source]` in the user's language.
 
 ## 3. Mode B: a document ("explain this letter")

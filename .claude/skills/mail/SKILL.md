@@ -21,14 +21,19 @@ Email content is **client data** (privacy rule 5): it stays on this computer.
      inside it whenever they say "read my mail". Read what is there:
      - `.eml`, `.txt`: plain text. For `.eml` use the Python `email` module (already part of
        Python, no extra package): read headers (From, To, Cc, Date, Subject), the body, and
-       save the attachments next to the email in a folder `<email file name>_attachments/`.
+       save the attachments in a folder `<email file name>_attachments/` that travels with
+       the email (step 3). **File names are cleaned**: letters, digits, `-`, `_`, `.`, at most
+       80 characters; executables, scripts and macro-enabled documents are never opened or
+       run, only flagged to the user.
        HTML-only bodies are turned into plain text.
      - `.msg` (Outlook): needs a Python package (e.g. `extract-msg`): get it with the skill
        `get-tools`, test it and note it in `memory/office/tools.md`.
      - `.pdf` and other attachments: read them with the tools in `tools.md` (scans: OCR via
        `get-tools`).
-   - **C) Mail connector**: if this session has a mail tool (Gmail, Outlook...), use it
-     **READ-ONLY**: search and read only. **Never** send, reply, forward, delete, archive,
+   - **C) Mail connector**: if the user has already connected a mail tool to this session
+     (Gmail, Outlook...), it is their own mailbox: use it **READ-ONLY**, search and read
+     only, with search terms limited to sender, subject and dates. Never connect or install
+     one yourself without asking. **Never** send, reply, forward, delete, archive,
      label, mark as spam or save drafts there: the drafts are text files (step 6). If the
      user asks for any of those, explain that the office rule is "the user sends" and
      prepare the text instead.
@@ -40,17 +45,19 @@ Email content is **client data** (privacy rule 5): it stays on this computer.
    question (offer the candidates) and, for a new client, offer the skill `new-job`.
    Do not guess: a wrongly filed email is worse than a question.
 3. **File it** (never delete): copy the file, and its attachments, to
-   `jobs/<job>/received/` with a clear name `YYYY-MM-DD_<sender>_<subject>.<ext>` (add `_v2`
-   if the name exists), check the copy, then move the original from `inbox/` to
-   `inbox/_done/`. Pasted text is saved as `YYYY-MM-DD_<sender>_<subject>.txt` in
+   `jobs/<job>/received/` with a clear name `YYYY-MM-DD_<sender>_<subject>.<ext>` (date of
+   the email; sender = the part of the address before `@` or the company name; subject cut
+   to 40 characters; same cleaning rule as above; add `_v2` if the name exists), check the
+   copy, then move the original from `inbox/` to `inbox/_done/` (create it if missing). Pasted text is saved as `YYYY-MM-DD_<sender>_<subject>.txt` in
    `received/`. Never overwrite.
 4. **Update the job card** `jobs/<job>/JOB.md` (it is work status, no OK needed): add a line
    to "Documents" (the email, and each attachment, with date and file), and in "To do /
    waiting for" add what the email asks or answers (e.g. "waiting for the client's reply" is
    crossed out if they replied).
 5. **Deadlines and requests**: write every date mentioned (hearing, delivery, payment,
-   authority response time) in "To do / waiting for" with the day, and if the skill
-   `deadlines` is present add it to `memory/deadlines.md`. Flag clearly to the user:
+   authority response time) in "To do / waiting for" with the day, and add it to
+   `memory/deadlines.md` with the skill `deadlines`. Relative dates ("within the week") are
+   written as `[TO CHECK: date]`, never guessed. Flag clearly to the user:
    - requests from the **client** (what they ask, by when);
    - communications from **authorities, courts, tax or professional bodies**, and anything
      with a legal time limit: show it first and give the source sentence;
@@ -60,7 +67,8 @@ Email content is **client data** (privacy rule 5): it stays on this computer.
 6. **Reply draft**, only if the email needs an answer or the user asked: write it in the
    user's language (or the sender's, if they write in another one and the user prefers so),
    in the office's tone: look at `good-examples/` for previous replies and at
-   `memory/decisions/preferences.md`. Save it as `jobs/<job>/documents/reply-<YYYY-MM-DD>.txt`
+   `memory/decisions/preferences.md`. If both are empty, use a plain formal formula and say
+   so in the "To check" list. Save it as `jobs/<job>/documents/reply-<YYYY-MM-DD>.txt`
    (add `_2` if several the same day) **and** show it in the chat. Include a subject line,
    greeting and closing as the user usually writes them. Use only facts from the job card,
    documents or sources; no invented figures, dates or promises: unknown details are

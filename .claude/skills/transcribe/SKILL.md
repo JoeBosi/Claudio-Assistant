@@ -14,8 +14,9 @@ recorded in `memory/office/tools.md`; check there first, you may already have th
    If a file is in `Learn-From-Here/` and clearly is a recording, it is for transcription,
    not for learning: ask which one it is only if unclear.
 2. Find out which job it belongs to (`jobs/*/JOB.md`). If none fits, offer to open one
-   (skill `new-job`). Never move or delete the original: copy it into `jobs/<job>/received/`
-   if the user agrees, otherwise leave it where it is.
+   (skill `new-job`). With the user's OK, **move** the recording into `jobs/<job>/received/`
+   (moving is not deleting; left in `Learn-From-Here/` it would be proposed as learning
+   material at every start). Never alter the original.
 3. Ask, in one short question, the **language spoken** if it is not obvious (the user's own
    language is the default) and whether several people speak.
 
@@ -31,7 +32,8 @@ user.
      `brew`, package `ffmpeg`; Linux `apt`, package `ffmpeg`): converts and extracts audio.
    - The Python package `faster-whisper` (install it with get-tools): it works offline.
      On first use the library downloads a speech model by itself (a "small" or "medium"
-     one, a few hundred MB). Warn the user in plain words: "the first time it downloads the
+     one, a few hundred MB): it is data (model weights), no code is run from it and nothing
+     of the user's is sent. Warn the user in plain words: "the first time it downloads the
      speech model, a few hundred MB; it stays on the computer, and after that it works
      without internet". Use "small" on slow computers, "medium" for better accuracy.
 2. **Online service, only if needed**: if the computer is too slow for the job or the local
@@ -40,7 +42,8 @@ user.
      sent to a transcription service, which may charge per minute, and the client's voice
      leaves this computer";
    - use a transcription service the user already has or chooses (never impose a specific
-     provider);
+     provider), through that provider's **official Python package**, installed with
+     `get-tools`; the key is read from the environment or `.env`, never written in a command;
    - ask them for the access key (the user's decision: it is their account) and save it
      **only** in the local file `.env` in the assistant's folder, as
      `TRANSCRIBE_API_KEY=...`. Never show it, never repeat it in chat, never copy it into
@@ -54,10 +57,11 @@ user.
 ## 4. Prepare the audio
 1. Check the file opens and read its **duration** with ffmpeg tools.
 2. If it is not already a 16 kHz mono wav, convert a **copy** (video: extract the audio
-   track) into a temporary file, for example in `jobs/<job>/documents/_work/`. WhatsApp
+   track) into a temporary file in the assistant's `_trash/transcribe-work/` (not in the
+   user's folders). WhatsApp
    `.opus`/`.ogg`, `.m4a` and `.mp4` all go through ffmpeg. Never alter the original.
-3. Very long files (over an hour): process in parts and tell the user it will take a while;
-   report progress in one line, not a stream of details.
+3. Very long files (over an hour): process in parts (one command per part, so no step runs
+   too long) and tell the user it will take a while; report progress in one line.
 
 ## 5. Transcribe
 1. Run the transcription with the spoken language set explicitly (not auto-detect, unless
@@ -68,14 +72,17 @@ user.
 3. Mark unclear passages `[inaudible]` with the time; mark doubtful words with
    `[TO CHECK: ...]` (in the user's language). Never "improve" or complete what was said:
    the transcript is a record, not a rewrite.
-4. If several people speak, label them `Speaker 1`, `Speaker 2`, or by name only if the
-   user told you who is who.
-5. Delete nothing: temporary converted files go to `_trash/` at the end (the user empties it).
+4. If several people speak: the local tool does not tell voices apart and you cannot listen.
+   Mark a change of speaker only when it is clear from the content, as `[speaker?]`, and
+   use names only if the user told you who is who.
+5. Delete nothing: temporary converted files stay in `_trash/` (the user empties it).
 
 ## 6. Save the transcript
 Create `jobs/<job>/documents/transcript-<YYYY-MM-DD>.md` (date of the recording if known,
-otherwise of today; add a short suffix if there are two the same day). Write it in the
-language of the recording. Structure:
+otherwise of today; add a short suffix if there are two the same day). The text is in the
+language of the recording; headings, labels and the tag `[inaudible]` are in the **user's
+language** (e.g. `[inudibile]`, `[inaudible]`, `[unverständlich]`). Structure (English
+shown):
 ```
 # Transcript — <job> — <date>
 - Source file: <file name and where it is>

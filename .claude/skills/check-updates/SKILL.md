@@ -47,26 +47,32 @@ Talk to the user in their language (`memory/office/owner.md`, `Language:`).
      |---|---|---|---|
      | 2026-01-15 | 1.1.0 | 1.2.0 | update available, postponed |
 
-   Results: `up to date`, `no internet`, `update available, postponed`, `updated`,
-   `update failed, restored`.
+   Results: `up to date`, `no internet`, `update available, postponed`, `no backup, postponed`,
+   `updated`, `update failed, restored`.
 
 ## Part B: how to update (only after the user's OK)
 The folder must **not** be overwritten and **not** updated with `git pull`: the memory would
 clash. Instead:
 1. **Backup first**: run the skill `backup` (memory, jobs, examples, knowledge, skills,
-   settings). Check that the copy exists before going on.
+   settings). **No verified backup, no update**: log `no backup, postponed` and stop.
 2. **Get the new version into a separate temporary folder**, never over the real one:
    `git clone --depth 1 https://github.com/JoeBosi/Claudio-Assistant.git` into
-   `_trash/update-<version>/`. If git is missing, get it with the skill `get-tools`. Alternative:
-   the GitHub ZIP, if the user prefers to download it themselves into the Downloads folder:
-   then unpack it into `_trash/update-<version>/`.
+   `_trash/update-<version>/`. If git is missing, get it with the skill `get-tools`; only if
+   git cannot work, the GitHub ZIP (downloaded by you, or by the user if they prefer) unpacked
+   into `_trash/update-<version>/`. Nothing in that folder is run: it is only read and copied.
 3. **Copy ONLY the standard files** from there into the real folder:
-   - `CLAUDE.md`, `docs/MANUAL.*.html`, `README*`, `CHANGELOG.md`, `VERSION`;
-   - `.claude/hooks/startup.ps1` and `startup.sh`;
-   - `.claude/settings.json`: **merge**, keeping the lines the user added;
-   - the **standard skills** in `.claude/skills/` (those listed in the new CHANGELOG or README);
-     never touch the skills the user created (listed in `memory/job-types.md`);
-   - `jobs/_template/`.
+   - `docs/MANUAL.*.html`, `README*`, `CHANGELOG.md`, `VERSION`, `jobs/_template/`;
+   - `CLAUDE.md`: **merge**, keeping the rows the user's own skills added to the skills table;
+   - `.claude/hooks/startup.ps1`, `startup.sh` and `.claude/settings.json`: first **compare**
+     them with the installed ones and tell the user in plain words what changed; then copy
+     (settings: merge, keeping the lines the user added);
+   - the **standard skills** in `.claude/skills/` (those listed in the new CHANGELOG or README):
+     if the installed copy was edited (compare with the backup), show the user the difference
+     and merge, keeping the user's version in `_trash/update-<version>/user-changes/`; never
+     touch the skills the user created (listed in `memory/job-types.md`);
+   - **new template files and folders** that do not exist yet (e.g. `memory/deadlines.md`,
+     `inbox/`, `knowledge/procedures/`): create them from the new version, never overwrite
+     existing ones; add missing `last_*:` lines to `memory/_maintenance.md`.
 4. **Never touch**: `memory/`, `jobs/`, `good-examples/`, `knowledge/`, `Learn-From-Here/`,
    `inbox/`, `.env`, `.claude/settings.local.json`.
 5. **Verify**: check that `startup.sh` (macOS/Linux) or `startup.ps1` (Windows) still run

@@ -20,40 +20,47 @@ Copied: `memory/`, `jobs/`, `good-examples/`, `knowledge/`, `.claude/skills/`,
 NOT copied: `_trash/`, `jobs/_backup/` (these are copies already), `.git`.
 
 ## A. Make a backup
-1. **Destination.** Read `backup_destination:` in `memory/office/office.md`.
+1. **Destination.** Read `backup_destination:` in `memory/_maintenance.md` (technical
+   inventory, like `last_backup:`).
    - If missing: ask once, in simple words, where copies should go, offering three options:
      a folder on the office server, an external disk or USB stick, or a folder that the
      computer already syncs to the cloud (OneDrive, Google Drive, Dropbox, iCloud).
      Recommend a place that is **not this computer's own disk**. Find the real path yourself
      (look at the mounted drives and the user's home folder), confirm it with the user,
-     and save the line `backup_destination: <full path>` in `memory/office/office.md`
+     and save the line `backup_destination: <full path>` in `memory/_maintenance.md`
      (technical inventory: no extra OK needed, but tell the user).
    - Check the destination is reachable (the folder exists and you can create a file in it).
      If not (disk unplugged, server offline): say so plainly, ask to plug it in, or propose
      another destination. Never silently write somewhere else.
 2. **Format.** Default: a plain dated folder `Claudio-Backup-<YYYY-MM-DD_HHMM>/` that the
    user can open with no tools. If they prefer a single file, make a zip with the same name.
-   If the folder with that name already exists, wait one minute or add `_2`: never overwrite.
+   If the folder with that name already exists, add `_2`: never overwrite.
 3. **Copy.**
-   - Windows (PowerShell): `robocopy <source> <destination>\Claudio-Backup-<date> /E /XD _trash .git _backup`
-     for each part (robocopy returns codes 0-7 for success: that is normal), or `Copy-Item -Recurse`
-     for single items. Zip: `Compress-Archive`.
-   - Mac/Linux: `cp -R` for each part (skip `_trash`, `.git`, `jobs/_backup`; use `rsync -a --exclude`
-     if available). Zip: `zip -r`, or Python `shutil.make_archive`.
+   - Windows (PowerShell), one command per folder so the structure is kept:
+     `robocopy <source>\memory <destination>\Claudio-Backup-<date>\memory /E /XD _trash .git _backup`,
+     the same for `jobs`, `good-examples`, `knowledge`, `inbox` and `.claude\skills`
+     (robocopy returns codes 0-7 for success: that is normal); single files (`VERSION`,
+     `.claude\settings.json`) with `Copy-Item` into the matching path. Zip: `Compress-Archive`.
+   - Mac/Linux: `rsync -a --exclude _trash --exclude .git --exclude _backup <source>/memory/ <copy>/memory/`
+     per folder (`cp -R` cannot exclude folders; if rsync is missing, copy the sub-items one
+     by one and never copy `jobs/_backup`). Single files with `cp`. Zip: `zip -r`.
    - Keep the same structure inside the copy (`memory/`, `jobs/`, ...), so a restore is a plain copy back.
    - Put a short note in the copy, named `README-BACKUP.txt`, in the user's language:
      date, what is inside, "to restore, ask Claudio".
-4. **Verify.** Count files and total size in the source parts and in the copy (for a zip: open
-   it and count the entries). They must match. Open one random file from the copy and read
+4. **Verify.** Count files and total size in the source parts and in the copy, **with the
+   same exclusions** (for a zip: files only, not folder entries). They must match (the
+   `README-BACKUP.txt` note is not counted). Open one random file from the copy and read
    its first lines. If anything differs, repeat the copy for the missing part; do not report
    success until it matches.
-5. **Rotation.** Keep the last **7 daily** copies and the last **4 weekly** copies (one per week,
-   the most recent of each week). Older ones are **moved** to `_trash/` inside the destination
-   (create it if needed), never deleted. If the destination does not allow moving, list the
-   old copies for the user to delete and say which ones. Tell the user what was moved.
-6. **Log.** In `memory/_maintenance.md`:
-   - set `last_backup: <YYYY-MM-DD>` (exact format; add the line right under `interval_days:`
-     if missing; keep `last_tidy:` and `interval_days:` untouched);
+5. **Rotation.** Keep the **last 7 copies** plus the **newest copy of each of the last 4
+   weeks**. On a local disk or USB, older copies are **moved** to `_trash/` inside the
+   destination (create it if needed), never deleted. On the office server or a cloud folder
+   you only copy (CLAUDE.md rule 3): list the older copies and let the user decide. Tell
+   the user what was moved or listed.
+6. **Log.** In `memory/_maintenance.md`, **before** copying `memory/` (so the copy already
+   carries the date) and again at the end with the result:
+   - set `last_backup: <YYYY-MM-DD>` (exact format; replace the existing line, or add it
+     right under `interval_days:` if missing; keep `last_tidy:` and `interval_days:` untouched);
    - add a row to a `## Backup log` table (create it at the end of the file if missing):
 
      | Date | Destination | Files | Size | Result |

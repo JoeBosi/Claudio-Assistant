@@ -86,8 +86,8 @@ les explique et écrit la mémoire dans votre langue.
 
 ```
 Claudio-Assistant/
-├── VERSION                  version installée (lue par la vérification hebdomadaire des mises à jour)
 ├── CLAUDE.md                les règles de l'assistant (lues par Claude à chaque démarrage)
+├── VERSION                  version installée (lue par la vérification hebdomadaire des mises à jour)
 ├── README.md                cette page (aussi .it .fr .de)
 ├── GETTING-STARTED.en.txt   guide d'installation rapide (aussi .it .fr .de)
 ├── CUSTOMIZING.md           pour qui prépare le dossier pour une profession
@@ -99,7 +99,7 @@ Claudio-Assistant/
 │   ├── contacts/            clients.md, suppliers.md, authorities.md
 │   ├── decisions/           preferences.md, privacy.md
 │   ├── lessons/             lessons.md
-│   ├── profession.md, job-types.md, _maintenance.md
+│   ├── profession.md, job-types.md, deadlines.md, _maintenance.md
 │   └── _history/            anciennes versions conservées lors du rangement
 ├── jobs/                    un sous-dossier par travail, chacun avec sa fiche JOB.md
 │   ├── _template/           modèle de JOB.md

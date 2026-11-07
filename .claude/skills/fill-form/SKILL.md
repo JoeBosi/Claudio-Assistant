@@ -17,6 +17,8 @@ Talk to the user in their language (`Language:` in `memory/office/owner.md`).
    If `pypdf`, `python-docx`, `pdf2image` (with Poppler) or `reportlab` is missing,
    get it with skill `get-tools`: never ask the user to install anything.
 3. Decide the case: PDF with form fields (A), Word `.docx` (B), flat or scanned PDF (C).
+   A PDF that is **XFA (dynamic), encrypted or digitally signed** is treated as case C on a
+   copy (filling it directly would fail or break the signature): tell the user.
    An old `.doc` file: convert it to `.docx` with LibreOffice (get-tools) and work on the copy.
 
 ## 2. Build the list of fields and values
@@ -42,8 +44,10 @@ Talk to the user in their language (`Language:` in `memory/office/owner.md`).
    options for choice fields. Field names are often cryptic ("Text1", "Campo_12"): when
    the meaning is unclear, render the page to an image (case C, step 1) and look at where
    the field sits, or read the tooltip text of the field.
-2. Map each field to its value (section 2), fill the text fields, and ask the viewer to show
-   them (set `NeedAppearances` to true) so the values are visible in every program.
+2. Map each field to its value (section 2) and fill the text fields: `PdfWriter(clone_from=
+   reader)`, then `writer.update_page_form_field_values(page, values)` for each page and
+   `writer.set_need_appearances_writer(True)` so the values are visible in every program.
+   If step 4 shows the text is not visible, switch to case C on the same copy.
 3. Save as `<name>-filled.pdf` **next to the original**, in the same job folder. If that name
    already exists use `-filled-2`. The original is never overwritten.
 4. Re-open the new file, read the field values back and compare with the list; render a page
@@ -53,7 +57,9 @@ Talk to the user in their language (`Language:` in `memory/office/owner.md`).
 1. With `python-docx` look for what needs filling: underscores (`_____`), dots (`.....`),
    placeholders (`[name]`, `{{date}}`, `<...>`), text after a label ("Name:"), content
    controls, and **tables with empty cells** next to a label cell. Do not forget headers,
-   footers and text boxes.
+   footers and text boxes: `python-docx` does not reach text boxes and content controls
+   through its normal API, so edit their XML (the document's `element` tree, lxml) or, if
+   that fails, get another library with `get-tools`.
 2. List what you found with the proposed value for each (section 2).
 3. Write the values keeping the original formatting (font, size, bold: write into the existing
    runs, do not rebuild the paragraph) and the layout of the tables.

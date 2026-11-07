@@ -15,16 +15,23 @@ file in their language too.
 ```
 # Deadlines
 
+(a short intro paragraph, as shipped: keep it)
+
 | Date | What | Job or source | Status |
 |---|---|---|---|
 | 2026-11-20 | Reply to the tax office | 2026-Smith-Appeal | open |
 | 2026-12-31 | Professional training credits | owner | open |
+
+## Archive
+- 2026-10-01 Old deadline, superseded (2026-Smith-Appeal)
 ```
 - Header line `# Deadlines` (translate the word if the user's language is not English, but keep
   it the first line, starting with `# `).
 - One row per line, **date first**, written `YYYY-MM-DD`, then what, then the job folder name
   or the source (`owner`, `profession`, `contacts`, `user`), then the status.
-- Status: `open` or `done` (use the user's words if you like, but keep one word per cell).
+- Status: **always exactly** `open` or `done`, in every language (the startup script looks for
+  the word `done`); translate it only when you talk to the user. Never use the `|` character
+  inside a cell.
 - Rows sorted by date, oldest first. Never put two deadlines on one row; never leave a date
   out (no date → write `[TO CHECK: date]` in your answer and do not add the row).
 - If the file does not exist, create it with this format.
@@ -35,12 +42,17 @@ Do it when the user asks for deadlines, at the start of a week, and after the ti
    section (anything with a date); skip `jobs/_template/`;
 2. `memory/office/owner.md`: training credits, insurance expiry, membership renewals;
 3. `memory/profession.md`: recurring obligations (yearly filings, periodic renewals);
-4. `memory/contacts/*`: appointments or promised dates with clients, suppliers, offices.
+4. `memory/contacts/*`: appointments or promised dates with clients, suppliers, offices;
+5. dates found in emails (skill `mail`) and transcripts (skill `transcribe`), once they are
+   written in the job card.
+For the **Dates** row of a card, the "What" text is the job's subject (first line of the card),
+e.g. "Tax return 2025, filing"; for "To do" lines, the text of the line.
 
 Then:
 - add rows that are missing, update rows whose date changed, **never delete** a row: a
-  finished deadline gets status `done`; a row that is wrong or obsolete is moved to a
-  `## Archive` section at the bottom of the file (same row format, below the table);
+  finished deadline gets status `done`; a row that is wrong or obsolete is moved to the
+  `## Archive` section at the bottom of the file as a plain list line (`- date text (job)`),
+  **not** as a table row, so the startup script ignores it;
 - keep the job column as the exact job folder name so the user can find it;
 - one deadline, one row: if a job card and `profession.md` mention the same date, keep one.
 
@@ -59,7 +71,9 @@ Then:
 ## 4. Answering questions
 1. Update the file first (section 2), then read it.
 2. Filter by the question:
-   - "this week": from today to the coming Sunday; "this month": to the end of the month;
+   - "this week": from today to the coming Sunday; if today is Saturday or Sunday, or fewer
+     than 3 days are left, use the **next 7 days** and say so; "this month": to the end of
+     the month;
    - "for client X": rows whose job folder or text contains X;
    - overdue: past dates still `open`, shown **first** and clearly marked.
 3. Answer short, by date, in the user's language, e.g.:

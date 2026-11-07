@@ -30,8 +30,9 @@ the model and the checklist are written in that language too.
      forms, the professional body's guides. Use the skill `legal-research` for the rules;
      browse with Chromium (fix it with `get-tools` if it fails). Search only the procedure,
      never client names, tax codes or amounts (rule 5);
-   - save useful official documents under `knowledge/<source>/` and add a line to
-     `knowledge/README.md` (what, link, date, how to cite);
+   - save useful official documents (PDF, Word: they are only read, never run) under
+     `knowledge/<source>/` and add a line to `knowledge/README.md` (what, link, date, how
+     to cite);
    - write `knowledge/procedures/<type>.md` with these sections:
      1. **What it is and when it applies** (and when it does not);
      2. **Checklist of phases**, each with `- [ ]` items;
@@ -55,9 +56,9 @@ the model and the checklist are written in that language too.
    makes the backup if needed). If the user only wants to learn the procedure with no client,
    skip the job and work on the model alone.
 2. Copy the checklist (section 2 of the model) into `jobs/<job>/CHECKLIST.md`, with the job
-   name and the date at the top. In `JOB.md` add the line "Procedure model:
-   `knowledge/procedures/<type>.md`" and the deadlines found (they also go in "To do /
-   waiting for").
+   name and the date at the top. In `JOB.md` list `CHECKLIST.md` and the procedure model
+   (`knowledge/procedures/<type>.md`) in the "Documents" table, and add the deadlines
+   found to "To do / waiting for".
 3. Tick items (`- [x]`, with the date) as they are done. Never tick what is not really done.
 
 ## 4. Guide, one phase at a time

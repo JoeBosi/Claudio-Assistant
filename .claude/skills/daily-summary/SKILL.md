@@ -17,6 +17,8 @@ words, short sentences, no IT jargon. Never ask them to open or edit anything: y
 - "Stalled" = a job with no change for more than **N days**. Default **10**. If the user
   says "stuck for 3 weeks", use that number for this answer. If they want it always, propose
   saving it with the skill `remember`.
+- A generic question ("where are we?") with no period = the **last 7 days** plus parts 3
+  and 4; say which days you covered.
 - At the start of the day, with no period given, offer the **briefing**: yesterday's
   summary in two lines plus parts 3 and 4 below.
 
@@ -25,13 +27,14 @@ words, short sentences, no IT jargon. Never ask them to open or edit anything: y
    Status, Dates row, "Decisions taken" (with dates), "To do / waiting for", Documents table.
 2. `memory/deadlines.md`: rows with status `open`. If the file is missing, rely on the
    cards and say so.
-3. `inbox/`, if it exists: mail not yet processed (count and, per message, sender and
-   subject only). If the folder does not exist, say nothing about mail.
+3. `inbox/`, if it exists: mail not yet processed = files directly in `inbox/`, not in
+   `_done/`, not `README.txt` (count and, per message, sender and subject only). If the folder does not exist, say nothing about mail.
 4. `Learn-From-Here/`: files waiting (other than `README.txt`): count them.
 5. The **modification dates** of the files inside each job folder (`documents/`,
    `received/`, the card itself). Get them with a command of the user's system (see
    `CLAUDE.md`, table), never by guessing. A job's "last change" is the most recent of: the
-   latest dated decision on the card, and the latest file date.
+   latest dated decision on the card, and the latest file date. File dates are not reliable
+   for files copied or downloaded in bulk: if they are all the same day, trust the card.
 
 ## 3. Build the four parts
 **1) Done** (in the period). From decisions dated in the period and from files created or
@@ -39,7 +42,8 @@ changed in the period: "Smith appeal: reply drafted (Tuesday)". One line per job
 by job. If nothing is dated in the period, say "I find nothing recorded for these days".
 
 **2) Stalled jobs.** Open jobs whose last change is older than N days: job, days without
-change, what the card says is the next step. Jobs with status closed/archived are left out.
+change, what the card says is the next step. A stalled job with a deadline in the next 7
+days is also shown in part 4, marked urgent. Jobs with status closed/archived are left out.
 
 **3) Waiting.** From each card's "To do / waiting for" (and the Decisions): what we are
 waiting for, **from whom** (client, authority, supplier; use `memory/contacts/` only to
@@ -61,7 +65,7 @@ other way round, mention it and align them with the skill `deadlines`.
 ## 5. The answer
 Four short blocks with the headings above, in the user's language, at most about 25 lines
 in total; jobs named by client and subject, dates written out ("Friday 13 November"), no
-file paths unless asked. Then **always one single question**:
+file paths unless asked. Then the short "To check" list, and last **one single question**:
 > "Shall I prepare any of these?"
 (in the user's language). If the user picks one, open that job's card and continue with the
 right skill (`deadlines`, `mail`, `new-job`...).

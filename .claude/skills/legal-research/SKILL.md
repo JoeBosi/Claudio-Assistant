@@ -63,7 +63,8 @@ user's language, with:
   (and "secondary source" where it applies).
 - **Not settled or contradictory**: gaps, conflicting sources, interpretations that differ,
   points a professional must decide.
-- **Deadlines found**: list them and add them with the skill `deadlines`.
+- **Deadlines found**: list them and add them with the skill `deadlines` (`memory/deadlines.md`
+  is work status: no OK needed, but the source and read date go in the row).
 - Fixed last line, translated into the user's language: **"Research prepared by an AI
   assistant on <date>: to be verified by a professional before use."**
 

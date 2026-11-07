@@ -77,8 +77,8 @@ spiega e scrive la memoria in italiano.
 
 ```
 Claudio-Assistant/
-├── VERSION                  versione installata (letta dal controllo settimanale degli aggiornamenti)
 ├── CLAUDE.md                le regole dell'assistente (Claude le legge a ogni avvio)
+├── VERSION                  versione installata (letta dal controllo settimanale degli aggiornamenti)
 ├── README.md                questa pagina (anche .it .fr .de)
 ├── GETTING-STARTED.en.txt   breve guida all'installazione (anche .it .fr .de)
 ├── CUSTOMIZING.md           per chi prepara la cartella per una professione
@@ -90,7 +90,7 @@ Claudio-Assistant/
 │   ├── contacts/            clients.md, suppliers.md, authorities.md
 │   ├── decisions/           preferences.md, privacy.md
 │   ├── lessons/             lessons.md
-│   ├── profession.md, job-types.md, _maintenance.md
+│   ├── profession.md, job-types.md, deadlines.md, _maintenance.md
 │   └── _history/            vecchie versioni conservate dal riordino
 ├── jobs/                    i lavori, uno per sottocartella, ognuno con la sua JOB.md
 │   ├── _template/           modello di JOB.md

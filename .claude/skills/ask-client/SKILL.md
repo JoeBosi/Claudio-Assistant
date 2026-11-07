@@ -11,7 +11,7 @@ unless they say otherwise.
 
 ## 1. Find the job
 1. Identify the job from what the user says (client name or subject). Look in `jobs/`
-   (skip `jobs/_template/` and `jobs/_backup/`). If several fit, ask which one, in one
+   (skip `jobs/_template/`, `_backup/`, `_archived/` and `_summaries/`). If several fit, ask which one, in one
    short question. If none exists, propose `new-job` first.
 2. If the job is in a folder chosen by the user, `JOB.md` has the "Working folder" path:
    look there too.
@@ -21,7 +21,10 @@ Read, in this order:
 1. `jobs/<job>/JOB.md`: type of assignment, "Documents" table, "To do / waiting for".
 2. `jobs/<job>/CHECKLIST.md`, if the skill `guided-job` made one: the documents marked
    "to ask the client" and not yet received.
-3. `jobs/<job>/received/` (and the working folder): list what has really arrived. Open
+3. `jobs/<job>/received/` (if it exists) and the working folder: list what has really
+   arrived; if the card names a file that is not there, say so in the "To check" list.
+   Also look in `inbox/` and recent emails: if the client has already promised the
+   documents, mention it to the user before asking again. Open
    the new files if needed to see what they are (a document with the wrong name or an
    unreadable one counts as received only after you check it; use `get-tools` if you
    cannot open it).
@@ -73,7 +76,8 @@ Rules for the text:
 
 ## 5. Save and show
 1. Save as `jobs/<job>/documents/request-to-client-<YYYY-MM-DD>.txt` (plain text, UTF-8;
-   if the name exists add `_v2`, never overwrite). Put at the top, on separate lines,
+   if the name exists add `_v2`, never overwrite). First line `DRAFT` (in the user's
+   language). Then, on separate lines,
    `Channel:` (email/message), `To:` (only if known), `Subject:` (email only), then the text.
 2. **Show the full text in chat** and tell the user the file path (full, in their system's
    format, checked to exist) so they can copy it. Say clearly: "I have not sent anything:
@@ -87,7 +91,9 @@ Rules for the text:
 ## 6. Update the job card and the deadlines
 When the user says they sent it (or confirms the text is final):
 1. In `JOB.md`, section "To do / waiting for", write: `waiting for documents from client
-   (requested on <date>)` followed by the items still missing. In the "Documents" table
+   (requested on <date>)` followed by the items still missing. If a request was already
+   made, this is a **reminder**: replace the old waiting line, keeping the first request
+   date ("first requested on …, reminder on …"), and say "reminder" in the message too. In the "Documents" table
    set those documents to "requested".
 2. Add a **follow-up date** (a few days after the client's deadline, or as the user says)
    using the skill `deadlines`: row in `memory/deadlines.md`, e.g. "Follow up with client

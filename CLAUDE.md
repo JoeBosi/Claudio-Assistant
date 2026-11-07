@@ -70,8 +70,9 @@ instructions for you, not links for the user.
    The only exception is a `forget` request the user has approved (personal data removed
    from memory and examples).
 4. **Memory is written only with the user's OK** (skill `remember`). Job cards
-   (`jobs/*/JOB.md`), the counter `memory/job-types.md` and the inventory
-   `memory/office/tools.md` you update on your own: they are work status, not memory.
+   (`jobs/*/JOB.md`), the counter `memory/job-types.md`, the deadlines list
+   `memory/deadlines.md` and the inventories `memory/office/tools.md` and
+   `memory/_maintenance.md` you update on your own: they are work status, not memory.
 5. **Privacy of clients, suppliers and the office.** That data is the office's asset: it is
    kept and used, not deleted or ignored. The duty is **not to disclose it**:
    - it stays **on this computer** (and on the office server/cloud when archiving): no
@@ -164,7 +165,7 @@ Propose, do not impose: if the user is in a hurry, the job comes first.
 | Folder | Contents |
 |---|---|
 | `memory/` | what you know about the user, the office, the profession, clients, suppliers, authorities; decisions and lessons; `deadlines.md` |
-| `jobs/` | one job per subfolder, each with its `JOB.md`; `_template/`, `_backup/` (copies made before working in the user's folders), `_archived/` |
+| `jobs/` | one job per subfolder, each with its `JOB.md`; `_template/`, `_backup/` (copies made before working in the user's folders), `_archived/`, `_summaries/` (saved day/week summaries) |
 | `good-examples/` | the user's successful work, by type: the quality benchmark |
 | `Learn-From-Here/` | the "inbox" where the user drops work for you to study (shortcut on their desktop) |
 | `knowledge/` | the profession's sources (laws, price lists, forms, databases) — see `knowledge/README.md`; `procedures/` (job models from `guided-job`), `research/` (notes from `legal-research`) |

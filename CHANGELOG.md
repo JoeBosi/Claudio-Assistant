@@ -1,7 +1,22 @@
 # Changelog
 
-Every version lists what was **Added**, **Improved**, **Fixed** and **Removed**. The skill
+Every version lists, where applicable, what was **Added**, **Improved**, **Fixed** and
+**Removed**. The skill
 `check-updates` reads this file to tell the user, in plain words, what a new version brings.
+
+## 1.2.2 — 2026-11-07
+### Improved
+- After a review and live tests with made-up data: `backup` copies folder by folder (structure
+  kept, exclusions respected on Windows and Mac/Linux), logs before copying memory and never
+  moves files on servers or cloud folders; `deadlines` status is always `open`/`done`, archived
+  rows are plain list lines and "this week" is defined at weekends; `mail` cleans file names
+  and uses connectors read-only; `transcribe` is honest about speakers and keeps temporary
+  files in `_trash/`; `check-updates` merges `CLAUDE.md` and edited skills, creates new
+  template files and stops without a verified backup; `fill-form` names the pypdf calls and
+  handles XFA, encrypted and signed PDFs; `ask-client` handles reminders; `daily-summary`
+  has a default period.
+- `CLAUDE.md` rule 4 lists `memory/deadlines.md` and `memory/_maintenance.md` as work status.
+- Manuals and READMEs: `VERSION`, `inbox/` and `deadlines.md` in the folder trees.
 
 ## 1.2.1 — 2026-11-07
 ### Removed
@@ -27,10 +42,6 @@ Every version lists what was **Added**, **Improved**, **Fixed** and **Removed**.
 - `help` lists all 21 skills; `tidy-memory` hands backup, update check and deadlines to the
   new skills; `.claude/settings.json` pre-allows the tools they use (ffmpeg, zip, robocopy…).
 - READMEs in the four languages, manuals and plugin description updated.
-### Fixed
-- Nothing in this version.
-### Removed
-- Nothing in this version.
 
 ## 1.1.7 — 2026-11-07
 ### Improved
