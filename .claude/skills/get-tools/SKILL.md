@@ -78,7 +78,7 @@ ministries, regional or local authorities, public bodies). Save what is needed i
 - Then `brew install <name>` (command-line programs) and `brew install --cask <name>`
   (applications, e.g. LibreOffice): usually without a password.
 - After installing Homebrew, on Macs with Apple chips programs live in
-  `/opt/homebrew/bin`: if you cannot find them, use `eval "$(/opt/homebrew/bin/brew shellenv)"`.
+  `/opt/homebrew/bin`: if you cannot find them, add them to the path with `export PATH="/opt/homebrew/bin:$PATH"`.
 - Applications downloaded from the internet may be blocked by macOS on first launch
   ("unidentified developer"): use only official packages and, if it happens, tell the user
   where to click (System Settings → Privacy & Security → "Open Anyway").
