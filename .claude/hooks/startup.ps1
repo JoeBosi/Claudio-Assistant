@@ -58,5 +58,56 @@ if ((Test-Path $mnt) -and -not $notConfigured) {
     }
 }
 
+# 4. Weekly update check due? (read-only check of the GitHub repository, done by the skill)
+if ((Test-Path $mnt) -and -not $notConfigured) {
+    $lu = Select-String -Path $mnt -Pattern '^last_update_check:\s*(\S+)' -CaseSensitive | Select-Object -First 1
+    $dueU = $true
+    if ($lu) {
+        $d = [datetime]::MinValue
+        if ([datetime]::TryParseExact($lu.Matches[0].Groups[1].Value, 'yyyy-MM-dd', $null, 'None', [ref]$d)) {
+            $dueU = (($today - $d).TotalDays -ge 7)
+        }
+    }
+    if ($dueU) {
+        $vfile = Join-Path $root 'VERSION'
+        $v = 'unknown'
+        if (Test-Path $vfile) { $v = (Get-Content $vfile -First 1).Trim() }
+        $msg += "The weekly update check is due (installed version: $v). When the user is not in a hurry, run the 'check-updates' skill (read-only) and tell them in plain words what is new."
+    }
+}
+
+# 5. Backup older than 7 days?
+if ((Test-Path $mnt) -and -not $notConfigured) {
+    $lb = Select-String -Path $mnt -Pattern '^last_backup:\s*(\S+)' -CaseSensitive | Select-Object -First 1
+    $dueB = $true
+    if ($lb) {
+        $d = [datetime]::MinValue
+        if ([datetime]::TryParseExact($lb.Matches[0].Groups[1].Value, 'yyyy-MM-dd', $null, 'None', [ref]$d)) {
+            $dueB = (($today - $d).TotalDays -ge 7)
+        }
+    }
+    if ($dueB) {
+        $msg += "The last backup copy is older than 7 days (or was never made). When the user is not in a hurry, propose the 'backup' skill."
+    }
+}
+
+# 6. Deadlines within 7 days? (rows of memory/deadlines.md: | YYYY-MM-DD | what | job | open |)
+$dl = Join-Path $root 'memory\deadlines.md'
+if ((Test-Path $dl) -and -not $notConfigured) {
+    $soon = @()
+    foreach ($row in (Select-String -Path $dl -Pattern '^\|\s*(\d{4}-\d{2}-\d{2})\s*\|')) {
+        if ($row.Line -match '\|\s*done\s*\|\s*$') { continue }
+        $d = [datetime]::MinValue
+        if ([datetime]::TryParseExact($row.Matches[0].Groups[1].Value, 'yyyy-MM-dd', $null, 'None', [ref]$d)) {
+            $left = [int][math]::Floor(($d.Date - $today.Date).TotalDays)
+            if ($left -le 7) { $soon += "  - $($row.Line) (in $left days)" }
+        }
+    }
+    if ($soon.Count -gt 0) {
+        $msg += "Deadlines within 7 days (or overdue), from memory/deadlines.md. Mention them to the user at the start (skill 'deadlines'):"
+        $msg += $soon
+    }
+}
+
 $msg -join "`n"
 exit 0

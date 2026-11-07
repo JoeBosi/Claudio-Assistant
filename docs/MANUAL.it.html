@@ -217,6 +217,17 @@
   <tr><td><code>/forget</code></td><td>trova e, se vuoi, toglie i dati di una persona o azienda</td></tr>
   <tr><td><code>/get-tools</code></td><td>si procura un programma che gli manca</td></tr>
   <tr><td><code>/setup</code></td><td>rifà le domande iniziali (se cambia qualcosa nello studio)</td></tr>
+  <tr><td><code>/deadlines</code></td><td>cosa scade questa settimana, avvisi all'avvio</td></tr>
+  <tr><td><code>/mail</code></td><td>legge le email che incolli o lasci nella cartella inbox, le smista per pratica, prepara le risposte (non invia mai)</td></tr>
+  <tr><td><code>/guided-job</code></td><td>ti guida passo per passo in un tipo di pratica</td></tr>
+  <tr><td><code>/fill-form</code></td><td>compila un modulo PDF o Word con i dati che conosce; chiede quelli mancanti</td></tr>
+  <tr><td><code>/ask-client</code></td><td>elenca i documenti mancanti e scrive il messaggio al cliente (lo invii tu)</td></tr>
+  <tr><td><code>/daily-summary</code></td><td>riepilogo del giorno o della settimana: fatto, fermo, in attesa, prossimi passi</td></tr>
+  <tr><td><code>/transcribe</code></td><td>trasforma note vocali, telefonate e riunioni in testo, su questo computer</td></tr>
+  <tr><td><code>/backup</code></td><td>copia di sicurezza di memoria, lavori e mestieri, verificata; ripristino guidato</td></tr>
+  <tr><td><code>/explain</code></td><td>spiega da zero qualunque termine o documento, in parole semplici</td></tr>
+  <tr><td><code>/legal-research</code></td><td>cerca le norme su fonti ufficiali, con link e date</td></tr>
+  <tr><td><code>/check-updates</code></td><td>controllo settimanale di una nuova versione di Claudio, in sola lettura</td></tr>
 </table></div>
 <p>Col tempo ne compariranno di nuove: sono i mestieri che impara da te.</p>
 
@@ -333,10 +344,11 @@
 <div class="warn"><b>Da decidere per lo studio</b> (Claudio può prepararti i testi): un piano Claude con condizioni commerciali e accordo sul trattamento dati; l'informativa privacy ai clienti con l'uso dell'AI e, dove la legge sulla protezione dei dati lo chiede (per esempio il GDPR nell'Unione Europea), il registro dei trattamenti; la cifratura del disco (<b>BitLocker</b> su Windows, <b>FileVault</b> su Mac, <b>LUKS</b> su Linux). L'elenco aggiornato è in <code>memory/decisions/privacy.md</code>. Meglio sentire anche il consulente privacy dello studio.</div>
 
 <h3 id="backup">Copie di riserva</h3>
-<p>Siccome la memoria sta solo su questo computer, se il disco si rompe si perde. Una volta al mese, durante il riordino, Claudio ti propone una <b>copia di riserva</b> di memoria, esempi, lavori e mestieri dove vuoi tu (una tua cartella sul server, il cloud o una chiavetta). Puoi chiederla anche quando vuoi: <span class="say" style="display:inline;padding:2px 8px">"fai una copia di riserva della memoria"</span>.</p>
+<p>Siccome la memoria sta solo su questo computer, se il disco si rompe si perde. Una volta alla settimana Claudio ti propone una <b>copia di riserva</b> di memoria, esempi, lavori e mestieri dove vuoi tu (una tua cartella sul server, il cloud o una chiavetta). Puoi chiederla anche quando vuoi: <span class="say" style="display:inline;padding:2px 8px">"fai una copia di riserva della memoria"</span>.</p>
 
 <h3 id="updates">Aggiornare l'assistente senza perdere niente</h3>
 <p>Se ti arriva una versione nuova della cartella, <b>non sostituire tutto</b>. Le cartelle <code>memory</code> (memoria), <code>jobs</code> (lavori), <code>good-examples</code> (esempi buoni), <code>knowledge</code> (fonti) e i mestieri nati da te sono tuoi e non vanno sovrascritti. Il modo più semplice: metti la versione nuova in una cartella a parte (per esempio in Download) e di' a Claudio <span class="say" style="display:inline;padding:2px 8px">"c'è un aggiornamento nella cartella Download, integralo senza perdere la mia memoria"</span>.</p>
+<p>Una volta alla settimana Claudio controlla da solo, senza scaricare niente, se su internet c'è una versione più nuova. Ti dice in parole semplici cosa c'è di nuovo (aggiunto, migliorato, corretto, rimosso) e aggiorna solo se sei d'accordo, dopo una copia di riserva, lasciando intatti memoria e lavori.</p>
 
 <!-- ============================ PROBLEMI ============================ -->
 <h2 id="problems">Se qualcosa non va</h2>

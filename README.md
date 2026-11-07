@@ -35,6 +35,12 @@ are needed: you talk to Claudio in plain words, in your own language.
   and laws are taken from a source and cited; if there is no source, Claudio says so.
 - **Does not always agree with you.** If a request is wrong, Claudio explains why, with the
   source, and proposes alternatives. You decide.
+- **Runs the office day by day** (new in 1.2.0): deadlines and agenda with reminders at startup,
+  mail sorted by job with reply drafts (it never sends), guided step-by-step jobs, form filling,
+  requests to clients for missing documents, daily and weekly summaries, transcription of voice
+  notes and calls on your own computer, verified backups, "explain it from scratch" and legal
+  research from official sources.
+- **Checks for updates once a week**, read-only, and tells you in plain words what is new.
 
 ## How it works
 
@@ -51,7 +57,8 @@ are needed: you talk to Claudio in plain words, in your own language.
    and where the files are. You can also work in a folder of your own: Claudio backs it up first.
 4. **At the end of a job** Claudio proposes the 2-5 things worth remembering and saves them
    only if you agree.
-5. **Every 30 days** it proposes tidying up memory and skills, and a backup copy.
+5. **Every week** it proposes a backup copy and checks, read-only, whether a new version
+   exists; **every 30 days** it proposes tidying up memory and skills.
 
 ## See it in action
 
@@ -66,6 +73,7 @@ Real output of Claude Code running this folder (fictional user).
 ```
 Claudio-Assistant/
 ├── CLAUDE.md                the assistant's rules (read by Claude at every start)
+├── VERSION                  installed version (read by the weekly update check)
 ├── README.md                this page (also .it .fr .de)
 ├── GETTING-STARTED.en.txt   short install guide (also .it .fr .de)
 ├── CUSTOMIZING.md           for whoever prepares the folder for a profession
@@ -77,7 +85,7 @@ Claudio-Assistant/
 │   ├── contacts/            clients.md, suppliers.md, authorities.md
 │   ├── decisions/           preferences.md, privacy.md
 │   ├── lessons/             lessons.md
-│   ├── profession.md, job-types.md, _maintenance.md
+│   ├── profession.md, job-types.md, deadlines.md, _maintenance.md
 │   └── _history/            old versions kept by the tidy-up
 ├── jobs/                    one subfolder per job, each with its JOB.md
 │   ├── _template/           JOB.md template
@@ -85,16 +93,20 @@ Claudio-Assistant/
 │   └── _archived/
 ├── good-examples/           your best work, by type: the quality benchmark
 ├── Learn-From-Here/         the inbox where you drop work for Claudio to study
-├── knowledge/               your profession's sources (laws, price lists, forms)
+├── knowledge/               your profession's sources (laws, price lists, forms), procedures/, research/
+├── inbox/                   drop emails here for Claudio to read and file by job
 ├── _trash/                  nothing is deleted: removed files wait here for you
 └── .claude/
     ├── settings.json
     ├── hooks/               startup.ps1 (Windows), startup.sh (macOS/Linux)
     └── skills/              help, setup, new-job, learn-from-here, remember,
-                             tidy-memory, archive, create-skill, forget, get-tools
+                             tidy-memory, archive, create-skill, forget, get-tools,
+                             deadlines, mail, guided-job, fill-form, ask-client,
+                             daily-summary, transcribe, backup, explain,
+                             legal-research, check-updates
 ```
 
-The 10 skills can be called as commands (`/help`, `/setup`, `/new-job`…) or simply by asking
+The 21 skills can be called as commands (`/help`, `/setup`, `/new-job`…) or simply by asking
 in words. Folder and skill names are in English so the package works everywhere; Claudio
 explains them to you and writes memory in your language.
 
@@ -193,6 +205,9 @@ The simplest way: download the new version into a separate folder and tell Claud
 manuals and the standard skills and leaves your data alone.
 Do not use `git pull` on a folder already in use: setup fills in the memory files, so a
 pull would clash with your data.
+Once a week Claudio checks on its own, read-only, whether a newer version exists on GitHub
+(skill `check-updates`), tells you what changed (added, improved, fixed, removed) and, only if
+you agree, updates the standard files after a backup, leaving your memory and jobs untouched.
 
 ## Customizing for a profession
 

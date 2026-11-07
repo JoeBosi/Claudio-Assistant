@@ -217,6 +217,17 @@
   <tr><td><code>/forget</code></td><td>findet und entfernt auf Wunsch die Daten einer Person oder Firma</td></tr>
   <tr><td><code>/get-tools</code></td><td>besorgt ein Programm, das ihm fehlt</td></tr>
   <tr><td><code>/setup</code></td><td>stellt die Anfangsfragen noch einmal (wenn sich im Büro etwas ändert)</td></tr>
+  <tr><td><code>/deadlines</code></td><td>was diese Woche fällig ist, Hinweise beim Start</td></tr>
+  <tr><td><code>/mail</code></td><td>liest die E-Mails, die Sie einfügen oder im Ordner inbox ablegen, ordnet sie den Aufträgen zu, entwirft Antworten (sendet nie)</td></tr>
+  <tr><td><code>/guided-job</code></td><td>führt Sie Schritt für Schritt durch eine Art von Auftrag</td></tr>
+  <tr><td><code>/fill-form</code></td><td>füllt ein PDF- oder Word-Formular mit den bekannten Daten aus; fragt nach fehlenden</td></tr>
+  <tr><td><code>/ask-client</code></td><td>listet fehlende Unterlagen auf und schreibt die Nachricht an den Kunden (Sie senden sie)</td></tr>
+  <tr><td><code>/daily-summary</code></td><td>Zusammenfassung des Tages oder der Woche: erledigt, stockend, wartend, nächste Schritte</td></tr>
+  <tr><td><code>/transcribe</code></td><td>macht aus Sprachnachrichten, Anrufen und Besprechungen Text, auf diesem Computer</td></tr>
+  <tr><td><code>/backup</code></td><td>geprüfte Sicherungskopie von Gedächtnis, Aufträgen und Fertigkeiten; geführte Wiederherstellung</td></tr>
+  <tr><td><code>/explain</code></td><td>erklärt jeden Begriff oder jedes Dokument von Grund auf, in einfachen Worten</td></tr>
+  <tr><td><code>/legal-research</code></td><td>sucht die Vorschriften in amtlichen Quellen, mit Links und Daten</td></tr>
+  <tr><td><code>/check-updates</code></td><td>wöchentliche Prüfung auf eine neue Version von Claudio, nur lesend</td></tr>
 </table></div>
 <p>Mit der Zeit kommen neue hinzu: Das sind die Fertigkeiten, die er von Ihnen lernt.</p>
 
@@ -333,10 +344,11 @@
 <div class="warn"><b>Für Ihr Büro zu entscheiden</b> (Claudio kann die Texte vorbereiten): ein Claude-Abo mit gewerblichen Bedingungen und Auftragsverarbeitungsvertrag; die Datenschutzinformation für Kunden mit Hinweis auf den KI-Einsatz und, wo Ihr Datenschutzgesetz es verlangt (zum Beispiel die DSGVO in der EU), das Verzeichnis der Verarbeitungstätigkeiten; die Verschlüsselung der Festplatte (<b>BitLocker</b> unter Windows, <b>FileVault</b> auf dem Mac, <b>LUKS</b> unter Linux). Die aktuelle Liste steht in <code>memory/decisions/privacy.md</code>. Am besten fragen Sie auch den Datenschutzberater des Büros.</div>
 
 <h3 id="backup">Sicherungskopien</h3>
-<p>Da das Gedächtnis nur auf diesem Computer liegt, ist es verloren, wenn die Festplatte kaputtgeht. Einmal im Monat, beim Aufräumen, schlägt Claudio eine <b>Sicherungskopie</b> von Gedächtnis, Beispielen, Aufträgen und Fertigkeiten vor, wohin Sie wollen (ein eigener Ordner auf dem Server, die Cloud oder ein USB-Stick). Sie können sie auch jederzeit verlangen: <span class="say" style="display:inline;padding:2px 8px">„mach eine Sicherungskopie des Gedächtnisses“</span>.</p>
+<p>Da das Gedächtnis nur auf diesem Computer liegt, ist es verloren, wenn die Festplatte kaputtgeht. Einmal pro Woche schlägt Claudio eine <b>Sicherungskopie</b> von Gedächtnis, Beispielen, Aufträgen und Fertigkeiten vor, wohin Sie wollen (ein eigener Ordner auf dem Server, die Cloud oder ein USB-Stick). Sie können sie auch jederzeit verlangen: <span class="say" style="display:inline;padding:2px 8px">„mach eine Sicherungskopie des Gedächtnisses“</span>.</p>
 
 <h3 id="updates">Den Assistenten aktualisieren, ohne etwas zu verlieren</h3>
 <p>Wenn Sie eine neue Version des Ordners bekommen, <b>ersetzen Sie nicht alles</b>. Die Ordner <code>memory</code> (Gedächtnis), <code>jobs</code> (Aufträge), <code>good-examples</code> (gute Beispiele), <code>knowledge</code> (Quellen) und die aus Ihrer Arbeit entstandenen Fertigkeiten gehören Ihnen und dürfen nicht überschrieben werden. Am einfachsten: Legen Sie die neue Version in einen eigenen Ordner (zum Beispiel unter Downloads) und sagen Sie Claudio <span class="say" style="display:inline;padding:2px 8px">„im Ordner Downloads liegt ein Update, übernimm es, ohne mein Gedächtnis zu verlieren“</span>.</p>
+<p>Einmal pro Woche prüft Claudio selbst, ohne etwas herunterzuladen, ob im Internet eine neuere Version liegt. Er sagt Ihnen in einfachen Worten, was neu ist (hinzugefügt, verbessert, behoben, entfernt), und aktualisiert nur mit Ihrer Zustimmung, nach einer Sicherungskopie, ohne Gedächtnis und Aufträge anzutasten.</p>
 
 <!-- ============================ PROBLEME ============================ -->
 <h2 id="problems">Wenn etwas nicht klappt</h2>

@@ -16,5 +16,6 @@ Memory is written in the user's language (see `office/owner.md`, `Language:`).
 | `decisions/privacy.md` | rules on the personal data of clients/suppliers, to-dos for the office, "forget" requests |
 | `lessons/lessons.md` | mistakes not to repeat and things discovered |
 | `job-types.md` | types of job seen, how many times, whether a skill exists |
-| `_maintenance.md` | date of the last tidy-up and log of tidy-ups |
+| `deadlines.md` | all deadlines, one row each (date, what, job, status); read by the startup script |
+| `_maintenance.md` | dates of the last tidy-up, backup and update check, with their logs |
 | `_history/` | copies of memory made before each tidy-up (not normally read) |

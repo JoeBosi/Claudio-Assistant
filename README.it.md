@@ -35,6 +35,14 @@ competenze tecniche: con Claudio si parla con parole semplici, nella propria lin
   Dati, prezzi e norme sono presi da una fonte e citati; se la fonte non c'è, Claudio lo dice.
 - **Non ti dà sempre ragione.** Se una richiesta è sbagliata, Claudio spiega perché, con la
   fonte, e propone alternative. Decidi tu.
+- **Manda avanti lo studio giorno per giorno** (novità della 1.2.0): scadenze e agenda con
+  avvisi all'avvio, posta smistata per pratica con bozze di risposta (non invia mai), pratiche
+  guidate passo per passo, compilazione di moduli, richieste ai clienti dei documenti mancanti,
+  riepilogo del giorno e della settimana, trascrizione di note vocali e telefonate sul tuo
+  computer, copie di sicurezza verificate, "spiegamelo da zero" e ricerca normativa su fonti
+  ufficiali.
+- **Controlla gli aggiornamenti una volta alla settimana**, in sola lettura, e ti dice in
+  parole semplici cosa c'è di nuovo.
 
 ## Come funziona
 
@@ -51,7 +59,8 @@ competenze tecniche: con Claudio si parla con parole semplici, nella propria lin
    lavorare in una tua cartella: Claudio prima ne fa una copia di riserva.
 4. **Alla fine di un lavoro** Claudio propone le 2-5 cose da ricordare e le salva solo se
    sei d'accordo.
-5. **Ogni 30 giorni** propone il riordino di memoria e skill e una copia di riserva.
+5. **Ogni settimana** propone una copia di sicurezza e controlla, in sola lettura, se c'è
+   una versione nuova; **ogni 30 giorni** propone il riordino di memoria e skill.
 
 ## Come si presenta
 
@@ -68,6 +77,7 @@ spiega e scrive la memoria in italiano.
 
 ```
 Claudio-Assistant/
+├── VERSION                  versione installata (letta dal controllo settimanale degli aggiornamenti)
 ├── CLAUDE.md                le regole dell'assistente (Claude le legge a ogni avvio)
 ├── README.md                questa pagina (anche .it .fr .de)
 ├── GETTING-STARTED.en.txt   breve guida all'installazione (anche .it .fr .de)
@@ -88,16 +98,20 @@ Claudio-Assistant/
 │   └── _archived/
 ├── good-examples/           i tuoi lavori migliori, per tipo: il metro di qualità
 ├── Learn-From-Here/         la cassetta dove lasci i lavori da far studiare a Claudio
-├── knowledge/               le fonti della professione (norme, prezzari, modulistica)
+├── knowledge/               le fonti della professione (norme, prezzari, modulistica), procedures/, research/
+├── inbox/                   qui lasci le email che Claudio deve leggere e smistare per pratica
 ├── _trash/                  il cestino: non si cancella niente, i file tolti aspettano qui
 └── .claude/
     ├── settings.json
     ├── hooks/               startup.ps1 (Windows), startup.sh (macOS/Linux)
     └── skills/              help, setup, new-job, learn-from-here, remember,
-                             tidy-memory, archive, create-skill, forget, get-tools
+                             tidy-memory, archive, create-skill, forget, get-tools,
+                             deadlines, mail, guided-job, fill-form, ask-client,
+                             daily-summary, transcribe, backup, explain,
+                             legal-research, check-updates
 ```
 
-Le 10 skill si possono chiamare come comandi (`/help`, `/setup`, `/new-job`…) o chiedendo
+Le 21 skill si possono chiamare come comandi (`/help`, `/setup`, `/new-job`…) o chiedendo
 semplicemente a parole.
 
 ## Requisiti
@@ -172,6 +186,10 @@ a Claudio "c'è un aggiornamento in <cartella>, integralo senza perdere la mia m
 Aggiorna regole, manuali e skill standard e lascia stare i tuoi dati.
 Non usare `git pull` su una cartella già in uso: la configurazione compila i file della
 memoria e un pull andrebbe in conflitto con i tuoi dati.
+Una volta alla settimana Claudio controlla da solo, in sola lettura, se su GitHub c'è una
+versione più nuova (skill `check-updates`), ti dice cosa cambia (aggiunto, migliorato, corretto,
+rimosso) e, solo se sei d'accordo, aggiorna i file standard dopo una copia di sicurezza,
+lasciando intatti memoria e pratiche.
 
 ## Personalizzarlo per una professione
 

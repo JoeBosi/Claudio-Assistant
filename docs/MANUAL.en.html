@@ -217,6 +217,17 @@
   <tr><td><code>/forget</code></td><td>finds and, if you want, removes the data of a person or company</td></tr>
   <tr><td><code>/get-tools</code></td><td>gets a program he is missing</td></tr>
   <tr><td><code>/setup</code></td><td>asks the first questions again (if something changes in your office)</td></tr>
+  <tr><td><code>/deadlines</code></td><td>what is due this week, reminders at startup</td></tr>
+  <tr><td><code>/mail</code></td><td>reads the emails you paste or drop in the inbox folder, files them by job, drafts replies (never sends)</td></tr>
+  <tr><td><code>/guided-job</code></td><td>guides you step by step through a type of job</td></tr>
+  <tr><td><code>/fill-form</code></td><td>fills in a PDF or Word form with the data he knows; asks for what is missing</td></tr>
+  <tr><td><code>/ask-client</code></td><td>lists the missing documents and writes the message to the client (you send it)</td></tr>
+  <tr><td><code>/daily-summary</code></td><td>summary of the day or the week: done, stalled, waiting, next steps</td></tr>
+  <tr><td><code>/transcribe</code></td><td>turns voice notes, calls and meetings into text, on this computer</td></tr>
+  <tr><td><code>/backup</code></td><td>safety copy of memory, jobs and skills, checked; guided restore</td></tr>
+  <tr><td><code>/explain</code></td><td>explains any term or document from scratch, in plain words</td></tr>
+  <tr><td><code>/legal-research</code></td><td>looks up the rules on official sources, with links and dates</td></tr>
+  <tr><td><code>/check-updates</code></td><td>weekly check for a new version of Claudio, read-only</td></tr>
 </table></div>
 <p>Over time new ones will appear: they are the skills he learns from you.</p>
 
@@ -333,10 +344,11 @@
 <div class="warn"><b>To decide for your office</b> (Claudio can prepare the texts): a Claude plan with commercial terms and a data processing agreement; the privacy notice to clients mentioning the use of AI and, where your data protection law requires it (e.g. GDPR in the EU), the record of processing activities; disk encryption (<b>BitLocker</b> on Windows, <b>FileVault</b> on Mac, <b>LUKS</b> on Linux). The up-to-date list is in <code>memory/decisions/privacy.md</code>. It is best to also hear your office's privacy adviser.</div>
 
 <h3 id="backup">Backup copies</h3>
-<p>Since the memory lives only on this computer, if the disk breaks it is lost. Once a month, during the tidy-up, Claudio proposes a <b>backup copy</b> of memory, examples, jobs and skills wherever you want (a folder of yours on the server, the cloud or a USB stick). You can also ask for it any time: <span class="say" style="display:inline;padding:2px 8px">"make a backup copy of the memory"</span>.</p>
+<p>Since the memory lives only on this computer, if the disk breaks it is lost. Once a week Claudio proposes a <b>backup copy</b> of memory, examples, jobs and skills wherever you want (a folder of yours on the server, the cloud or a USB stick). You can also ask for it any time: <span class="say" style="display:inline;padding:2px 8px">"make a backup copy of the memory"</span>.</p>
 
 <h3 id="updates">Updating the assistant without losing anything</h3>
 <p>If you receive a new version of the folder, <b>do not replace everything</b>. The folders <code>memory</code>, <code>jobs</code>, <code>good-examples</code>, <code>knowledge</code> and the skills born from your work are yours and must not be overwritten. The simplest way: put the new version in a separate folder (for example in Downloads) and tell Claudio <span class="say" style="display:inline;padding:2px 8px">"there is an update in the Downloads folder, merge it without losing my memory"</span>.</p>
+<p>Once a week Claudio checks on his own, without downloading anything, whether a newer version exists on the internet. He tells you in plain words what is new (added, improved, fixed, removed) and updates only if you agree, after a backup copy, leaving your memory and jobs untouched.</p>
 
 <!-- ============================ PROBLEMS ============================ -->
 <h2 id="problems">If something goes wrong</h2>

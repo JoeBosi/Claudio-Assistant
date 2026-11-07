@@ -36,10 +36,12 @@ work better. This tidy-up is the moment to improve it.
    - **outdated sources**: price lists for the new year, updated forms, changed laws.
      Look for them online and, if there are new ones, download them into `knowledge/`
      (keep the old version too) and tell the user.
-   - **backup copy**: memory exists only on this computer. If the last backup is more than
-     30 days old (see the log in `_maintenance.md`), offer to copy `memory/`,
-     `good-examples/`, `jobs/`, `knowledge/` and `.claude/` to a place the user chooses (personal folder
-     on the server, USB stick, cloud) and note the date.
+   - **backup copy**: memory exists only on this computer. If `last_backup:` in
+     `_maintenance.md` is older than 7 days, run the skill `backup` (it copies, verifies and
+     notes the date);
+   - **new version of the assistant**: if `last_update_check:` is older than 7 days, run the
+     skill `check-updates` (read-only) and tell the user what is new;
+   - **deadlines list**: rebuild `memory/deadlines.md` from the job cards (skill `deadlines`).
 4. **Propose the plan to the user** in plain words, at most 6 points:
    > I've tidied up the memory. I suggest: 1) merging two duplicate notes on client Smith;
    > 2) splitting the offices by authority; 3) adding the VAT rule to the quotes skill…

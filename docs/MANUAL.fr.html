@@ -217,6 +217,17 @@
   <tr><td><code>/forget</code></td><td>trouve et, si vous le voulez, retire les données d'une personne ou d'une entreprise</td></tr>
   <tr><td><code>/get-tools</code></td><td>se procure un logiciel qui lui manque</td></tr>
   <tr><td><code>/setup</code></td><td>repose les questions de départ (si quelque chose change au cabinet)</td></tr>
+  <tr><td><code>/deadlines</code></td><td>ce qui arrive à échéance cette semaine, rappels au démarrage</td></tr>
+  <tr><td><code>/mail</code></td><td>lit les e-mails que vous collez ou déposez dans le dossier inbox, les classe par dossier, prépare les réponses (n'envoie jamais)</td></tr>
+  <tr><td><code>/guided-job</code></td><td>vous guide étape par étape dans un type de dossier</td></tr>
+  <tr><td><code>/fill-form</code></td><td>remplit un formulaire PDF ou Word avec les données qu'il connaît ; demande celles qui manquent</td></tr>
+  <tr><td><code>/ask-client</code></td><td>liste les pièces manquantes et rédige le message au client (vous l'envoyez)</td></tr>
+  <tr><td><code>/daily-summary</code></td><td>résumé du jour ou de la semaine : fait, bloqué, en attente, prochaines étapes</td></tr>
+  <tr><td><code>/transcribe</code></td><td>transforme notes vocales, appels et réunions en texte, sur cet ordinateur</td></tr>
+  <tr><td><code>/backup</code></td><td>copie de sauvegarde de la mémoire, des dossiers et des savoir-faire, vérifiée ; restauration guidée</td></tr>
+  <tr><td><code>/explain</code></td><td>explique depuis le début n'importe quel terme ou document, en mots simples</td></tr>
+  <tr><td><code>/legal-research</code></td><td>recherche les règles sur les sources officielles, avec liens et dates</td></tr>
+  <tr><td><code>/check-updates</code></td><td>vérification hebdomadaire d'une nouvelle version de Claudio, en lecture seule</td></tr>
 </table></div>
 <p>Avec le temps, de nouveaux apparaîtront : ce sont les savoir-faire qu'il apprend de vous.</p>
 
@@ -333,10 +344,11 @@
 <div class="warn"><b>À décider pour votre cabinet</b> (Claudio peut préparer les textes) : un abonnement Claude avec conditions commerciales et accord de traitement des données ; la notice d'information des clients mentionnant l'usage de l'IA et, si votre loi sur la protection des données l'exige (par exemple le RGPD dans l'Union européenne), le registre des traitements ; le chiffrement du disque (<b>BitLocker</b> sur Windows, <b>FileVault</b> sur Mac, <b>LUKS</b> sur Linux). La liste à jour se trouve dans <code>memory/decisions/privacy.md</code>. Mieux vaut aussi consulter le conseiller en protection des données du cabinet.</div>
 
 <h3 id="backup">Copies de sauvegarde</h3>
-<p>Comme la mémoire n'existe que sur cet ordinateur, si le disque tombe en panne, elle est perdue. Une fois par mois, pendant le rangement, Claudio vous propose une <b>copie de sauvegarde</b> de la mémoire, des exemples, des dossiers et des savoir-faire, où vous voulez (un dossier à vous sur le serveur, le cloud ou une clé USB). Vous pouvez aussi la demander quand vous voulez : <span class="say" style="display:inline;padding:2px 8px">« fais une copie de sauvegarde de la mémoire »</span>.</p>
+<p>Comme la mémoire n'existe que sur cet ordinateur, si le disque tombe en panne, elle est perdue. Une fois par semaine, Claudio vous propose une <b>copie de sauvegarde</b> de la mémoire, des exemples, des dossiers et des savoir-faire, où vous voulez (un dossier à vous sur le serveur, le cloud ou une clé USB). Vous pouvez aussi la demander quand vous voulez : <span class="say" style="display:inline;padding:2px 8px">« fais une copie de sauvegarde de la mémoire »</span>.</p>
 
 <h3 id="updates">Mettre à jour l'assistant sans rien perdre</h3>
 <p>Si vous recevez une nouvelle version du dossier, <b>ne remplacez pas tout</b>. Les dossiers <code>memory</code> (la mémoire), <code>jobs</code> (les travaux), <code>good-examples</code> (les bons exemples), <code>knowledge</code> (les sources) et les savoir-faire nés de votre travail vous appartiennent et ne doivent pas être écrasés. Le plus simple : mettez la nouvelle version dans un dossier à part (par exemple dans Téléchargements) et dites à Claudio <span class="say" style="display:inline;padding:2px 8px">« il y a une mise à jour dans le dossier Téléchargements, intègre-la sans perdre ma mémoire »</span>.</p>
+<p>Une fois par semaine, Claudio vérifie seul, sans rien télécharger, si une version plus récente existe sur internet. Il vous dit en mots simples ce qui est nouveau (ajouté, amélioré, corrigé, retiré) et ne met à jour que si vous êtes d'accord, après une copie de sauvegarde, sans toucher à votre mémoire ni à vos dossiers.</p>
 
 <!-- ============================ PROBLÈMES ============================ -->
 <h2 id="problems">En cas de problème</h2>

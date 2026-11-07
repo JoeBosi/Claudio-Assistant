@@ -1,6 +1,13 @@
 # Created on each computer at the first start (skill "setup"): never ship it
 .claude/settings.local.json
 
+# Local keys (e.g. for an online transcription service): never ship, never commit
+.env
+
+# Emails dropped by the user and processed ones: client data, never in a repository
+inbox/*
+!inbox/README.txt
+
 # Operating system junk
 .DS_Store
 ._*

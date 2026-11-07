@@ -63,4 +63,49 @@ if [ -f "$mnt" ] && [ $not_configured -eq 0 ]; then
     fi
 fi
 
+# 4. Weekly update check due? (read-only check of the GitHub repository, done by the skill)
+if [ -f "$mnt" ] && [ $not_configured -eq 0 ]; then
+    lastu=$(sed -n 's/^last_update_check:[[:space:]]*\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\).*/\1/p' "$mnt" | head -n 1)
+    dueu=1
+    if [ -n "$lastu" ]; then
+        diff=$(( $(days "$today") - $(days "$lastu") ))
+        [ "$diff" -lt 7 ] && dueu=0
+    fi
+    if [ $dueu -eq 1 ]; then
+        v=$(sed -n '1p' "$root/VERSION" 2>/dev/null | tr -d ' \r')
+        echo "The weekly update check is due (installed version: ${v:-unknown}). When the user is not in a hurry, run the 'check-updates' skill (read-only) and tell them in plain words what is new."
+    fi
+fi
+
+# 5. Backup older than 7 days?
+if [ -f "$mnt" ] && [ $not_configured -eq 0 ]; then
+    lastb=$(sed -n 's/^last_backup:[[:space:]]*\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\).*/\1/p' "$mnt" | head -n 1)
+    dueb=1
+    if [ -n "$lastb" ]; then
+        diff=$(( $(days "$today") - $(days "$lastb") ))
+        [ "$diff" -lt 7 ] && dueb=0
+    fi
+    if [ $dueb -eq 1 ]; then
+        echo "The last backup copy is older than 7 days (or was never made). When the user is not in a hurry, propose the 'backup' skill."
+    fi
+fi
+
+# 6. Deadlines within 7 days? (rows of memory/deadlines.md: | YYYY-MM-DD | what | job | open |)
+dl="$root/memory/deadlines.md"
+if [ -f "$dl" ] && [ $not_configured -eq 0 ]; then
+    t=$(days "$today")
+    soon=$(grep -E '^\| *[0-9]{4}-[0-9]{2}-[0-9]{2} *\|' "$dl" | grep -v -i -E '\| *done *\| *$' | while IFS= read -r line; do
+        d=$(echo "$line" | sed -n 's/^| *\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\).*/\1/p')
+        [ -n "$d" ] || continue
+        left=$(( $(days "$d") - t ))
+        if [ "$left" -le 7 ]; then
+            echo "  - $line (in $left days)"
+        fi
+    done)
+    if [ -n "$soon" ]; then
+        echo "Deadlines within 7 days (or overdue), from memory/deadlines.md. Mention them to the user at the start (skill 'deadlines'):"
+        echo "$soon"
+    fi
+fi
+
 exit 0

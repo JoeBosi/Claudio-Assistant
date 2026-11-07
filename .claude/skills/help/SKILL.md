@@ -15,6 +15,10 @@ there are new skills in `.claude/skills/`, add them; if a job is open, mention i
 - "I've put some work in the inbox, have a look"
 - "Remember that client Smith always wants the quote first"
 - "Archive the job on the server"
+- "What is due this week?" · "Summary of the day" · "Read the mail I put in the inbox"
+- "Guide me through a …" · "Fill in this form" · "Ask the client for the missing documents"
+- "Transcribe this voice note" · "Explain this letter from scratch" · "What does the law say about …"
+- "Make a backup copy" · "Is there a new version of Claudio?"
 
 **The Learn-From-Here inbox** (on your desktop): drop in work that turned out well, with a
 note of yours if you like. I study it, keep it as a model and learn how you work.
@@ -23,7 +27,9 @@ note of yours if you like. I study it, keep it as a model and learn how you work
 invent data: numbers, prices and laws come from sources, and I cite them.
 
 **Shortcuts** (optional): `/new-job` · `/learn-from-here` · `/remember` · `/archive`
-· `/tidy-memory` · `/create-skill` · `/forget` · `/get-tools` · `/setup`
+· `/tidy-memory` · `/create-skill` · `/forget` · `/get-tools` · `/setup` · `/deadlines`
+· `/mail` · `/guided-job` · `/fill-form` · `/ask-client` · `/daily-summary` · `/transcribe`
+· `/backup` · `/explain` · `/legal-research` · `/check-updates`
 
 **Full manual**: open the file `docs/MANUAL.<language>.html` in the Claudio-Assistant folder
 (double-click it). Give the full path in the format of the user's system, checked.

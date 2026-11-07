@@ -45,7 +45,21 @@
       "Bash(ln -s *)",
       "Bash(sh .claude/hooks/startup.sh*)",
       "Bash(tesseract *)",
-      "Bash(pdftoppm *)"
+      "Bash(pdftoppm *)",
+      "PowerShell(ffmpeg *)",
+      "PowerShell(robocopy *)",
+      "PowerShell(Compress-Archive *)",
+      "PowerShell(git clone *)",
+      "PowerShell(Resolve-Path *)",
+      "Bash(ffmpeg *)",
+      "Bash(zip *)",
+      "Bash(unzip *)",
+      "Bash(git clone *)",
+      "Bash(rsync *)",
+      "Bash(tar *)",
+      "Bash(du *)",
+      "Bash(wc *)",
+      "Bash(stat *)"
     ],
     "deny": [
       "Bash(rm *)",

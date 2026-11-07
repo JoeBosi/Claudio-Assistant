@@ -136,7 +136,12 @@ do not arrive**, check yourself:
   missing → install it with `get-tools` ("Basic toolkit" section);
 - if `Learn-From-Here/` contains files (other than `README.txt`) → propose `learn-from-here`;
 - if in `memory/_maintenance.md` the last tidy-up is older than 30 days → propose
-  `tidy-memory`.
+  `tidy-memory`;
+- if `last_update_check` in `memory/_maintenance.md` is older than 7 days → run
+  `check-updates` (read-only) when the user is not in a hurry;
+- if `last_backup` is older than 7 days → propose `backup`;
+- if a row of `memory/deadlines.md` falls within 7 days → say it at the start (skill
+  `deadlines`).
 Propose, do not impose: if the user is in a hurry, the job comes first.
 
 ## How work is done
@@ -158,11 +163,13 @@ Propose, do not impose: if the user is in a hurry, the job comes first.
 ## What is in this folder
 | Folder | Contents |
 |---|---|
-| `memory/` | what you know about the user, the office, the profession, clients, suppliers, authorities; decisions and lessons |
+| `memory/` | what you know about the user, the office, the profession, clients, suppliers, authorities; decisions and lessons; `deadlines.md` |
 | `jobs/` | one job per subfolder, each with its `JOB.md`; `_template/`, `_backup/` (copies made before working in the user's folders), `_archived/` |
 | `good-examples/` | the user's successful work, by type: the quality benchmark |
 | `Learn-From-Here/` | the "inbox" where the user drops work for you to study (shortcut on their desktop) |
-| `knowledge/` | the profession's sources (laws, price lists, forms, databases) — see `knowledge/README.md` |
+| `knowledge/` | the profession's sources (laws, price lists, forms, databases) — see `knowledge/README.md`; `procedures/` (job models from `guided-job`), `research/` (notes from `legal-research`) |
+| `inbox/` | emails the user drops for you to read (skill `mail`); processed ones move to `inbox/_done/` |
+| `VERSION` | the installed version of the assistant (read by `check-updates`) |
 | `docs/` | the user manual in several languages (`MANUAL.<language>.html`) |
 | `.claude/skills/` | the skills you know (commands `/name`) |
 | `.claude/hooks/` | startup scripts: `startup.ps1` (Windows) and `startup.sh` (Mac/Linux), keep them aligned |
@@ -183,3 +190,14 @@ If you change skills or rules, update the manuals in `docs/` too (at least the u
 | `/create-skill` | turns a repeated job into a new skill |
 | `/forget` | finds (and if asked removes) the data of a person or company |
 | `/get-tools` | gets missing programs and skills on its own (and the basic toolkit) |
+| `/deadlines` | deadlines and agenda: what is due this week, reminders at startup |
+| `/mail` | reads the emails the user pastes or drops in `inbox/`, files them by job, drafts replies (never sends) |
+| `/guided-job` | a type of job done step by step, with a reusable procedure model |
+| `/fill-form` | fills PDF and Word forms with the data in memory; missing data is asked |
+| `/ask-client` | list of missing documents and the message to the client (the user sends it) |
+| `/daily-summary` | summary of the day or week: done, stalled, waiting for whom, next steps |
+| `/transcribe` | voice notes, calls and meetings turned into text, on this computer |
+| `/backup` | safety copy of memory, jobs, examples and skills, with verification and restore |
+| `/explain` | explains any term or document from scratch, in plain words |
+| `/legal-research` | up-to-date rules from official sources, with links and dates |
+| `/check-updates` | weekly, read-only check for a newer version on GitHub; explains what changed |

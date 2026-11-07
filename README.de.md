@@ -41,6 +41,14 @@ Sprache.
   die Quelle, sagt Claudio das.
 - **Gibt Ihnen nicht immer recht.** Ist eine Anfrage falsch, erklärt Claudio warum, mit
   Quelle, und schlägt Alternativen vor. Sie entscheiden.
+- **Hält das Büro Tag für Tag am Laufen** (neu in 1.2.0): Fristen und Terminplan mit
+  Hinweisen beim Start, nach Auftrag sortierte Post mit Antwortentwürfen (er sendet nie),
+  Schritt für Schritt geführte Aufträge, Ausfüllen von Formularen, Anfragen an Kunden nach
+  fehlenden Unterlagen, Tages- und Wochenzusammenfassung, Transkription von Sprachnachrichten
+  und Anrufen auf Ihrem Computer, geprüfte Sicherungen, „erklär es mir von Grund auf“ und
+  Rechtsrecherche in amtlichen Quellen.
+- **Prüft einmal pro Woche auf Updates**, nur lesend, und sagt Ihnen in einfachen Worten,
+  was neu ist.
 
 ## So funktioniert es
 
@@ -58,8 +66,8 @@ Sprache.
    eigenen Ordner arbeiten: Claudio legt vorher eine Sicherungskopie an.
 4. **Am Ende eines Auftrags** schlägt Claudio die 2-5 Dinge vor, die es wert sind, behalten
    zu werden, und speichert sie nur mit Ihrer Zustimmung.
-5. **Alle 30 Tage** schlägt er vor, Gedächtnis und Skills aufzuräumen und eine
-   Sicherungskopie zu machen.
+5. **Jede Woche** schlägt er eine Sicherungskopie vor und prüft, nur lesend, ob es eine neue
+   Version gibt; **alle 30 Tage** schlägt er vor, Gedächtnis und Skills aufzuräumen.
 
 ## So sieht es aus
 
@@ -76,6 +84,7 @@ Ihnen und schreibt das Gedächtnis in Ihrer Sprache.
 
 ```
 Claudio-Assistant/
+├── VERSION                  installierte Version (von der wöchentlichen Update-Prüfung gelesen)
 ├── CLAUDE.md                die Regeln des Assistenten (liest Claude bei jedem Start)
 ├── README.md                diese Seite (auch .it .fr .de)
 ├── GETTING-STARTED.en.txt   kurze Installationsanleitung (auch .it .fr .de)
@@ -96,16 +105,20 @@ Claudio-Assistant/
 │   └── _archived/
 ├── good-examples/           Ihre besten Arbeiten, nach Art: der Qualitätsmaßstab
 ├── Learn-From-Here/         der Eingangskorb für Arbeiten, die Claudio studieren soll
-├── knowledge/               die Quellen Ihres Berufs (Gesetze, Preislisten, Formulare)
+├── knowledge/               die Quellen Ihres Berufs (Gesetze, Preislisten, Formulare), procedures/, research/
+├── inbox/                   hier legen Sie E-Mails ab, die Claudio lesen und nach Auftrag ablegen soll
 ├── _trash/                  nichts wird gelöscht: entfernte Dateien warten hier
 └── .claude/
     ├── settings.json
     ├── hooks/               startup.ps1 (Windows), startup.sh (macOS/Linux)
     └── skills/              help, setup, new-job, learn-from-here, remember,
-                             tidy-memory, archive, create-skill, forget, get-tools
+                             tidy-memory, archive, create-skill, forget, get-tools,
+                             deadlines, mail, guided-job, fill-form, ask-client,
+                             daily-summary, transcribe, backup, explain,
+                             legal-research, check-updates
 ```
 
-Die 10 Skills lassen sich als Befehle aufrufen (`/help`, `/setup`, `/new-job`…) oder einfach
+Die 21 Skills lassen sich als Befehle aufrufen (`/help`, `/setup`, `/new-job`…) oder einfach
 mit Worten anfragen.
 
 ## Voraussetzungen
@@ -187,6 +200,10 @@ zu verlieren“. Er aktualisiert Regeln, Handbücher und Standard-Skills und lä
 Ruhe.
 Verwenden Sie kein `git pull` in einem bereits genutzten Ordner: Die Einrichtung füllt die
 Gedächtnisdateien aus, ein Pull würde mit Ihren Daten kollidieren.
+Einmal pro Woche prüft Claudio selbst, nur lesend, ob auf GitHub eine neuere Version liegt
+(Skill `check-updates`), sagt Ihnen, was sich ändert (hinzugefügt, verbessert, behoben,
+entfernt), und aktualisiert nur mit Ihrer Zustimmung die Standarddateien nach einer
+Sicherung, ohne Gedächtnis und Aufträge anzutasten.
 
 ## Für einen Beruf anpassen
 

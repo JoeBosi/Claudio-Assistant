@@ -38,7 +38,7 @@ is the assistant folder.
   mkdir -p "<target>" && (cd "<template>" && tar cf - --exclude=./.git --exclude=./.github --exclude=./.claude-plugin --exclude=./skills .) | (cd "<target>" && tar xf -)
   ```
 - Check the copy: `CLAUDE.md`, `memory/office/owner.md` (still containing `NOT_CONFIGURED`),
-  `.claude/skills/` with 10 skills, `.claude/hooks/startup.ps1` and `startup.sh`,
+  `.claude/skills/` with 21 skills, `VERSION`, `.claude/hooks/startup.ps1` and `startup.sh`,
   `docs/MANUAL.*.html`. Get the full path with a command (Windows `Resolve-Path`,
   Mac/Linux `realpath`) and check it exists.
 
