@@ -19,7 +19,7 @@ are needed: you talk to Claudio in plain words, in your own language.
   which programs you use and how you like to work (15-20 minutes, one question at a time).
 - **Studies your profession** on official sources and proposes the list of your typical jobs.
 - **Installs its own tools** (reading and writing Word, Excel, PDF, scans, web browsing): you
-  only click "Yes" when the system asks for permission.
+  only approve when Claude or the system asks for permission.
 - **Learns from your best work.** Drop finished documents into the `Learn-From-Here` folder
   (there is a shortcut on your desktop): Claudio studies them and uses them as the quality
   benchmark.
@@ -72,11 +72,13 @@ Real output of Claude Code running this folder (fictional user).
 
 ```
 Claudio-Assistant/
-├── CLAUDE.md                the assistant's rules (read by Claude at every start)
+├── CLAUDE.template.md       the assistant's rules (becomes CLAUDE.md in the created folder)
 ├── VERSION.txt              installed version (read by the weekly update check)
 ├── README.md                this page (also .it .fr .de)
-├── GETTING-STARTED.en>.md   short install guide (also .it .fr .de)
+├── GETTING-STARTED.en.md    short install guide (also .it .fr .de)
 ├── CUSTOMIZING.md           for whoever prepares the folder for a profession
+├── CHANGELOG.md             what changed in each version (read by the update check)
+├── PRIVACY.md               privacy policy
 ├── LICENSE
 ├── docs/                    user manual: MANUAL.en.md, MANUAL.it.md, MANUAL.fr.md, MANUAL.de.md
 ├── memory/                  what Claudio knows: you, the office, the profession, contacts, decisions, lessons
@@ -90,6 +92,7 @@ Claudio-Assistant/
 ├── jobs/                    one subfolder per job, each with its JOB.md
 │   ├── _template/           JOB.md template
 │   ├── _backup/             copies made before working in your own folders
+│   ├── _summaries/          saved day/week summaries
 │   └── _archived/
 ├── good-examples/           your best work, by type: the quality benchmark
 ├── Learn-From-Here/         the inbox where you drop work for Claudio to study
@@ -167,10 +170,10 @@ Step-by-step guides for the person installing it: `GETTING-STARTED.<language>.md
     LibreOffice, OCR, copying and listing files, web search) and **deny** destructive ones
     (`rm`, `del`, `Remove-Item`, `shred`, `git clean`, `rsync --delete`…). Installing programs
     or running scripts is never pre-allowed: Claude asks every time, and the user decides;
-  - startup scripts (`startup.ps1` and `startup.sh`, written at the first start by the skill `setup`). They run locally at the
-    start of each chat, read the memory files in the folder, count files in
-    `Learn-From-Here/` and print short reminders for Claude. They make no network
-    connection. They are enabled only at the first start, when the `setup` skill writes
+  - a startup script (`startup.ps1` on Windows, `startup.sh` on macOS/Linux), written at the
+    first start by the skill `setup`. It runs locally at the start of each chat, reads the memory files in the folder, counts files in
+    `Learn-From-Here/` and prints short reminders for Claude. It makes no network
+    connection. It is enabled only at the first start, when the `setup` skill writes
     `.claude/settings.local.json` for your system;
   - Markdown instructions, skills and memory templates. Memory is written only to files
     inside the folder.
@@ -180,11 +183,13 @@ Step-by-step guides for the person installing it: `GETTING-STARTED.<language>.md
   client data into websites. Nothing is sent to any service other than Claude itself and the
   websites it reads.
 
-## Why there is a CLAUDE.md at the root
+## Why the rules are in CLAUDE.template.md
 
 This plugin is a **template**: the skill `new-office` copies the whole folder to the user's
-computer, where `CLAUDE.md` becomes the instructions of their own assistant. The plugin itself
-does not load it, and the directory's note about it is expected.
+computer and renames `CLAUDE.template.md` to `CLAUDE.md`, which becomes the instructions of
+their own assistant. The plugin itself does not need those instructions, so they do not sit in
+a root `CLAUDE.md` of the plugin. If you download the folder by hand instead, rename that file
+yourself (see `GETTING-STARTED.<language>.md`).
 
 ## Privacy notes
 
@@ -227,8 +232,9 @@ profession (sources in `knowledge/`, profession profile, ready-made skills), see
 - **Tested:** a full installation on a Windows computer with the Claude Desktop app
   (October 2026) worked end to end: setup, tool installation,
   learning from examples, memory.
-- **Also tested:** `startup.sh` on Linux; `startup.ps1` with PowerShell 7. Feedback and issues
-  on other systems and versions are welcome.
+- **Also tested:** the startup checks on Linux and with PowerShell 7 (since version 1.2.6 the
+  skill `setup` writes them on the user's computer). Feedback and issues on other systems and
+  versions are welcome.
 - Claude sometimes writes paths in the wrong format for the system (e.g. Linux-style paths on
   Windows). There is a rule against it in `CLAUDE.md`; keep an eye on it in the first sessions.
 - The Anthropic **docx / pdf / xlsx / pptx** skills are **not included** because their licence

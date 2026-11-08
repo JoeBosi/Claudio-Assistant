@@ -63,12 +63,19 @@ clash. Instead:
    git cannot work, the GitHub ZIP (downloaded by you, or by the user if they prefer) unpacked
    into `_trash/update-<version>/`. Nothing in that folder is run: it is only read and copied.
 3. **Copy ONLY the standard files** from there into the real folder:
-   - `docs/MANUAL.*.md`, `README*`, `CHANGELOG.md`, `VERSION.txt`, `jobs/_template/`;
-   - `CLAUDE.md`: **merge**, keeping the rows the user's own skills added to the skills table;
+   - `docs/` (`MANUAL.*.md` and images), `README*`, `GETTING-STARTED.*.md`, `CUSTOMIZING.md`,
+     `PRIVACY.md`, `LICENSE`, `CHANGELOG.md`, `VERSION.txt`, `.claude/hooks/README.md`,
+     `jobs/_template/`;
+   - `CLAUDE.md`: the new version ships it as `CLAUDE.template.md` (older versions as
+     `CLAUDE.md`); **merge** it into the user's `CLAUDE.md`, keeping the rows the user's own
+     skills added to the skills table, and do not leave a `CLAUDE.template.md` in the folder;
    - `.claude/settings.json` (and, if the new `setup` skill changed the startup checks, rewrite
      `startup.ps1` / `startup.sh` as it describes): first **compare**
      them with the installed ones and tell the user in plain words what changed; then copy
-     (settings: merge, keeping the lines the user added);
+     (settings: merge, keeping the lines the user added; remove the entries the new standard
+     file no longer has, such as `defaultMode` and the pre-allowed installers and interpreters
+     `winget`, `brew`, `pip`, `python`, `node`, `git clone`, unless the user chose them, and
+     tell the user);
    - the **standard skills** in `.claude/skills/` (those listed in the new CHANGELOG or README):
      if the installed copy was edited (compare with the backup), show the user the difference
      and merge, keeping the user's version in `_trash/update-<version>/user-changes/`; never

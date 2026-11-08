@@ -123,6 +123,8 @@ Ab und zu installiert Claudio ein kostenloses Programm, das er braucht. Der Comp
 - **Mac**: Ein Fenster fragt nach dem Passwort des Computers oder Ihrem Fingerabdruck (**Touch ID**);
 - **Linux**: Ein Fenster fragt nach dem Passwort des Computers.
 
+Vor einer Installation kann Claudio Sie auch im Chat um Ihr OK bitten: Antworten Sie mit **Ja**.
+
 **Seltener Fall, nur Mac und Linux**: Manchmal wird das Passwort im **Terminal** gebraucht, wo Claudio es nicht für Sie eingeben kann. Dann bereitet er **einen einzigen Befehl** vor und führt Sie Schritt für Schritt: Terminal öffnen, Befehl einfügen, `Enter` drücken, Ihr Passwort tippen und noch einmal `Enter` drücken. **Während Sie das Passwort tippen, erscheint nichts auf dem Bildschirm**, nicht einmal Punkte: Das ist normal.
 
 > **Wenn Claudio Sie gerade vorgewarnt hat** („gleich erscheint ein Fenster, klicken Sie auf Ja / geben Sie Ihr Passwort ein“), machen Sie ruhig weiter.

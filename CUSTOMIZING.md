@@ -26,7 +26,7 @@ work of any professional.
    user's language: memory is their notebook.
 4. If you already know a typical job, create its skill in `.claude/skills/<name>/SKILL.md`
    (see the `create-skill` skill for the structure) and add it to the skills table in
-   `CLAUDE.md`. If you change skills or rules, update the manuals in `docs/` too.
+   `CLAUDE.template.md` (it becomes `CLAUDE.md` in each created folder). If you change skills or rules, update the manuals in `docs/` too.
 5. The user's example work goes into `Learn-From-Here/`: Claudio studies it at the first start.
 6. **Do not put personal data** in the folder before handing it over, except the user's own
    work.
@@ -38,17 +38,17 @@ work of any professional.
   them (or free alternatives) on its own, through the `get-tools` skill.
 - The "auto" and "bypassPermissions" permission modes cannot be set from the project's
   settings file: the user chooses "Auto" in the app (see `GETTING-STARTED.<language>.md`).
-- The startup scripts read some markers exactly: `NOT_CONFIGURED` in `memory/office/owner.md`,
+- The startup checks read some markers exactly: `NOT_CONFIGURED` in `memory/office/owner.md`,
   `base_tools_status: TO_INSTALL` in `memory/office/tools.md`, `last_tidy:` and
   `interval_days:` in `memory/_maintenance.md`. Do not translate or rename them.
-- The startup scripts are written by the skill `setup` at the first start (the plugin ships no
-  script files). `startup.ps1` (Windows) must stay **ASCII with Windows line endings (CRLF)**.
-  `startup.sh` (macOS/Linux) must keep Unix line endings (LF). Keep the two scripts aligned:
-  a change in one goes into the other.
+- The plugin ships no script files: the startup checks are described in plain words in the
+  skill `setup` (step 0), which writes `startup.ps1` (Windows: ASCII, Windows line endings) or
+  `startup.sh` (macOS/Linux: Unix line endings, no interpreter line at the top) on the user's
+  computer. To change the checks, change that description.
 - `.claude/settings.local.json` is created on the user's computer at the first start (skill
   `setup`, step 0) for their operating system. Do not ship it.
 - **Tested:** a real installation with the Claude Desktop app (October 2026) worked end to
-  end; `startup.sh` was also tested on Linux and `startup.ps1` with PowerShell 7. Still, watch
+  end; the startup checks were also tested on Linux and with PowerShell 7. Still, watch
   the first session on a new system or app version.
 - Problem already seen: Claude tends to write "Linux-style" paths on Windows. There is a rule
   against it in `CLAUDE.md`, but keep an eye on it in the first sessions.
@@ -64,4 +64,5 @@ The repository is also a Claude Code plugin and a one-plugin marketplace:
   and `skills/`.
 These files are not part of the assistant folder: Claude Code ignores a root-level `skills/`
 directory in a project, and `new-office` never copies them. If you customize the template,
-bump `version` in `plugin.json` so installed copies get the update.
+bump `version` in `plugin.json` and in `VERSION.txt`, and add a `## x.y.z` entry at the top
+of `CHANGELOG.md`, so installed copies get the update.

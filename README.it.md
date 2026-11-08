@@ -19,7 +19,7 @@ competenze tecniche: con Claudio si parla con parole semplici, nella propria lin
   quali programmi usi e come preferisci lavorare (15-20 minuti, una domanda alla volta).
 - **Studia la tua professione** su fonti ufficiali e propone l'elenco dei tuoi lavori tipici.
 - **Si installa da solo gli strumenti** (leggere e scrivere Word, Excel, PDF, scansioni,
-  navigare in internet): tu clicchi solo "Sì" quando il sistema chiede il permesso.
+  navigare in internet): tu dai solo il permesso quando Claude o il sistema lo chiedono.
 - **Impara dai tuoi lavori migliori.** Metti i documenti finiti nella cartella
   `Learn-From-Here` (c'è un collegamento sul desktop): Claudio li studia e li usa come metro
   di qualità.
@@ -77,11 +77,13 @@ spiega e scrive la memoria in italiano.
 
 ```
 Claudio-Assistant/
-├── CLAUDE.md                le regole dell'assistente (Claude le legge a ogni avvio)
+├── CLAUDE.template.md       le regole dell'assistente (diventa CLAUDE.md nella cartella creata)
 ├── VERSION.txt              versione installata (letta dal controllo settimanale degli aggiornamenti)
 ├── README.md                questa pagina (anche .it .fr .de)
-├── GETTING-STARTED.en>.md   breve guida all'installazione (anche .it .fr .de)
+├── GETTING-STARTED.en.md    breve guida all'installazione (anche .it .fr .de)
 ├── CUSTOMIZING.md           per chi prepara la cartella per una professione
+├── CHANGELOG.md             cosa cambia in ogni versione (letto dal controllo aggiornamenti)
+├── PRIVACY.md               informativa sulla privacy
 ├── LICENSE
 ├── docs/                    manuale: MANUAL.en.md, MANUAL.it.md, MANUAL.fr.md, MANUAL.de.md
 ├── memory/                  la memoria: tu, lo studio, la professione, anagrafiche, decisioni, lezioni
@@ -95,6 +97,7 @@ Claudio-Assistant/
 ├── jobs/                    i lavori, uno per sottocartella, ognuno con la sua JOB.md
 │   ├── _template/           modello di JOB.md
 │   ├── _backup/             copie fatte prima di lavorare nelle tue cartelle
+│   ├── _summaries/          riepiloghi del giorno o della settimana salvati
 │   └── _archived/
 ├── good-examples/           i tuoi lavori migliori, per tipo: il metro di qualità
 ├── Learn-From-Here/         la cassetta dove lasci i lavori da far studiare a Claudio
@@ -160,6 +163,38 @@ Claudio copia la cartella pronta dove scegli tu e ti dice come aprirla. Poi pros
 
 Guide passo passo per chi lo installa: `GETTING-STARTED.<lingua>.md`.
 
+## Cosa fa il plugin sul tuo computer (trasparenza)
+
+- **Il plugin** contiene una sola skill, `new-office`. Copia i file del modello dalla cartella
+  del plugin in una cartella nuova che scegli tu (non sovrascrive mai una cartella esistente).
+  Non invia nulla, non scarica nulla e non cambia le impostazioni di Claude.
+- **La cartella che crea** è una normale cartella di progetto di Claude Code. Contiene:
+  - `.claude/settings.json`: regole sui permessi valide **solo dentro quella cartella**.
+    Autorizzano in anticipo solo i comandi d'ufficio più comuni (conversione dei documenti con
+    `pandoc` e LibreOffice, riconoscimento del testo, copia ed elenco dei file, ricerca sul web)
+    e **vietano** quelli distruttivi (`rm`, `del`, `Remove-Item`, `shred`, `git clean`,
+    `rsync --delete`…). Installare programmi o eseguire script non è mai autorizzato in
+    anticipo: Claude chiede ogni volta e decide l'utente;
+  - uno script di avvio (`startup.ps1` su Windows, `startup.sh` su macOS/Linux), scritto al
+    primo avvio dalla skill `setup`. Gira sul computer all'inizio di ogni chat, legge i file
+    della memoria, conta i file in `Learn-From-Here/` e stampa brevi promemoria per Claude.
+    Non si collega a internet. Si attiva solo al primo avvio, quando la skill `setup` scrive
+    `.claude/settings.local.json` per il tuo sistema;
+  - istruzioni in Markdown, skill e modelli della memoria. La memoria si scrive solo in file
+    dentro la cartella.
+- **Cosa fa poi Claudio in quella cartella** (tutto visibile in chat): installa i programmi
+  gratuiti che gli servono con il gestore di pacchetti del sistema, cerca sul web e legge siti
+  pubblici (leggi, portali ufficiali, schede prodotto), e non scrive mai dati dei clienti nei
+  siti. Niente viene inviato a servizi diversi da Claude e dai siti che legge.
+
+## Perché le regole sono in CLAUDE.template.md
+
+Il plugin è un **modello**: la skill `new-office` copia tutta la cartella sul computer
+dell'utente e rinomina `CLAUDE.template.md` in `CLAUDE.md`, che diventa l'insieme delle
+istruzioni del suo assistente. Al plugin quelle istruzioni non servono, per questo non stanno
+in un `CLAUDE.md` alla radice del plugin. Se scarichi la cartella a mano, rinomina tu il file
+(vedi `GETTING-STARTED.<lingua>.md`).
+
 ## Note sulla privacy
 
 Claudio è pensato per tenere i dati dei clienti in locale e non divulgarli mai, ma la
@@ -202,7 +237,8 @@ professione (fonti in `knowledge/`, profilo della professione, skill già pronte
 - **Provato:** un'installazione completa su un computer Windows con l'app Claude Desktop
   (ottobre 2026) ha funzionato in tutto: configurazione, installazione degli
   strumenti, apprendimento dagli esempi, memoria.
-- **Provati anche:** `startup.sh` su Linux; `startup.ps1` con PowerShell 7. Segnalazioni e issue
+- **Provati anche:** i controlli di avvio su Linux e con PowerShell 7 (dalla versione 1.2.6 li
+  scrive la skill `setup` sul computer dell'utente). Segnalazioni e issue
   su altri sistemi e versioni sono benvenute.
 - A volte Claude scrive percorsi nel formato sbagliato per il sistema (es. percorsi "alla
   Linux" su Windows). C'è una regola contro questo in `CLAUDE.md`; controllalo nelle prime

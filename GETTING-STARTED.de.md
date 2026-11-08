@@ -10,6 +10,10 @@
    (das Gedächtnis liegt im Ordner und geht nicht verloren).
    Wenn Sie möchten, benennen Sie ihn VOR dem ersten Start um (z. B. „Anwalt-Claudio“).
 
+**Nur wenn Sie den Ordner von Hand heruntergeladen haben:** benennen Sie die Datei
+   CLAUDE.template.md in CLAUDE.md um (sie enthält die Regeln des Assistenten). Bei der
+   Installation über das Plugin geschieht das automatisch.
+
 **2.** Installieren Sie Claude und melden Sie sich mit dem Konto des Nutzers an
    (mindestens das Pro-Abo ist nötig).
      Windows und macOS: die Claude-App von claude.ai/download.
@@ -33,6 +37,7 @@
    arbeiten. Danach installiert er SELBST die kostenlosen Programme, die er braucht
    (Word, Excel, PDF, Scans, Internet): Der Nutzer muss nur zustimmen, wenn das
    System um Erlaubnis bittet (Windows: auf „Ja“ klicken; Mac/Linux: Passwort).
+   Vor einer Installation kann Claudio auch im Chat um Ihr OK bitten: Antworten Sie mit Ja.
    Internet ist nötig. Zum Schluss studiert er den Beruf des Nutzers anhand
    offizieller Quellen und schlägt die Liste der typischen Arbeiten vor.
    Tipp: Machen Sie diese erste Sitzung zusammen mit dem Nutzer.
@@ -46,4 +51,5 @@
 
 Ab dann öffnet man Claude immer so (Reiter Code, Ordner Claudio-Assistant) und
 spricht ganz normal, auf Deutsch. Um sich zu erinnern, was man fragen kann: /help
-Das vollständige Handbuch liegt im Ordner docs (MANUAL.de.html).
+Das vollständige Handbuch liegt im Ordner docs (MANUAL.de.md); beim ersten Start erstellt Claudio
+auch eine Webseiten-Version (MANUAL.de.html), die sich per Doppelklick öffnet.

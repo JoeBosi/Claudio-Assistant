@@ -9,6 +9,9 @@
    (memory lives inside the folder and is not lost).
    If you like, rename it BEFORE the first start (e.g. "Lawyer-Claudio").
 
+**Only if you downloaded the folder by hand:** rename the file CLAUDE.template.md to
+   CLAUDE.md (it holds the assistant's rules). Installing through the plugin does it for you.
+
 **2.** Install Claude and sign in with the user's account
    (at least the Pro plan is needed).
      Windows and macOS: the Claude app from claude.ai/download.
@@ -32,6 +35,7 @@
    how you work. Then it installs ON ITS OWN the free programs it needs
    (Word, Excel, PDF, scans, internet): the user only has to approve when the
    system asks for permission (Windows: click "Yes"; Mac/Linux: password).
+   Before installing a program, Claudio may also ask for an OK in the chat: answer Yes.
    Internet is needed. Finally it studies the user's profession on official
    sources and proposes the list of typical jobs.
    Tip: do this first session together with the user.
@@ -45,4 +49,5 @@
 
 From then on, always open Claude the same way (Code tab, Claudio-Assistant folder)
 and just talk normally, in your own language. To remember what you can ask: /help
-The full manual is in the docs folder (MANUAL.en.html).
+The full manual is in the docs folder (MANUAL.en.md); at the first start Claudio also makes a
+web-page version of it (MANUAL.en.html) that opens with a double click.

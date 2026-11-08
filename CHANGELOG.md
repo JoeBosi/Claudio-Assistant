@@ -4,6 +4,22 @@ Every version lists, where applicable, what was **Added**, **Improved**, **Fixed
 **Removed**. The skill
 `check-updates` reads this file to tell the user, in plain words, what a new version brings.
 
+## 1.2.8 — 2026-11-08
+### Improved
+- The assistant's rules are shipped as `CLAUDE.template.md`: the skill `new-office` renames it
+  to `CLAUDE.md` in the created folder, and `check-updates` merges it into the existing one.
+  The install guides explain the rename for those who download the folder by hand.
+- READMEs in all four languages describe what the plugin does on the computer and why the
+  rules are in `CLAUDE.template.md`; guides and manuals say Claudio may ask for an OK in the
+  chat before installing a program.
+### Fixed
+- The install-guide file name in the README folder trees; the trees also list
+  `jobs/_summaries/`, `CHANGELOG.md` and `PRIVACY.md`.
+- On Windows, `new-office` no longer risks leaving out the assistant's skills when copying.
+- `check-updates` copies every standard file and removes old pre-allowed installers from
+  the permission settings.
+- Manuals and install guides point to the Markdown manual.
+
 ## 1.2.7 — 2026-11-08
 ### Fixed
 - Every file in the plugin now has a recognised text extension: `VERSION` became `VERSION.txt`

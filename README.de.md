@@ -23,7 +23,7 @@ Sprache.
 - **Studiert Ihren Beruf** anhand offizieller Quellen und schlägt die Liste Ihrer typischen
   Arbeiten vor.
 - **Installiert seine Werkzeuge selbst** (Word, Excel, PDF und Scans lesen und schreiben,
-  im Internet surfen): Sie klicken nur auf „Ja“, wenn das System um Erlaubnis bittet.
+  im Internet surfen): Sie stimmen nur zu, wenn Claude oder das System um Erlaubnis bittet.
 - **Lernt aus Ihren besten Arbeiten.** Legen Sie fertige Dokumente in den Ordner
   `Learn-From-Here` (eine Verknüpfung liegt auf Ihrem Desktop): Claudio studiert sie und nimmt
   sie als Qualitätsmaßstab.
@@ -84,11 +84,13 @@ Ihnen und schreibt das Gedächtnis in Ihrer Sprache.
 
 ```
 Claudio-Assistant/
-├── CLAUDE.md                die Regeln des Assistenten (liest Claude bei jedem Start)
+├── CLAUDE.template.md       die Regeln des Assistenten (wird im erstellten Ordner zu CLAUDE.md)
 ├── VERSION.txt              installierte Version (von der wöchentlichen Update-Prüfung gelesen)
 ├── README.md                diese Seite (auch .it .fr .de)
-├── GETTING-STARTED.en>.md   kurze Installationsanleitung (auch .it .fr .de)
+├── GETTING-STARTED.en.md    kurze Installationsanleitung (auch .it .fr .de)
 ├── CUSTOMIZING.md           für alle, die den Ordner für einen Beruf vorbereiten
+├── CHANGELOG.md             was sich in jeder Version ändert (von der Update-Prüfung gelesen)
+├── PRIVACY.md               Datenschutzerklärung
 ├── LICENSE
 ├── docs/                    Handbuch: MANUAL.en.md, MANUAL.it.md, MANUAL.fr.md, MANUAL.de.md
 ├── memory/                  das Gedächtnis: Sie, das Büro, der Beruf, Kontakte, Entscheidungen, Lektionen
@@ -102,6 +104,7 @@ Claudio-Assistant/
 ├── jobs/                    ein Unterordner pro Auftrag, jeder mit seiner JOB.md
 │   ├── _template/           Vorlage für JOB.md
 │   ├── _backup/             Kopien vor der Arbeit in Ihren eigenen Ordnern
+│   ├── _summaries/          gespeicherte Tages- und Wochenzusammenfassungen
 │   └── _archived/
 ├── good-examples/           Ihre besten Arbeiten, nach Art: der Qualitätsmaßstab
 ├── Learn-From-Here/         der Eingangskorb für Arbeiten, die Claudio studieren soll
@@ -172,6 +175,39 @@ Danach weiter ab Schritt 3 unten.
 Schritt-für-Schritt-Anleitungen für die installierende Person:
 `GETTING-STARTED.<sprache>.md`.
 
+## Was das Plugin auf Ihrem Computer tut (Transparenz)
+
+- **Das Plugin** enthält eine einzige Skill, `new-office`. Sie kopiert die Vorlagendateien aus
+  dem Plugin-Ordner in einen neuen Ordner Ihrer Wahl (ein bestehender Ordner wird nie
+  überschrieben). Sie sendet nichts, lädt nichts herunter und ändert keine Einstellungen von
+  Claude.
+- **Der erstellte Ordner** ist ein gewöhnlicher Claude-Code-Projektordner. Er enthält:
+  - `.claude/settings.json`: Berechtigungsregeln, die **nur in diesem Ordner** gelten. Sie
+    erlauben vorab nur übliche Büro-Befehle (Dokumentkonvertierung mit `pandoc` und
+    LibreOffice, Texterkennung, Dateien kopieren und auflisten, Websuche) und **verbieten**
+    zerstörerische Befehle (`rm`, `del`, `Remove-Item`, `shred`, `git clean`,
+    `rsync --delete`…). Programme installieren oder Skripte ausführen ist nie vorab erlaubt:
+    Claude fragt jedes Mal, und der Nutzer entscheidet;
+  - ein Startskript (`startup.ps1` unter Windows, `startup.sh` unter macOS/Linux), das die
+    Skill `setup` beim ersten Start schreibt. Es läuft zu Beginn jedes Chats auf dem Computer,
+    liest die Gedächtnisdateien, zählt die Dateien in `Learn-From-Here/` und gibt kurze
+    Erinnerungen für Claude aus. Es stellt keine Internetverbindung her. Es wird erst beim ersten
+    Start aktiviert, wenn die Skill `setup` `.claude/settings.local.json` für Ihr System schreibt;
+  - Anweisungen in Markdown, Skills und Gedächtnisvorlagen. Das Gedächtnis wird nur in Dateien
+    innerhalb des Ordners geschrieben.
+- **Was Claudio danach in diesem Ordner tut** (alles im Chat sichtbar): Er installiert benötigte
+  kostenlose Programme mit dem Paketmanager des Systems, sucht im Web und liest öffentliche
+  Seiten (Gesetze, amtliche Portale, Produktblätter) und gibt nie Kundendaten in Websites ein.
+  Nichts wird an andere Dienste als Claude und die gelesenen Websites gesendet.
+
+## Warum die Regeln in CLAUDE.template.md stehen
+
+Das Plugin ist eine **Vorlage**: Die Skill `new-office` kopiert den ganzen Ordner auf den
+Computer des Nutzers und benennt `CLAUDE.template.md` in `CLAUDE.md` um; das werden die
+Anweisungen seines Assistenten. Das Plugin selbst braucht diese Anweisungen nicht, deshalb
+stehen sie nicht in einer `CLAUDE.md` im Wurzelverzeichnis des Plugins. Wenn Sie den Ordner von
+Hand herunterladen, benennen Sie die Datei selbst um (siehe `GETTING-STARTED.<sprache>.md`).
+
 ## Hinweise zum Datenschutz
 
 Claudio ist darauf ausgelegt, Kundendaten lokal zu halten und nie weiterzugeben, aber das
@@ -216,7 +252,8 @@ vorbereiten möchten (Quellen in `knowledge/`, Berufsprofil, fertige Skills), si
 - **Getestet:** Eine vollständige Installation auf einem Windows-Computer mit der
   Claude-Desktop-App (Oktober 2026) hat durchgehend funktioniert: Einrichtung,
   Installation der Werkzeuge, Lernen aus Beispielen, Gedächtnis.
-- **Ebenfalls getestet:** `startup.sh` unter Linux; `startup.ps1` mit PowerShell 7. Rückmeldungen
+- **Ebenfalls getestet:** die Startprüfungen unter Linux und mit PowerShell 7 (seit Version 1.2.6
+  schreibt die Skill `setup` sie auf dem Computer des Nutzers). Rückmeldungen
   und Issues zu anderen Systemen und Versionen sind willkommen.
 - Claude schreibt manchmal Pfade im falschen Format für das System (z. B. „Linux-Pfade“
   unter Windows). Eine Regel in `CLAUDE.md` verbietet das; achten Sie in den ersten Sitzungen

@@ -9,6 +9,9 @@
    (la memoria invece sta dentro la cartella e non si perde).
    Se vuoi, rinominala PRIMA del primo avvio (es. "Avvocato-Claudio").
 
+**Solo se hai scaricato la cartella a mano:** rinomina il file CLAUDE.template.md in
+   CLAUDE.md (contiene le regole dell'assistente). Con l'installazione dal plugin lo fa da solo.
+
 **2.** Installa Claude ed entra con l'account dell'utente
    (serve almeno il piano Pro).
      Windows e macOS: l'app Claude da claude.ai/download.
@@ -31,7 +34,8 @@
    (15-20 minuti): chi sei, che professione fai, dove tieni i file, come lavori.
    Poi installa DA SOLO i programmi gratuiti che gli servono (Word, Excel, PDF,
    scansioni, internet): l'utente deve solo dare il permesso quando il sistema
-   lo chiede (Windows: clic su "Sì"; Mac/Linux: password). Serve internet.
+   lo chiede (Windows: clic su "Sì"; Mac/Linux: password).
+   Prima di installare un programma Claudio può chiedere l'ok anche in chat: rispondi Sì. Serve internet.
    Infine studia la professione dell'utente sulle fonti ufficiali e propone
    l'elenco dei lavori tipici.
    Consiglio: fai questa prima sessione insieme all'utente.
@@ -45,4 +49,5 @@
 
 Da quel momento si apre sempre Claude così (scheda Code, cartella Claudio-Assistant)
 e si parla normalmente, in italiano. Per ricordarsi cosa si può chiedere: /help
-Il manuale completo è nella cartella docs (MANUAL.it.html).
+Il manuale completo è nella cartella docs (MANUAL.it.md); al primo avvio Claudio ne crea anche
+una versione pagina web (MANUAL.it.html) che si apre con un doppio clic.

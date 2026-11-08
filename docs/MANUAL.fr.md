@@ -123,6 +123,8 @@ De temps en temps, Claudio installe un logiciel gratuit dont il a besoin. L'ordi
 - **Mac** : une fenêtre demande le mot de passe de l'ordinateur ou votre empreinte (**Touch ID**) ;
 - **Linux** : une fenêtre demande le mot de passe de l'ordinateur.
 
+Avant d'installer, Claudio peut aussi vous demander votre accord dans la conversation : répondez **Oui**.
+
 **Cas rare, Mac et Linux uniquement** : parfois le mot de passe doit être saisi dans le **Terminal**, où Claudio ne peut pas le taper à votre place. Il prépare alors **une seule commande** et vous guide pas à pas : ouvrir le Terminal, coller la commande, appuyer sur `Entrée`, taper votre mot de passe et appuyer de nouveau sur `Entrée`. **Pendant que vous tapez le mot de passe, rien ne s'affiche à l'écran**, pas même des points : c'est normal.
 
 > **Si Claudio vient de vous prévenir** (« une fenêtre va apparaître, cliquez sur Oui / tapez votre mot de passe »), allez-y.

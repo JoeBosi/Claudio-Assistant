@@ -133,6 +133,8 @@ Now and then Claudio installs a free program he needs. The computer may then ask
 - **Mac**: a window asks for your computer password or your fingerprint (**Touch ID**);
 - **Linux**: a window asks for your computer password.
 
+Before installing, Claudio may also ask for your OK in the chat: answer **Yes**.
+
 **Rare case, Mac and Linux only**: sometimes the password is needed inside the **Terminal**, where Claudio cannot type it for you. Then he prepares **one single command** and guides you step by step: open the Terminal, paste the command, press `Enter`, type your password and press `Enter` again. **While you type the password nothing appears on the screen**, not even dots: that is normal.
 
 > **If Claudio has just warned you** ("in a moment a window will appear, click Yes / type your password"), go ahead.

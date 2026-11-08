@@ -133,6 +133,8 @@ Ogni tanto Claudio installa un programma gratuito che gli serve. Il computer pu�
 - **Mac**: una finestra chiede la password del computer o l'impronta (**Touch ID**);
 - **Linux**: una finestra chiede la password del computer.
 
+Prima di installare, Claudio può chiederti l'ok anche in chat: rispondi **Sì**.
+
 **Caso raro, solo Mac e Linux**: a volte la password serve dentro il **Terminale**, dove Claudio non può scriverla al posto tuo. Allora prepara **un solo comando** e ti guida passo passo: apri il Terminale, incolli il comando, premi `Invio`, scrivi la tua password e premi di nuovo `Invio`. **Mentre scrivi la password sullo schermo non compare niente**, nemmeno i puntini: è normale.
 
 > **Se Claudio ti ha appena avvisato** ("tra poco compare una finestra, clicca Sì / scrivi la password"), vai pure.

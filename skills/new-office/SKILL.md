@@ -11,7 +11,7 @@ time. Do the technical work yourself; never ask them to type commands.
 ## 1. Find the template
 The template is the plugin itself: two levels above this skill's folder.
 - Template folder: `${CLAUDE_SKILL_DIR}/../..`
-- Check it is right: it must contain `CLAUDE.md`, `memory/office/owner.md` and
+- Check it is right: it must contain `CLAUDE.template.md`, `memory/office/owner.md` and
   `.claude/skills/setup/SKILL.md`. If not, stop and say the plugin looks damaged
   (suggest reinstalling it).
 
@@ -30,14 +30,19 @@ Exclude: `.git`, `.github`, `.claude-plugin`, `skills` (this plugin skill) — e
 is the assistant folder.
 - **Windows (PowerShell):**
   ```powershell
-  robocopy "<template>" "<target>" /E /XD .git .github .claude-plugin skills /NFL /NDL /NJH /NJS
+  robocopy "<template>" "<target>" /E /XD "<template>\.git" "<template>\.github" "<template>\.claude-plugin" "<template>\skills" /NFL /NDL /NJH /NJS
   ```
+  Give `/XD` full paths: a bare name like `skills` would also leave out `.claude\skills`,
+  the assistant's own skills.
   robocopy exit codes 0-7 mean success; 8 or more is an error.
 - **macOS / Linux:**
   ```sh
   mkdir -p "<target>" && (cd "<template>" && tar cf - --exclude=./.git --exclude=./.github --exclude=./.claude-plugin --exclude=./skills .) | (cd "<target>" && tar xf -)
   ```
-- Check the copy: `CLAUDE.md`, `memory/office/owner.md` (still containing `NOT_CONFIGURED`),
+- **Rename** `CLAUDE.template.md` to `CLAUDE.md` in the new folder (Windows
+  `Rename-Item`, Mac/Linux `mv`): it holds the assistant's rules, and Claude reads it only
+  with that name.
+- Check the copy: `CLAUDE.md` (and no `CLAUDE.template.md` left), `memory/office/owner.md` (still containing `NOT_CONFIGURED`),
   `.claude/skills/` with 21 skills, `VERSION.txt`, `.claude/hooks/README.md`,
   `docs/MANUAL.*.md`. Get the full path with a command (Windows `Resolve-Path`,
   Mac/Linux `realpath`) and check it exists.

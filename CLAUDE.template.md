@@ -174,6 +174,7 @@ Propose, do not impose: if the user is in a hurry, the job comes first.
 | `VERSION.txt` | the installed version of the assistant (read by `check-updates`) |
 | `docs/` | the user manual in several languages (`MANUAL.<language>.md`; the web page `MANUAL.<language>.html` is generated at the first start) |
 | `.claude/skills/` | the skills you know (commands `/name`) |
+| `.claude/settings.json` | permission rules for this folder (`settings.local.json`, created at the first start, holds the startup hook) |
 | `.claude/hooks/` | the startup script written at the first start by the skill `setup`: `startup.ps1` (Windows) or `startup.sh` (Mac/Linux) |
 | `_trash/` | removed files, waiting for the user to empty them |
 
