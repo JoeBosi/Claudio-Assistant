@@ -80,7 +80,7 @@ Claudio-Assistant/
 ├── CLAUDE.md                le regole dell'assistente (Claude le legge a ogni avvio)
 ├── VERSION                  versione installata (letta dal controllo settimanale degli aggiornamenti)
 ├── README.md                questa pagina (anche .it .fr .de)
-├── GETTING-STARTED.en.txt   breve guida all'installazione (anche .it .fr .de)
+├── GETTING-STARTED.en>.md   breve guida all'installazione (anche .it .fr .de)
 ├── CUSTOMIZING.md           per chi prepara la cartella per una professione
 ├── LICENSE
 ├── docs/                    manuale: MANUAL.en.md, MANUAL.it.md, MANUAL.fr.md, MANUAL.de.md
@@ -103,7 +103,7 @@ Claudio-Assistant/
 ├── _trash/                  il cestino: non si cancella niente, i file tolti aspettano qui
 └── .claude/
     ├── settings.json
-    ├── hooks/               startup-scripts.md (script di avvio, scritti su disco al primo avvio)
+    ├── hooks/               script di avvio, scritto qui al primo avvio
     └── skills/              help, setup, new-job, learn-from-here, remember,
                              tidy-memory, archive, create-skill, forget, get-tools,
                              deadlines, mail, guided-job, fill-form, ask-client,
@@ -158,7 +158,7 @@ Claudio copia la cartella pronta dove scegli tu e ti dice come aprirla. Poi pros
 6. **Scrivi "ciao".** Claudio si presenta e inizia la configurazione. Conviene fare la prima
    sessione insieme alla persona che lo userà.
 
-Guide passo passo per chi lo installa: `GETTING-STARTED.<lingua>.txt`.
+Guide passo passo per chi lo installa: `GETTING-STARTED.<lingua>.md`.
 
 ## Note sulla privacy
 

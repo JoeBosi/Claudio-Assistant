@@ -75,7 +75,7 @@ Claudio-Assistant/
 ├── CLAUDE.md                the assistant's rules (read by Claude at every start)
 ├── VERSION                  installed version (read by the weekly update check)
 ├── README.md                this page (also .it .fr .de)
-├── GETTING-STARTED.en.txt   short install guide (also .it .fr .de)
+├── GETTING-STARTED.en>.md   short install guide (also .it .fr .de)
 ├── CUSTOMIZING.md           for whoever prepares the folder for a profession
 ├── LICENSE
 ├── docs/                    user manual: MANUAL.en.md, MANUAL.it.md, MANUAL.fr.md, MANUAL.de.md
@@ -98,7 +98,7 @@ Claudio-Assistant/
 ├── _trash/                  nothing is deleted: removed files wait here for you
 └── .claude/
     ├── settings.json
-    ├── hooks/               startup-scripts.md (the startup scripts, written to disk at the first start)
+    ├── hooks/               startup script, written here at the first start
     └── skills/              help, setup, new-job, learn-from-here, remember,
                              tidy-memory, archive, create-skill, forget, get-tools,
                              deadlines, mail, guided-job, fill-form, ask-client,
@@ -154,7 +154,7 @@ Then continue from step 3 below.
 6. **Say "hi".** Claudio introduces itself and starts the setup. Doing the first session
    together with the person who will use it is a good idea.
 
-Step-by-step guides for the person installing it: `GETTING-STARTED.<language>.txt`.
+Step-by-step guides for the person installing it: `GETTING-STARTED.<language>.md`.
 
 ## What the plugin does on your computer (transparency)
 
@@ -166,8 +166,7 @@ Step-by-step guides for the person installing it: `GETTING-STARTED.<language>.tx
     folder. They pre-allow common office and installation commands (for example `winget`,
     `brew`, `pandoc`, `python`, copying and listing files, web search) and **deny**
     destructive ones (`rm`, `del`, `Remove-Item`, `shred`, `git clean`, `rsync --delete`…);
-  - startup scripts (`startup.ps1` and `startup.sh`, written at the first start from the text
-    template `.claude/hooks/startup-scripts.md`). They run locally at the
+  - startup scripts (`startup.ps1` and `startup.sh`, written at the first start by the skill `setup`). They run locally at the
     start of each chat, read the memory files in the folder, count files in
     `Learn-From-Here/` and print short reminders for Claude. They make no network
     connection. They are enabled only at the first start, when the `setup` skill writes

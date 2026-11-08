@@ -89,7 +89,7 @@ Claudio-Assistant/
 ├── CLAUDE.md                les règles de l'assistant (lues par Claude à chaque démarrage)
 ├── VERSION                  version installée (lue par la vérification hebdomadaire des mises à jour)
 ├── README.md                cette page (aussi .it .fr .de)
-├── GETTING-STARTED.en.txt   guide d'installation rapide (aussi .it .fr .de)
+├── GETTING-STARTED.en>.md   guide d'installation rapide (aussi .it .fr .de)
 ├── CUSTOMIZING.md           pour qui prépare le dossier pour une profession
 ├── LICENSE
 ├── docs/                    manuel : MANUAL.en.md, MANUAL.it.md, MANUAL.fr.md, MANUAL.de.md
@@ -112,7 +112,7 @@ Claudio-Assistant/
 ├── _trash/                  rien n'est supprimé : les fichiers retirés attendent ici
 └── .claude/
     ├── settings.json
-    ├── hooks/               startup-scripts.md (scripts de démarrage, écrits sur disque au premier démarrage)
+    ├── hooks/               script de démarrage, écrit ici au premier démarrage
     └── skills/              help, setup, new-job, learn-from-here, remember,
                              tidy-memory, archive, create-skill, forget, get-tools,
                              deadlines, mail, guided-job, fill-form, ask-client,
@@ -171,7 +171,7 @@ Continuez ensuite à partir de l'étape 3 ci-dessous.
 6. **Dites « bonjour ».** Claudio se présente et lance la configuration. Il est conseillé de
    faire la première session avec la personne qui l'utilisera.
 
-Guides pas à pas pour la personne qui l'installe : `GETTING-STARTED.<langue>.txt`.
+Guides pas à pas pour la personne qui l'installe : `GETTING-STARTED.<langue>.md`.
 
 ## Confidentialité
 

@@ -61,10 +61,10 @@ clash. Instead:
    git cannot work, the GitHub ZIP (downloaded by you, or by the user if they prefer) unpacked
    into `_trash/update-<version>/`. Nothing in that folder is run: it is only read and copied.
 3. **Copy ONLY the standard files** from there into the real folder:
-   - `docs/MANUAL.*.html`, `README*`, `CHANGELOG.md`, `VERSION`, `jobs/_template/`;
+   - `docs/MANUAL.*.md`, `README*`, `CHANGELOG.md`, `VERSION`, `jobs/_template/`;
    - `CLAUDE.md`: **merge**, keeping the rows the user's own skills added to the skills table;
-   - `.claude/hooks/startup-scripts.md` (then regenerate `startup.ps1` and `startup.sh` from it)
-     and `.claude/settings.json`: first **compare**
+   - `.claude/settings.json` (and, if the new `setup` skill changed the startup checks, rewrite
+     `startup.ps1` / `startup.sh` as it describes): first **compare**
      them with the installed ones and tell the user in plain words what changed; then copy
      (settings: merge, keeping the lines the user added);
    - the **standard skills** in `.claude/skills/` (those listed in the new CHANGELOG or README):

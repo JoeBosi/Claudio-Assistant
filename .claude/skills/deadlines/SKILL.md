@@ -6,7 +6,7 @@ description: Keeps the list of deadlines and the agenda in memory/deadlines.md, 
 # Deadlines — one list, always up to date
 
 All deadlines live in **one file**: `memory/deadlines.md`. The startup script
-(`startup.sh` on Mac/Linux, `startup.ps1` on Windows, created from `.claude/hooks/startup-scripts.md`) reads it at
+(`startup.sh` on Mac/Linux, `startup.ps1` on Windows, written at the first start by the skill `setup`) reads it at
 every start and warns you when a row falls **within 7 days**. So the file format must never
 change. Talk to the user in their language (`memory/office/owner.md`, `Language:`); write the
 file in their language too.

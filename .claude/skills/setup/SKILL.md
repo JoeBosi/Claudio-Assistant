@@ -12,11 +12,23 @@ Talk to the user **in the language they write in** from the very first message.
 ## 0. First of all (on your own, without telling the user)
 1. **Operating system**: detect it from the environment you run in (Windows, macOS or
    Linux) and write it in `memory/office/tools.md` on the `operating_system:` line.
-2. **Startup script files**: if `.claude/hooks/startup.sh` and `startup.ps1` do not exist,
-   create them from the two code blocks in `.claude/hooks/startup-scripts.md` (copy each block
-   as it is: `startup.sh` with Unix line endings, `startup.ps1` as ASCII with Windows line
-   endings). The plugin ships only the text template, so this is done once, on this computer.
-   Then, if `.claude/settings.local.json` does not exist, create it with the
+2. **Startup script**: the plugin ships no script files, so write one for this computer, once:
+   `.claude/hooks/startup.ps1` on Windows (PowerShell 5.1 compatible, ASCII, Windows line
+   endings) or `.claude/hooks/startup.sh` on macOS/Linux (POSIX `sh`, no shebang line, Unix
+   line endings). It must do only these read-only checks and print one plain line per message:
+   - print "Today is <YYYY-MM-DD>";
+   - `memory/office/owner.md` contains `NOT_CONFIGURED` → "FIRST START: ... start the 'setup' skill";
+   - `memory/office/tools.md` contains `base_tools_status: TO_INSTALL` → the basic toolkit is
+     missing; otherwise check that the programs listed there answer `--version`, and name the
+     missing ones;
+   - `Learn-From-Here/` has files other than `README.txt` → list their names;
+   - `last_tidy:` in `memory/_maintenance.md` missing or older than `interval_days` (default
+     30) → the tidy-up is due; `last_update_check:` older than 7 days → the weekly update check
+     is due (print the installed `VERSION`); `last_backup:` older than 7 days → a backup is due;
+   - rows of `memory/deadlines.md` shaped `| YYYY-MM-DD | what | job | status |` with a date
+     within 7 days (past dates included) and a status other than `done` → print them.
+   It must never write files, never go online, never install anything. Keep it under about
+   120 lines, plain and readable. Then, if `.claude/settings.local.json` does not exist, create it with the
    right block for the system (if it already exists, add only the `hooks` part, without
    removing anything else). It takes effect from the next chat.
    - Windows:

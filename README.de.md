@@ -87,7 +87,7 @@ Claudio-Assistant/
 ├── CLAUDE.md                die Regeln des Assistenten (liest Claude bei jedem Start)
 ├── VERSION                  installierte Version (von der wöchentlichen Update-Prüfung gelesen)
 ├── README.md                diese Seite (auch .it .fr .de)
-├── GETTING-STARTED.en.txt   kurze Installationsanleitung (auch .it .fr .de)
+├── GETTING-STARTED.en>.md   kurze Installationsanleitung (auch .it .fr .de)
 ├── CUSTOMIZING.md           für alle, die den Ordner für einen Beruf vorbereiten
 ├── LICENSE
 ├── docs/                    Handbuch: MANUAL.en.md, MANUAL.it.md, MANUAL.fr.md, MANUAL.de.md
@@ -110,7 +110,7 @@ Claudio-Assistant/
 ├── _trash/                  nichts wird gelöscht: entfernte Dateien warten hier
 └── .claude/
     ├── settings.json
-    ├── hooks/               startup-scripts.md (Startskripte, beim ersten Start auf die Platte geschrieben)
+    ├── hooks/               Startskript, beim ersten Start hier geschrieben
     └── skills/              help, setup, new-job, learn-from-here, remember,
                              tidy-memory, archive, create-skill, forget, get-tools,
                              deadlines, mail, guided-job, fill-form, ask-client,
@@ -170,7 +170,7 @@ Danach weiter ab Schritt 3 unten.
    machen Sie die erste Sitzung zusammen mit der Person, die ihn nutzen wird.
 
 Schritt-für-Schritt-Anleitungen für die installierende Person:
-`GETTING-STARTED.<sprache>.txt`.
+`GETTING-STARTED.<sprache>.md`.
 
 ## Hinweise zum Datenschutz
 

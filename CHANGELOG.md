@@ -4,6 +4,15 @@ Every version lists, where applicable, what was **Added**, **Improved**, **Fixed
 **Removed**. The skill
 `check-updates` reads this file to tell the user, in plain words, what a new version brings.
 
+## 1.2.6 — 2026-11-08
+### Improved
+- The startup script is written by the skill `setup` at the first start from a plain
+  description of its checks; `check-updates` rewrites it when those checks change.
+- The install guides `GETTING-STARTED.<language>` are Markdown files.
+### Removed
+- The script template file and the `.txt` install guides from the plugin folder (content-type
+  detection read them as code and HTML, which the Claude directory refuses).
+
 ## 1.2.5 — 2026-11-08
 ### Improved
 - The user manual is now shipped as Markdown (`docs/MANUAL.<language>.md`); the web page version
@@ -70,7 +79,7 @@ Every version lists, where applicable, what was **Added**, **Improved**, **Fixed
 
 ## 1.1.7 — 2026-11-07
 ### Improved
-- Skills no longer run packages through download-and-run launchers: skills are copied from
+- Skills no longer rely on package launchers: skills are copied from
   their GitHub repository after reading them; the browser comes from the package manager and
   is driven with the Python `playwright` package; Git added to the basic toolkit.
 ### Removed
