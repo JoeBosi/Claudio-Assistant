@@ -32,7 +32,8 @@ invent data: numbers, prices and laws come from sources, and I cite them.
 · `/backup` · `/explain` · `/legal-research` · `/check-updates`
 
 **Full manual**: open the file `docs/MANUAL.<language>.html` in the Claudio-Assistant folder
-(double-click it). Give the full path in the format of the user's system, checked.
+(double-click it; if it does not exist yet, create it from `docs/MANUAL.<language>.md` as the
+skill `setup` does, step 0). Give the full path in the format of the user's system, checked.
 
 **Important**: always open Claude in this folder (Claudio-Assistant): on Windows and macOS in
 the **Code** tab of the Claude app; on Linux with Claude Code in the terminal (or the VS Code

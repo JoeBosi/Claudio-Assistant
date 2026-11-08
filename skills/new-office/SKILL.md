@@ -38,8 +38,8 @@ is the assistant folder.
   mkdir -p "<target>" && (cd "<template>" && tar cf - --exclude=./.git --exclude=./.github --exclude=./.claude-plugin --exclude=./skills .) | (cd "<target>" && tar xf -)
   ```
 - Check the copy: `CLAUDE.md`, `memory/office/owner.md` (still containing `NOT_CONFIGURED`),
-  `.claude/skills/` with 21 skills, `VERSION`, `.claude/hooks/startup.ps1` and `startup.sh`,
-  `docs/MANUAL.*.html`. Get the full path with a command (Windows `Resolve-Path`,
+  `.claude/skills/` with 21 skills, `VERSION`, `.claude/hooks/startup-scripts.md`,
+  `docs/MANUAL.*.md`. Get the full path with a command (Windows `Resolve-Path`,
   Mac/Linux `realpath`) and check it exists.
 
 ## 4. Tell the user how to open it (in their language, short)
@@ -50,7 +50,8 @@ is the assistant folder.
 - **Terminal (Linux or anyone using the CLI):** `cd "<target>"` then `claude`, and write "hi".
   Mode switching: Shift+Tab.
 - Give the full path in the format of their system, and the user manual:
-  `<target>/docs/MANUAL.<language>.html` (en, it, fr, de).
+  `<target>/docs/MANUAL.<language>.md` (en, it, fr, de); at the first start Claudio also
+  makes a web-page version of it.
 - Privacy tip in one line: in Claude's settings, turn off the option that lets Anthropic use
   chats to improve its models, because client data will pass through the chats.
 

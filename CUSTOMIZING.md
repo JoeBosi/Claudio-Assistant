@@ -18,7 +18,7 @@ work of any professional.
 ## If you want to prepare it in advance for a profession
 
 1. Rename the folder (e.g. `Accountant-Claudio`) **before the first start**, and update the
-   name in the manuals in `docs/` (`MANUAL.<language>.html`) and in
+   name in the manuals in `docs/` (`MANUAL.<language>.md`) and in
    `GETTING-STARTED.<language>.txt`.
 2. Put the official sources of the profession in `knowledge/` and describe them in
    `knowledge/README.md`.
@@ -41,7 +41,8 @@ work of any professional.
 - The startup scripts read some markers exactly: `NOT_CONFIGURED` in `memory/office/owner.md`,
   `base_tools_status: TO_INSTALL` in `memory/office/tools.md`, `last_tidy:` and
   `interval_days:` in `memory/_maintenance.md`. Do not translate or rename them.
-- `.claude/hooks/startup.ps1` (Windows) must stay **ASCII with Windows line endings (CRLF)**.
+- The startup scripts live as text in `.claude/hooks/startup-scripts.md` and are written to disk at
+  the first start. `startup.ps1` (Windows) must stay **ASCII with Windows line endings (CRLF)**.
   `startup.sh` (macOS/Linux) must keep Unix line endings (LF). Keep the two scripts aligned:
   a change in one goes into the other.
 - `.claude/settings.local.json` is created on the user's computer at the first start (skill

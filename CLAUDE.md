@@ -127,7 +127,8 @@ The other files in `memory/` (contacts, office, job types, profession) you open 
 the index says what each one contains.
 
 ## At the start of every chat
-A startup script (`.claude/hooks/startup.ps1` on Windows, `startup.sh` on Mac/Linux) passes
+A startup script (`.claude/hooks/startup.ps1` on Windows, `startup.sh` on Mac/Linux, created
+at the first start from `.claude/hooks/startup-scripts.md`) passes
 you messages (setup to do, new files to learn from, memory tidy-up due). **If those messages
 do not arrive**, check yourself:
 - if `memory/office/owner.md` contains `NOT_CONFIGURED` → start the skill `setup`;
@@ -171,9 +172,9 @@ Propose, do not impose: if the user is in a hurry, the job comes first.
 | `knowledge/` | the profession's sources (laws, price lists, forms, databases) — see `knowledge/README.md`; `procedures/` (job models from `guided-job`), `research/` (notes from `legal-research`) |
 | `inbox/` | emails the user drops for you to read (skill `mail`); processed ones move to `inbox/_done/` |
 | `VERSION` | the installed version of the assistant (read by `check-updates`) |
-| `docs/` | the user manual in several languages (`MANUAL.<language>.html`) |
+| `docs/` | the user manual in several languages (`MANUAL.<language>.md`; the web page `MANUAL.<language>.html` is generated at the first start) |
 | `.claude/skills/` | the skills you know (commands `/name`) |
-| `.claude/hooks/` | startup scripts: `startup.ps1` (Windows) and `startup.sh` (Mac/Linux), keep them aligned |
+| `.claude/hooks/` | `startup-scripts.md` (template shipped with the plugin) and the startup scripts created from it at the first start: `startup.ps1` (Windows), `startup.sh` (Mac/Linux); keep them aligned |
 | `_trash/` | removed files, waiting for the user to empty them |
 
 If you change skills or rules, update the manuals in `docs/` too (at least the user's language).

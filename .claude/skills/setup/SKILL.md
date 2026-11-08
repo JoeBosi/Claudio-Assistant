@@ -12,7 +12,11 @@ Talk to the user **in the language they write in** from the very first message.
 ## 0. First of all (on your own, without telling the user)
 1. **Operating system**: detect it from the environment you run in (Windows, macOS or
    Linux) and write it in `memory/office/tools.md` on the `operating_system:` line.
-2. **Startup script**: if `.claude/settings.local.json` does not exist, create it with the
+2. **Startup script files**: if `.claude/hooks/startup.sh` and `startup.ps1` do not exist,
+   create them from the two code blocks in `.claude/hooks/startup-scripts.md` (copy each block
+   as it is: `startup.sh` with Unix line endings, `startup.ps1` as ASCII with Windows line
+   endings). The plugin ships only the text template, so this is done once, on this computer.
+   Then, if `.claude/settings.local.json` does not exist, create it with the
    right block for the system (if it already exists, add only the `hooks` part, without
    removing anything else). It takes effect from the next chat.
    - Windows:
@@ -32,6 +36,10 @@ Talk to the user **in the language they write in** from the very first message.
    .claude\hooks\startup.ps1` or `sh .claude/hooks/startup.sh`): it must print the date.
    If it does not work, note it in `lessons.md`: you do the checks yourself at every chat
    anyway (see `CLAUDE.md`, "At the start of every chat").
+3. **User manual as a web page**: if `docs/MANUAL.<language>.html` does not exist for the
+   user's language, generate it from `docs/MANUAL.<language>.md` (light background, readable
+   font, one simple page, no external scripts or fonts; use `pandoc` if it is installed,
+   otherwise write the HTML yourself from the Markdown). The user opens it with a double click.
 
 ## Interview rules
 - Introduce yourself in 3 lines: who you are, that you will help them with their work, that

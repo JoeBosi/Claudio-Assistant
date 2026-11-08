@@ -83,7 +83,7 @@ Claudio-Assistant/
 ├── GETTING-STARTED.en.txt   breve guida all'installazione (anche .it .fr .de)
 ├── CUSTOMIZING.md           per chi prepara la cartella per una professione
 ├── LICENSE
-├── docs/                    manuale: MANUAL.en.html, MANUAL.it.html, MANUAL.fr.html, MANUAL.de.html
+├── docs/                    manuale: MANUAL.en.md, MANUAL.it.md, MANUAL.fr.md, MANUAL.de.md
 ├── memory/                  la memoria: tu, lo studio, la professione, anagrafiche, decisioni, lezioni
 │   ├── INDEX.md
 │   ├── office/              owner.md, office.md, tools.md
@@ -103,7 +103,7 @@ Claudio-Assistant/
 ├── _trash/                  il cestino: non si cancella niente, i file tolti aspettano qui
 └── .claude/
     ├── settings.json
-    ├── hooks/               startup.ps1 (Windows), startup.sh (macOS/Linux)
+    ├── hooks/               startup-scripts.md (script di avvio, scritti su disco al primo avvio)
     └── skills/              help, setup, new-job, learn-from-here, remember,
                              tidy-memory, archive, create-skill, forget, get-tools,
                              deadlines, mail, guided-job, fill-form, ask-client,
@@ -217,7 +217,7 @@ professione (fonti in `knowledge/`, profilo della professione, skill già pronte
 ## Lingue
 
 README: [English](README.md) · [Italiano](README.it.md) · [Français](README.fr.md) · [Deutsch](README.de.md)
-Manuale: [English](docs/MANUAL.en.html) · [Italiano](docs/MANUAL.it.html) · [Français](docs/MANUAL.fr.html) · [Deutsch](docs/MANUAL.de.html)
+Manuale: [English](docs/MANUAL.en.md) · [Italiano](docs/MANUAL.it.md) · [Français](docs/MANUAL.fr.md) · [Deutsch](docs/MANUAL.de.md)
 Claudio ti parla nella tua lingua, qualunque sia.
 
 ## Licenza

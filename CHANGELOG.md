@@ -4,6 +4,18 @@ Every version lists, where applicable, what was **Added**, **Improved**, **Fixed
 **Removed**. The skill
 `check-updates` reads this file to tell the user, in plain words, what a new version brings.
 
+## 1.2.5 — 2026-11-08
+### Improved
+- The user manual is now shipped as Markdown (`docs/MANUAL.<language>.md`); the web page version
+  is generated on the user's computer at the first start (skill `setup`, step 0).
+- The startup scripts are shipped as a text template (`.claude/hooks/startup-scripts.md`) and
+  written to disk at the first start; `check-updates` regenerates them after an update.
+- README explains why the template keeps a `CLAUDE.md` at its root.
+### Removed
+- The HTML manuals, the two script files and the internal development plan from the plugin
+  folder: the Claude directory accepts only Markdown, text, JSON, YAML and images from
+  publishers that are not verified organizations.
+
 ## 1.2.4 — 2026-11-07
 ### Fixed
 - The eight `.keep` placeholder files are no longer empty: an empty file has no detectable text
@@ -14,7 +26,7 @@ Every version lists, where applicable, what was **Added**, **Improved**, **Fixed
 - The startup script `startup.sh` no longer begins with a shebang line: the hook already runs it
   with `sh`, and the Claude directory accepts only plain text files from non-verified publishers.
 ### Removed
-- The SVG diagram `docs/how-it-works.svg`, replaced by `docs/how-it-works.png` (same content):
+- The SVG diagram of "How Claudio works", replaced by a PNG with the same content:
   SVG is not among the image formats the directory accepts.
 
 ## 1.2.2 — 2026-11-07
@@ -33,7 +45,7 @@ Every version lists, where applicable, what was **Added**, **Improved**, **Fixed
 
 ## 1.2.1 — 2026-11-07
 ### Removed
-- The `npx` permission rules in `.claude/settings.json`: no skill uses that launcher any more.
+- The permission rules for the Node package launcher in `.claude/settings.json`: no skill uses it any more.
 
 ## 1.2.0 — 2026-11-07
 ### Added

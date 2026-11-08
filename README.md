@@ -78,7 +78,7 @@ Claudio-Assistant/
 ├── GETTING-STARTED.en.txt   short install guide (also .it .fr .de)
 ├── CUSTOMIZING.md           for whoever prepares the folder for a profession
 ├── LICENSE
-├── docs/                    user manual: MANUAL.en.html, MANUAL.it.html, MANUAL.fr.html, MANUAL.de.html
+├── docs/                    user manual: MANUAL.en.md, MANUAL.it.md, MANUAL.fr.md, MANUAL.de.md
 ├── memory/                  what Claudio knows: you, the office, the profession, contacts, decisions, lessons
 │   ├── INDEX.md
 │   ├── office/              owner.md, office.md, tools.md
@@ -98,7 +98,7 @@ Claudio-Assistant/
 ├── _trash/                  nothing is deleted: removed files wait here for you
 └── .claude/
     ├── settings.json
-    ├── hooks/               startup.ps1 (Windows), startup.sh (macOS/Linux)
+    ├── hooks/               startup-scripts.md (the startup scripts, written to disk at the first start)
     └── skills/              help, setup, new-job, learn-from-here, remember,
                              tidy-memory, archive, create-skill, forget, get-tools,
                              deadlines, mail, guided-job, fill-form, ask-client,
@@ -166,7 +166,8 @@ Step-by-step guides for the person installing it: `GETTING-STARTED.<language>.tx
     folder. They pre-allow common office and installation commands (for example `winget`,
     `brew`, `pandoc`, `python`, copying and listing files, web search) and **deny**
     destructive ones (`rm`, `del`, `Remove-Item`, `shred`, `git clean`, `rsync --delete`…);
-  - startup scripts (`.claude/hooks/startup.ps1` and `startup.sh`). They run locally at the
+  - startup scripts (`startup.ps1` and `startup.sh`, written at the first start from the text
+    template `.claude/hooks/startup-scripts.md`). They run locally at the
     start of each chat, read the memory files in the folder, count files in
     `Learn-From-Here/` and print short reminders for Claude. They make no network
     connection. They are enabled only at the first start, when the `setup` skill writes
@@ -178,6 +179,12 @@ Step-by-step guides for the person installing it: `GETTING-STARTED.<language>.tx
   the web and reads public websites (laws, official portals, product sheets), and never types
   client data into websites. Nothing is sent to any service other than Claude itself and the
   websites it reads.
+
+## Why there is a CLAUDE.md at the root
+
+This plugin is a **template**: the skill `new-office` copies the whole folder to the user's
+computer, where `CLAUDE.md` becomes the instructions of their own assistant. The plugin itself
+does not load it, and the directory's note about it is expected.
 
 ## Privacy notes
 
@@ -234,7 +241,7 @@ profession (sources in `knowledge/`, profession profile, ready-made skills), see
 ## Languages
 
 README: [English](README.md) · [Italiano](README.it.md) · [Français](README.fr.md) · [Deutsch](README.de.md)
-User manual: [English](docs/MANUAL.en.html) · [Italiano](docs/MANUAL.it.html) · [Français](docs/MANUAL.fr.html) · [Deutsch](docs/MANUAL.de.html)
+User manual: [English](docs/MANUAL.en.md) · [Italiano](docs/MANUAL.it.md) · [Français](docs/MANUAL.fr.md) · [Deutsch](docs/MANUAL.de.md)
 Claudio talks to you in your own language, whatever it is.
 
 ## License

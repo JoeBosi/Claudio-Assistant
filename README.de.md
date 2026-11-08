@@ -90,7 +90,7 @@ Claudio-Assistant/
 ├── GETTING-STARTED.en.txt   kurze Installationsanleitung (auch .it .fr .de)
 ├── CUSTOMIZING.md           für alle, die den Ordner für einen Beruf vorbereiten
 ├── LICENSE
-├── docs/                    Handbuch: MANUAL.en.html, MANUAL.it.html, MANUAL.fr.html, MANUAL.de.html
+├── docs/                    Handbuch: MANUAL.en.md, MANUAL.it.md, MANUAL.fr.md, MANUAL.de.md
 ├── memory/                  das Gedächtnis: Sie, das Büro, der Beruf, Kontakte, Entscheidungen, Lektionen
 │   ├── INDEX.md
 │   ├── office/              owner.md, office.md, tools.md
@@ -110,7 +110,7 @@ Claudio-Assistant/
 ├── _trash/                  nichts wird gelöscht: entfernte Dateien warten hier
 └── .claude/
     ├── settings.json
-    ├── hooks/               startup.ps1 (Windows), startup.sh (macOS/Linux)
+    ├── hooks/               startup-scripts.md (Startskripte, beim ersten Start auf die Platte geschrieben)
     └── skills/              help, setup, new-job, learn-from-here, remember,
                              tidy-memory, archive, create-skill, forget, get-tools,
                              deadlines, mail, guided-job, fill-form, ask-client,
@@ -232,7 +232,7 @@ vorbereiten möchten (Quellen in `knowledge/`, Berufsprofil, fertige Skills), si
 ## Sprachen
 
 README: [English](README.md) · [Italiano](README.it.md) · [Français](README.fr.md) · [Deutsch](README.de.md)
-Handbuch: [English](docs/MANUAL.en.html) · [Italiano](docs/MANUAL.it.html) · [Français](docs/MANUAL.fr.html) · [Deutsch](docs/MANUAL.de.html)
+Handbuch: [English](docs/MANUAL.en.md) · [Italiano](docs/MANUAL.it.md) · [Français](docs/MANUAL.fr.md) · [Deutsch](docs/MANUAL.de.md)
 Claudio spricht mit Ihnen in Ihrer Sprache, welche es auch ist.
 
 ## Lizenz

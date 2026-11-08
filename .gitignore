@@ -37,3 +37,8 @@ $RECYCLE.BIN/
 # !knowledge/README.md
 # _trash/
 # ---------------------------------------------------------------------------
+
+# Files created on the user's computer at the first start (templates are in the repo)
+.claude/hooks/startup.sh
+.claude/hooks/startup.ps1
+docs/MANUAL.*.html
