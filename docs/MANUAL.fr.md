@@ -177,7 +177,7 @@ Avec le temps, de nouveaux apparaîtront : ce sont les savoir-faire qu'il appren
 ```
 Claudio-Assistant/
 ├── CLAUDE.md          les instructions de base : qui vous êtes, les règles, comment travailler
-├── VERSION            la version installée (pour la vérification hebdomadaire des mises à jour)
+├── VERSION.txt        la version installée (pour la vérification hebdomadaire des mises à jour)
 ├── docs/              ce manuel, en plusieurs langues
 ├── memory/            la mémoire : ce qu'il sait de vous, du cabinet, du métier, des clients, fournisseurs, administrations
 ├── jobs/              les travaux : un par sous-dossier, chacun avec son JOB.md (la fiche)

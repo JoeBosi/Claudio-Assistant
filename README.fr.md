@@ -87,7 +87,7 @@ les explique et écrit la mémoire dans votre langue.
 ```
 Claudio-Assistant/
 ├── CLAUDE.md                les règles de l'assistant (lues par Claude à chaque démarrage)
-├── VERSION                  version installée (lue par la vérification hebdomadaire des mises à jour)
+├── VERSION.txt              version installée (lue par la vérification hebdomadaire des mises à jour)
 ├── README.md                cette page (aussi .it .fr .de)
 ├── GETTING-STARTED.en>.md   guide d'installation rapide (aussi .it .fr .de)
 ├── CUSTOMIZING.md           pour qui prépare le dossier pour une profession

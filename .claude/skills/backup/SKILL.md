@@ -16,7 +16,7 @@ is copied only to the place the user chose, never to websites or external servic
 
 ## What is copied (and what is not)
 Copied: `memory/`, `jobs/`, `good-examples/`, `knowledge/`, `.claude/skills/`,
-`.claude/settings.json`, `inbox/`, `VERSION`.
+`.claude/settings.json`, `inbox/`, `VERSION.txt`.
 NOT copied: `_trash/`, `jobs/_backup/` (these are copies already), `.git`.
 
 ## A. Make a backup
@@ -39,7 +39,7 @@ NOT copied: `_trash/`, `jobs/_backup/` (these are copies already), `.git`.
    - Windows (PowerShell), one command per folder so the structure is kept:
      `robocopy <source>\memory <destination>\Claudio-Backup-<date>\memory /E /XD _trash .git _backup`,
      the same for `jobs`, `good-examples`, `knowledge`, `inbox` and `.claude\skills`
-     (robocopy returns codes 0-7 for success: that is normal); single files (`VERSION`,
+     (robocopy returns codes 0-7 for success: that is normal); single files (`VERSION.txt`,
      `.claude\settings.json`) with `Copy-Item` into the matching path. Zip: `Compress-Archive`.
    - Mac/Linux: `rsync -a --exclude _trash --exclude .git --exclude _backup <source>/memory/ <copy>/memory/`
      per folder (`cp -R` cannot exclude folders; if rsync is missing, copy the sub-items one

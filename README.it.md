@@ -78,7 +78,7 @@ spiega e scrive la memoria in italiano.
 ```
 Claudio-Assistant/
 ├── CLAUDE.md                le regole dell'assistente (Claude le legge a ogni avvio)
-├── VERSION                  versione installata (letta dal controllo settimanale degli aggiornamenti)
+├── VERSION.txt              versione installata (letta dal controllo settimanale degli aggiornamenti)
 ├── README.md                questa pagina (anche .it .fr .de)
 ├── GETTING-STARTED.en>.md   breve guida all'installazione (anche .it .fr .de)
 ├── CUSTOMIZING.md           per chi prepara la cartella per una professione

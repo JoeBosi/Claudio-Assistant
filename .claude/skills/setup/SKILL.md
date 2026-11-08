@@ -24,7 +24,7 @@ Talk to the user **in the language they write in** from the very first message.
    - `Learn-From-Here/` has files other than `README.txt` → list their names;
    - `last_tidy:` in `memory/_maintenance.md` missing or older than `interval_days` (default
      30) → the tidy-up is due; `last_update_check:` older than 7 days → the weekly update check
-     is due (print the installed `VERSION`); `last_backup:` older than 7 days → a backup is due;
+     is due (print the installed version from `VERSION.txt`, or `VERSION` in older installations); `last_backup:` older than 7 days → a backup is due;
    - rows of `memory/deadlines.md` shaped `| YYYY-MM-DD | what | job | status |` with a date
      within 7 days (past dates included) and a status other than `done` → print them.
    It must never write files, never go online, never install anything. Keep it under about

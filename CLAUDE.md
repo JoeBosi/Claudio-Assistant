@@ -171,7 +171,7 @@ Propose, do not impose: if the user is in a hurry, the job comes first.
 | `Learn-From-Here/` | the "inbox" where the user drops work for you to study (shortcut on their desktop) |
 | `knowledge/` | the profession's sources (laws, price lists, forms, databases) — see `knowledge/README.md`; `procedures/` (job models from `guided-job`), `research/` (notes from `legal-research`) |
 | `inbox/` | emails the user drops for you to read (skill `mail`); processed ones move to `inbox/_done/` |
-| `VERSION` | the installed version of the assistant (read by `check-updates`) |
+| `VERSION.txt` | the installed version of the assistant (read by `check-updates`) |
 | `docs/` | the user manual in several languages (`MANUAL.<language>.md`; the web page `MANUAL.<language>.html` is generated at the first start) |
 | `.claude/skills/` | the skills you know (commands `/name`) |
 | `.claude/hooks/` | the startup script written at the first start by the skill `setup`: `startup.ps1` (Windows) or `startup.sh` (Mac/Linux) |

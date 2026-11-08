@@ -16,7 +16,9 @@ automatically; the only file written is `memory/_maintenance.md`. Never delete (
 Talk to the user in their language (`memory/office/owner.md`, `Language:`).
 
 ## Part A: the check
-1. **Installed version**: the file `VERSION` in the folder root (one line, e.g. `1.2.0`). If
+1. **Installed version**: the file `VERSION.txt` in the folder root (one line, e.g. `1.2.0`;
+   older installations have it as `VERSION`, without extension: read that one and, after the
+   update, keep only `VERSION.txt`). If
    missing, the first version heading (`## x.y.z`) of `CHANGELOG.md` in the folder. If neither
    exists, the installed version is "unknown" (the check still shows the latest online).
 2. **Latest version online**: read these sources (as many as answer) and take the
@@ -61,7 +63,7 @@ clash. Instead:
    git cannot work, the GitHub ZIP (downloaded by you, or by the user if they prefer) unpacked
    into `_trash/update-<version>/`. Nothing in that folder is run: it is only read and copied.
 3. **Copy ONLY the standard files** from there into the real folder:
-   - `docs/MANUAL.*.md`, `README*`, `CHANGELOG.md`, `VERSION`, `jobs/_template/`;
+   - `docs/MANUAL.*.md`, `README*`, `CHANGELOG.md`, `VERSION.txt`, `jobs/_template/`;
    - `CLAUDE.md`: **merge**, keeping the rows the user's own skills added to the skills table;
    - `.claude/settings.json` (and, if the new `setup` skill changed the startup checks, rewrite
      `startup.ps1` / `startup.sh` as it describes): first **compare**
@@ -78,7 +80,7 @@ clash. Instead:
    `inbox/`, `.env`, `.claude/settings.local.json`.
 5. **Verify**: check that `startup.sh` (macOS/Linux) or `startup.ps1` (Windows) still run
    without errors; read to the user the names and one-line purpose of the **new skills**;
-   confirm `VERSION` shows the new number.
+   confirm `VERSION.txt` shows the new number.
 6. **Log it**: result `updated` in the `## Update checks` table, `last_update_check` with
    today's date.
 7. **If something goes wrong**: restore from the backup (skill `backup`), tell the user plainly

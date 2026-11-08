@@ -198,7 +198,7 @@ Come funziona dentro, e qualche tecnica per usarlo meglio. Non serve per lavorar
 ```
 Claudio-Assistant/
 ├── CLAUDE.md          le istruzioni di base: chi sei, le regole, come lavorare
-├── VERSION            la versione installata (per il controllo settimanale degli aggiornamenti)
+├── VERSION.txt        la versione installata (per il controllo settimanale degli aggiornamenti)
 ├── docs/              questo manuale, in più lingue
 ├── memory/            la memoria: quello che sa di te, dello studio, della professione, di clienti, fornitori, enti
 ├── jobs/              i lavori: uno per sottocartella, ognuno con il suo JOB.md (la scheda)

@@ -198,7 +198,7 @@ How it works inside, and a few techniques to use it better. Not needed to work.
 ```
 Claudio-Assistant/
 ├── CLAUDE.md          the basic instructions: who you are, the rules, how to work
-├── VERSION            the installed version (for the weekly update check)
+├── VERSION.txt        the installed version (for the weekly update check)
 ├── docs/              this manual, in several languages
 ├── memory/            what he knows about you, the office, the profession, clients, suppliers, authorities
 ├── jobs/              one job per subfolder, each with its JOB.md (the job card)

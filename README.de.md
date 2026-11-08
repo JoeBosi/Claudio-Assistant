@@ -85,7 +85,7 @@ Ihnen und schreibt das Gedächtnis in Ihrer Sprache.
 ```
 Claudio-Assistant/
 ├── CLAUDE.md                die Regeln des Assistenten (liest Claude bei jedem Start)
-├── VERSION                  installierte Version (von der wöchentlichen Update-Prüfung gelesen)
+├── VERSION.txt              installierte Version (von der wöchentlichen Update-Prüfung gelesen)
 ├── README.md                diese Seite (auch .it .fr .de)
 ├── GETTING-STARTED.en>.md   kurze Installationsanleitung (auch .it .fr .de)
 ├── CUSTOMIZING.md           für alle, die den Ordner für einen Beruf vorbereiten

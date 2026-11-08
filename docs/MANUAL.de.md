@@ -177,7 +177,7 @@ Mit der Zeit kommen neue hinzu: Das sind die Fertigkeiten, die er von Ihnen lern
 ```
 Claudio-Assistant/
 ├── CLAUDE.md          die Grundanweisungen: wer Sie sind, die Regeln, wie gearbeitet wird
-├── VERSION            die installierte Version (für die wöchentliche Update-Prüfung)
+├── VERSION.txt        die installierte Version (für die wöchentliche Update-Prüfung)
 ├── docs/              dieses Handbuch, in mehreren Sprachen
 ├── memory/            das Gedächtnis: was er über Sie, das Büro, den Beruf, Kunden, Lieferanten, Ämter weiß
 ├── jobs/              die Aufträge: einer pro Unterordner, jeder mit seiner JOB.md (dem Auftragsblatt)

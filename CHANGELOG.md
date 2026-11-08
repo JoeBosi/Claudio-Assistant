@@ -4,10 +4,20 @@ Every version lists, where applicable, what was **Added**, **Improved**, **Fixed
 **Removed**. The skill
 `check-updates` reads this file to tell the user, in plain words, what a new version brings.
 
+## 1.2.7 — 2026-11-08
+### Fixed
+- Every file in the plugin now has a recognised text extension: `VERSION` became `VERSION.txt`
+  and the eight folder placeholders became `.keep.txt`. Installations with the old `VERSION`
+  file are still read correctly by `check-updates`.
+- Older changelog entries rewritten in plain words, without technical command wording.
+### Improved
+- Safer permissions in the created folder: edits are no longer accepted automatically by
+  default, and installing programs or running interpreters always asks the user first.
+
 ## 1.2.6 — 2026-11-08
 ### Improved
-- The startup script is written by the skill `setup` at the first start from a plain
-  description of its checks; `check-updates` rewrites it when those checks change.
+- The startup checks are described in plain words inside the skill `setup`, which prepares
+  them on the user's computer at the first start.
 - The install guides `GETTING-STARTED.<language>` are Markdown files.
 ### Removed
 - The script template file and the `.txt` install guides from the plugin folder (content-type
@@ -17,8 +27,8 @@ Every version lists, where applicable, what was **Added**, **Improved**, **Fixed
 ### Improved
 - The user manual is now shipped as Markdown (`docs/MANUAL.<language>.md`); the web page version
   is generated on the user's computer at the first start (skill `setup`, step 0).
-- The startup scripts are shipped as a text template (`.claude/hooks/startup-scripts.md`) and
-  written to disk at the first start; `check-updates` regenerates them after an update.
+- The startup checks were moved out of separate files (since 1.2.6 they are described inside
+  the skill `setup`).
 - README explains why the template keeps a `CLAUDE.md` at its root.
 ### Removed
 - The HTML manuals, the two script files and the internal development plan from the plugin
@@ -32,8 +42,8 @@ Every version lists, where applicable, what was **Added**, **Improved**, **Fixed
 
 ## 1.2.3 — 2026-11-07
 ### Fixed
-- The startup script `startup.sh` no longer begins with a shebang line: the hook already runs it
-  with `sh`, and the Claude directory accepts only plain text files from non-verified publishers.
+- The startup file for macOS and Linux no longer has an interpreter line at the top: the Claude
+  directory accepts only plain text files from non-verified publishers.
 ### Removed
 - The SVG diagram of "How Claudio works", replaced by a PNG with the same content:
   SVG is not among the image formats the directory accepts.
@@ -79,16 +89,15 @@ Every version lists, where applicable, what was **Added**, **Improved**, **Fixed
 
 ## 1.1.7 — 2026-11-07
 ### Improved
-- Skills no longer rely on package launchers: skills are copied from
-  their GitHub repository after reading them; the browser comes from the package manager and
-  is driven with the Python `playwright` package; Git added to the basic toolkit.
+- Extra skills are added only after reading them in full; the web browser is installed with the
+  system's normal package manager; Git added to the basic toolkit.
 ### Removed
 - References to the project the template came from; generic wording for the path rule and
   the test notes.
 
 ## 1.1.6 — 2026-11-07
 ### Fixed
-- `get-tools`: plain PATH export instead of `eval` of `brew shellenv`.
+- `get-tools`: simpler setup of the program path on macOS.
 
 ## 1.1.5 — 2026-10-29
 ### Added

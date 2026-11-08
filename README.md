@@ -73,7 +73,7 @@ Real output of Claude Code running this folder (fictional user).
 ```
 Claudio-Assistant/
 ├── CLAUDE.md                the assistant's rules (read by Claude at every start)
-├── VERSION                  installed version (read by the weekly update check)
+├── VERSION.txt              installed version (read by the weekly update check)
 ├── README.md                this page (also .it .fr .de)
 ├── GETTING-STARTED.en>.md   short install guide (also .it .fr .de)
 ├── CUSTOMIZING.md           for whoever prepares the folder for a profession
@@ -163,9 +163,10 @@ Step-by-step guides for the person installing it: `GETTING-STARTED.<language>.md
   It sends nothing anywhere, downloads nothing and changes no Claude settings.
 - **The folder it creates** is a normal Claude Code project folder. It contains:
   - `.claude/settings.json`: **project-level** permission rules that apply only inside that
-    folder. They pre-allow common office and installation commands (for example `winget`,
-    `brew`, `pandoc`, `python`, copying and listing files, web search) and **deny**
-    destructive ones (`rm`, `del`, `Remove-Item`, `shred`, `git clean`, `rsync --delete`…);
+    folder. They pre-allow only common office commands (document conversion with `pandoc` and
+    LibreOffice, OCR, copying and listing files, web search) and **deny** destructive ones
+    (`rm`, `del`, `Remove-Item`, `shred`, `git clean`, `rsync --delete`…). Installing programs
+    or running scripts is never pre-allowed: Claude asks every time, and the user decides;
   - startup scripts (`startup.ps1` and `startup.sh`, written at the first start by the skill `setup`). They run locally at the
     start of each chat, read the memory files in the folder, count files in
     `Learn-From-Here/` and print short reminders for Claude. They make no network
